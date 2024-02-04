@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
-namespace SimGPS2
+namespace Aifrus.SimGPS2
 {
     internal static class Program
     {
@@ -15,7 +13,7 @@ namespace SimGPS2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormMain());
         }
     }
 }

@@ -71,7 +71,6 @@
             this.CheckBox_Taskbar = new System.Windows.Forms.CheckBox();
             this.Button_Cancel = new System.Windows.Forms.Button();
             this.Button_Save = new System.Windows.Forms.Button();
-            this.ColorDialog_LED = new System.Windows.Forms.ColorDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -113,6 +112,7 @@
             // 
             // ComboBox_Refresh
             // 
+            this.ComboBox_Refresh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_Refresh.FormattingEnabled = true;
             this.ComboBox_Refresh.Items.AddRange(new object[] {
             "240 FPS",
@@ -141,7 +141,6 @@
             this.ComboBox_Refresh.Name = "ComboBox_Refresh";
             this.ComboBox_Refresh.Size = new System.Drawing.Size(122, 19);
             this.ComboBox_Refresh.TabIndex = 3;
-            this.ComboBox_Refresh.Text = "60 FPS";
             // 
             // Label_Refresh
             // 
@@ -326,6 +325,7 @@
             // 
             // ComboBox_Stop
             // 
+            this.ComboBox_Stop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_Stop.Enabled = false;
             this.ComboBox_Stop.FormattingEnabled = true;
             this.ComboBox_Stop.Items.AddRange(new object[] {
@@ -337,7 +337,6 @@
             this.ComboBox_Stop.Name = "ComboBox_Stop";
             this.ComboBox_Stop.Size = new System.Drawing.Size(122, 19);
             this.ComboBox_Stop.TabIndex = 10;
-            this.ComboBox_Stop.Text = "1";
             // 
             // Label_Stop
             // 
@@ -350,6 +349,7 @@
             // 
             // ComboBox_Parity
             // 
+            this.ComboBox_Parity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_Parity.Enabled = false;
             this.ComboBox_Parity.FormattingEnabled = true;
             this.ComboBox_Parity.Items.AddRange(new object[] {
@@ -363,7 +363,6 @@
             this.ComboBox_Parity.Name = "ComboBox_Parity";
             this.ComboBox_Parity.Size = new System.Drawing.Size(122, 19);
             this.ComboBox_Parity.TabIndex = 8;
-            this.ComboBox_Parity.Text = "N - None";
             // 
             // Label_Parity
             // 
@@ -376,6 +375,7 @@
             // 
             // ComboBox_Data
             // 
+            this.ComboBox_Data.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_Data.Enabled = false;
             this.ComboBox_Data.FormattingEnabled = true;
             this.ComboBox_Data.Items.AddRange(new object[] {
@@ -388,7 +388,6 @@
             this.ComboBox_Data.Name = "ComboBox_Data";
             this.ComboBox_Data.Size = new System.Drawing.Size(122, 19);
             this.ComboBox_Data.TabIndex = 6;
-            this.ComboBox_Data.Text = "8";
             // 
             // Label_Data
             // 
@@ -401,6 +400,7 @@
             // 
             // ComboBox_Port
             // 
+            this.ComboBox_Port.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_Port.FormattingEnabled = true;
             this.ComboBox_Port.Items.AddRange(new object[] {
             "Disabled",
@@ -413,10 +413,10 @@
             this.ComboBox_Port.Name = "ComboBox_Port";
             this.ComboBox_Port.Size = new System.Drawing.Size(122, 19);
             this.ComboBox_Port.TabIndex = 4;
-            this.ComboBox_Port.Text = "Disabled";
             // 
             // ComboBox_Baud
             // 
+            this.ComboBox_Baud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_Baud.Enabled = false;
             this.ComboBox_Baud.FormattingEnabled = true;
             this.ComboBox_Baud.Items.AddRange(new object[] {
@@ -435,7 +435,6 @@
             this.ComboBox_Baud.Name = "ComboBox_Baud";
             this.ComboBox_Baud.Size = new System.Drawing.Size(122, 19);
             this.ComboBox_Baud.TabIndex = 3;
-            this.ComboBox_Baud.Text = "4800";
             // 
             // Label_Baud
             // 
@@ -557,6 +556,7 @@
             this.Button_LED_Color.Size = new System.Drawing.Size(35, 23);
             this.Button_LED_Color.TabIndex = 0;
             this.Button_LED_Color.UseVisualStyleBackColor = false;
+            this.Button_LED_Color.Click += new System.EventHandler(this.Button_LED_Color_Click);
             // 
             // CheckBox_TopMost
             // 
@@ -611,10 +611,6 @@
             this.Button_Save.TabIndex = 15;
             this.Button_Save.Text = "&Save / Apply";
             this.Button_Save.UseVisualStyleBackColor = true;
-            // 
-            // ColorDialog_LED
-            // 
-            this.ColorDialog_LED.Color = System.Drawing.Color.Cyan;
             // 
             // label1
             // 
@@ -748,7 +744,6 @@
         private System.Windows.Forms.Button Button_Save;
         private System.Windows.Forms.GroupBox GroupBox_LED_Color;
         private System.Windows.Forms.Button Button_LED_Color;
-        private System.Windows.Forms.ColorDialog ColorDialog_LED;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;

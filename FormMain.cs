@@ -6,7 +6,7 @@ namespace Aifrus.SimGPS2
 {
     public partial class FormMain : Form
     {
-        private FormSettings formSettings = new FormSettings();
+        private FormSettings Settings = new FormSettings();
         private bool bPowerOn = false;
         private bool bWindowDragging = false;
         private Point CursorAtDragStart;
@@ -68,7 +68,9 @@ namespace Aifrus.SimGPS2
 
         private void MenuItem_Settings_Click(object sender, EventArgs e)
         {
-            formSettings.ShowDialog();
+            Settings.ShowDialog();
+            PowerOff();
+            PowerOn();
         }
 
         private void MenuItem_Exit_Click(object sender, EventArgs e)

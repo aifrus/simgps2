@@ -22,10 +22,18 @@ namespace Aifrus.SimGPS2
             this.MouseUp += FormSettings_MouseUp;
             this.FormClosing += FormSettings_FormClosing;
             this.Location = new Point(Settings.SettingsLocationX, Settings.SettingsLocationY);
+            LoadSettings();
+        }
+
+        private void Button_Save_Click(object sender, EventArgs e)
+        {
+            SaveSettings();
+            this.Hide();
         }
 
         private void Button_Cancel_Click(object sender, EventArgs e)
         {
+            LoadSettings();
             this.Hide();
         }
 
@@ -138,6 +146,47 @@ namespace Aifrus.SimGPS2
             colorDialog.Color = Button_LED_Color.BackColor;
             colorDialog.ShowDialog();
             Button_LED_Color.BackColor = colorDialog.Color;
+        }
+
+        private void Button_Defaults_Click(object sender, EventArgs e)
+        {
+            TextBox_Hostname.Text = "localhost";
+            ComboBox_Refresh.SelectedItem = "60 FPS";
+            RadioButton_User.Checked = false;
+            RadioButton_Computer.Checked = false;
+            RadioButton_NoAuto.Checked = true;
+            CheckBox_AutoPower.Checked = false;
+            CheckBox_AutoRecord.Checked = false;
+            CheckBox_TopMost.Checked = false;
+            CheckBox_Taskbar.Checked = false;
+            CheckBox_NotifyIcon.Checked = true;
+            Button_LED_Color.BackColor = Color.Cyan;
+            ComboBox_Port.SelectedItem = "Disabled";
+            ComboBox_Baud.SelectedItem = "4800";
+            ComboBox_Baud.Enabled = false;
+            ComboBox_Data.SelectedItem = "8";
+            ComboBox_Data.Enabled = false;
+            ComboBox_Parity.SelectedItem = "N - None";
+            ComboBox_Parity.Enabled = false;
+            ComboBox_Stop.SelectedItem = "1";
+            ComboBox_Stop.Enabled = false;
+            RadioButton_GNSS.Checked = true;
+            RadioButton_GNSS.Enabled = false;
+            RadioButton_GLONASS.Checked = false;
+            RadioButton_GLONASS.Enabled = false;
+            RadioButton_GPS.Checked = false;
+            RadioButton_GPS.Enabled = false;
+            CheckBox_GGA.Checked = true;
+            CheckBox_GGA.Enabled = false;
+            CheckBox_RMC.Checked = true;
+            CheckBox_RMC.Enabled = false;
+            CheckBox_VTG.Checked = true;
+            CheckBox_VTG.Enabled = false;
+            CheckBox_GSV.Checked = true;
+            CheckBox_GSV.Enabled = false;
+            CheckBox_GSA.Checked = true;
+            CheckBox_GSA.Enabled = false;
+            SaveSettings();
         }
     }
 }

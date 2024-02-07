@@ -112,6 +112,7 @@
             // 
             // ComboBox_Refresh
             // 
+            this.ComboBox_Refresh.DisplayMember = "60 FPS";
             this.ComboBox_Refresh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_Refresh.FormattingEnabled = true;
             this.ComboBox_Refresh.Items.AddRange(new object[] {
@@ -168,6 +169,7 @@
             this.Button_Defaults.TabIndex = 2;
             this.Button_Defaults.Text = "&Defaults";
             this.Button_Defaults.UseVisualStyleBackColor = true;
+            this.Button_Defaults.Click += new System.EventHandler(this.Button_Defaults_Click);
             // 
             // GroupBox_COM
             // 
@@ -611,6 +613,7 @@
             this.Button_Save.TabIndex = 15;
             this.Button_Save.Text = "&Save / Apply";
             this.Button_Save.UseVisualStyleBackColor = true;
+            this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
             // label1
             // 
@@ -704,49 +707,49 @@
 
         private System.Windows.Forms.Label Label_Hostname;
         private System.Windows.Forms.GroupBox GroupBox_FlightSimulator;
-        private System.Windows.Forms.TextBox TextBox_Hostname;
-        private System.Windows.Forms.ComboBox ComboBox_Refresh;
         private System.Windows.Forms.Label Label_Refresh;
         private System.Windows.Forms.Button Button_Defaults;
         private System.Windows.Forms.GroupBox GroupBox_COM;
-        private System.Windows.Forms.ComboBox ComboBox_Baud;
         private System.Windows.Forms.Label Label_Baud;
         private System.Windows.Forms.Label Label_Port;
-        private System.Windows.Forms.ComboBox ComboBox_Port;
-        private System.Windows.Forms.ComboBox ComboBox_Data;
         private System.Windows.Forms.Label Label_Data;
-        private System.Windows.Forms.ComboBox ComboBox_Stop;
         private System.Windows.Forms.Label Label_Stop;
-        private System.Windows.Forms.ComboBox ComboBox_Parity;
         private System.Windows.Forms.Label Label_Parity;
         private System.Windows.Forms.GroupBox GroupBox_NMEA;
         private System.Windows.Forms.GroupBox GroupBox_SentenceTypes;
-        private System.Windows.Forms.CheckBox CheckBox_GSA;
-        private System.Windows.Forms.CheckBox CheckBox_GGA;
-        private System.Windows.Forms.CheckBox CheckBox_GSV;
-        private System.Windows.Forms.CheckBox CheckBox_RMC;
-        private System.Windows.Forms.CheckBox CheckBox_VTG;
         private System.Windows.Forms.GroupBox GroupBox_DeviceType;
-        private System.Windows.Forms.RadioButton RadioButton_GNSS;
-        private System.Windows.Forms.RadioButton RadioButton_GLONASS;
-        private System.Windows.Forms.RadioButton RadioButton_GPS;
         private System.Windows.Forms.GroupBox GroupBox_Startup;
         private System.Windows.Forms.RadioButton RadioButton_User;
         private System.Windows.Forms.RadioButton RadioButton_Computer;
         private System.Windows.Forms.RadioButton RadioButton_NoAuto;
-        private System.Windows.Forms.CheckBox CheckBox_AutoPower;
         private System.Windows.Forms.GroupBox GroupBox_Display;
-        private System.Windows.Forms.CheckBox CheckBox_TopMost;
-        private System.Windows.Forms.CheckBox CheckBox_NotifyIcon;
-        private System.Windows.Forms.CheckBox CheckBox_Taskbar;
-        private System.Windows.Forms.CheckBox CheckBox_AutoRecord;
         private System.Windows.Forms.Button Button_Cancel;
         private System.Windows.Forms.Button Button_Save;
         private System.Windows.Forms.GroupBox GroupBox_LED_Color;
-        private System.Windows.Forms.Button Button_LED_Color;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox TextBox_Hostname;
+        public System.Windows.Forms.ComboBox ComboBox_Refresh;
+        public System.Windows.Forms.ComboBox ComboBox_Baud;
+        public System.Windows.Forms.ComboBox ComboBox_Port;
+        public System.Windows.Forms.ComboBox ComboBox_Data;
+        public System.Windows.Forms.ComboBox ComboBox_Stop;
+        public System.Windows.Forms.ComboBox ComboBox_Parity;
+        public System.Windows.Forms.CheckBox CheckBox_GSA;
+        public System.Windows.Forms.CheckBox CheckBox_GGA;
+        public System.Windows.Forms.CheckBox CheckBox_GSV;
+        public System.Windows.Forms.CheckBox CheckBox_RMC;
+        public System.Windows.Forms.CheckBox CheckBox_VTG;
+        public System.Windows.Forms.RadioButton RadioButton_GNSS;
+        public System.Windows.Forms.RadioButton RadioButton_GLONASS;
+        public System.Windows.Forms.RadioButton RadioButton_GPS;
+        public System.Windows.Forms.CheckBox CheckBox_AutoPower;
+        public System.Windows.Forms.CheckBox CheckBox_TopMost;
+        public System.Windows.Forms.CheckBox CheckBox_NotifyIcon;
+        public System.Windows.Forms.CheckBox CheckBox_Taskbar;
+        public System.Windows.Forms.CheckBox CheckBox_AutoRecord;
+        public System.Windows.Forms.Button Button_LED_Color;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

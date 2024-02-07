@@ -29,76 +29,92 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettings));
-            this.Label_Hostname_Label = new System.Windows.Forms.Label();
+            this.Label_Hostname = new System.Windows.Forms.Label();
             this.GroupBox_FlightSimulator = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ComboBox_Refresh = new System.Windows.Forms.ComboBox();
+            this.Label_Refresh = new System.Windows.Forms.Label();
             this.TextBox_Hostname = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Button_Defaults = new System.Windows.Forms.Button();
             this.GroupBox_COM = new System.Windows.Forms.GroupBox();
+            this.GroupBox_NMEA = new System.Windows.Forms.GroupBox();
+            this.GroupBox_SentenceTypes = new System.Windows.Forms.GroupBox();
+            this.CheckBox_GSA = new System.Windows.Forms.CheckBox();
+            this.CheckBox_GGA = new System.Windows.Forms.CheckBox();
+            this.CheckBox_GSV = new System.Windows.Forms.CheckBox();
+            this.CheckBox_RMC = new System.Windows.Forms.CheckBox();
+            this.CheckBox_VTG = new System.Windows.Forms.CheckBox();
+            this.GroupBox_DeviceType = new System.Windows.Forms.GroupBox();
+            this.RadioButton_GNSS = new System.Windows.Forms.RadioButton();
+            this.RadioButton_GLONASS = new System.Windows.Forms.RadioButton();
+            this.RadioButton_GPS = new System.Windows.Forms.RadioButton();
+            this.ComboBox_Stop = new System.Windows.Forms.ComboBox();
+            this.Label_Stop = new System.Windows.Forms.Label();
+            this.ComboBox_Parity = new System.Windows.Forms.ComboBox();
+            this.Label_Parity = new System.Windows.Forms.Label();
+            this.ComboBox_Data = new System.Windows.Forms.ComboBox();
+            this.Label_Data = new System.Windows.Forms.Label();
+            this.ComboBox_Port = new System.Windows.Forms.ComboBox();
+            this.ComboBox_Baud = new System.Windows.Forms.ComboBox();
+            this.Label_Baud = new System.Windows.Forms.Label();
+            this.Label_Port = new System.Windows.Forms.Label();
+            this.GroupBox_Startup = new System.Windows.Forms.GroupBox();
+            this.CheckBox_AutoRecord = new System.Windows.Forms.CheckBox();
+            this.CheckBox_PowerOn = new System.Windows.Forms.CheckBox();
+            this.RadioButton_User = new System.Windows.Forms.RadioButton();
+            this.RadioButton_Computer = new System.Windows.Forms.RadioButton();
+            this.RadioButton_NoAuto = new System.Windows.Forms.RadioButton();
+            this.GroupBox_Display = new System.Windows.Forms.GroupBox();
+            this.CheckBox_TopMost = new System.Windows.Forms.CheckBox();
+            this.CheckBox_NotifyIcon = new System.Windows.Forms.CheckBox();
+            this.CheckBox_Taskbar = new System.Windows.Forms.CheckBox();
+            this.Button_Cancel = new System.Windows.Forms.Button();
+            this.Button_Save = new System.Windows.Forms.Button();
+            this.ColorDialog_LED = new System.Windows.Forms.ColorDialog();
+            this.GroupBox_LED_Color = new System.Windows.Forms.GroupBox();
+            this.Button_LED_Color = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.GroupBox_FlightSimulator.SuspendLayout();
             this.GroupBox_COM.SuspendLayout();
+            this.GroupBox_NMEA.SuspendLayout();
+            this.GroupBox_SentenceTypes.SuspendLayout();
+            this.GroupBox_DeviceType.SuspendLayout();
+            this.GroupBox_Startup.SuspendLayout();
+            this.GroupBox_Display.SuspendLayout();
+            this.GroupBox_LED_Color.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Label_Hostname_Label
+            // Label_Hostname
             // 
-            this.Label_Hostname_Label.AutoSize = true;
-            this.Label_Hostname_Label.Location = new System.Drawing.Point(43, 19);
-            this.Label_Hostname_Label.Name = "Label_Hostname_Label";
-            this.Label_Hostname_Label.Size = new System.Drawing.Size(55, 13);
-            this.Label_Hostname_Label.TabIndex = 0;
-            this.Label_Hostname_Label.Text = "Hostname";
+            this.Label_Hostname.AutoSize = true;
+            this.Label_Hostname.Location = new System.Drawing.Point(21, 21);
+            this.Label_Hostname.Name = "Label_Hostname";
+            this.Label_Hostname.Size = new System.Drawing.Size(82, 11);
+            this.Label_Hostname.TabIndex = 0;
+            this.Label_Hostname.Text = "Hostname/IP";
             // 
             // GroupBox_FlightSimulator
             // 
-            this.GroupBox_FlightSimulator.Controls.Add(this.comboBox1);
-            this.GroupBox_FlightSimulator.Controls.Add(this.label1);
+            this.GroupBox_FlightSimulator.Controls.Add(this.ComboBox_Refresh);
+            this.GroupBox_FlightSimulator.Controls.Add(this.Label_Refresh);
             this.GroupBox_FlightSimulator.Controls.Add(this.TextBox_Hostname);
-            this.GroupBox_FlightSimulator.Controls.Add(this.Label_Hostname_Label);
-            this.GroupBox_FlightSimulator.Location = new System.Drawing.Point(12, 12);
+            this.GroupBox_FlightSimulator.Controls.Add(this.Label_Hostname);
+            this.GroupBox_FlightSimulator.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBox_FlightSimulator.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_FlightSimulator.Location = new System.Drawing.Point(12, 37);
             this.GroupBox_FlightSimulator.Name = "GroupBox_FlightSimulator";
-            this.GroupBox_FlightSimulator.Size = new System.Drawing.Size(353, 68);
+            this.GroupBox_FlightSimulator.Size = new System.Drawing.Size(242, 75);
             this.GroupBox_FlightSimulator.TabIndex = 1;
             this.GroupBox_FlightSimulator.TabStop = false;
-            this.GroupBox_FlightSimulator.Text = "Flight Simulator";
+            this.GroupBox_FlightSimulator.Text = "Microsoft Flight Simulator";
             // 
-            // comboBox1
+            // ComboBox_Refresh
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.ComboBox_Refresh.FormattingEnabled = true;
+            this.ComboBox_Refresh.Items.AddRange(new object[] {
             "240 FPS",
             "120 FPS",
             "60 FPS",
@@ -120,373 +136,286 @@
             "60 Seconds",
             "120 Seconds",
             "240 Seconds"});
-            this.comboBox1.Location = new System.Drawing.Point(126, 39);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(186, 21);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.Text = "60 FPS";
+            this.ComboBox_Refresh.Location = new System.Drawing.Point(109, 44);
+            this.ComboBox_Refresh.Margin = new System.Windows.Forms.Padding(0);
+            this.ComboBox_Refresh.Name = "ComboBox_Refresh";
+            this.ComboBox_Refresh.Size = new System.Drawing.Size(122, 19);
+            this.ComboBox_Refresh.TabIndex = 3;
+            this.ComboBox_Refresh.Text = "60 FPS";
             // 
-            // label1
+            // Label_Refresh
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Refresh Rate";
+            this.Label_Refresh.AutoSize = true;
+            this.Label_Refresh.Location = new System.Drawing.Point(14, 47);
+            this.Label_Refresh.Name = "Label_Refresh";
+            this.Label_Refresh.Size = new System.Drawing.Size(89, 11);
+            this.Label_Refresh.TabIndex = 2;
+            this.Label_Refresh.Text = "Refresh Rate";
             // 
             // TextBox_Hostname
             // 
-            this.TextBox_Hostname.Location = new System.Drawing.Point(126, 16);
+            this.TextBox_Hostname.Location = new System.Drawing.Point(109, 18);
             this.TextBox_Hostname.Name = "TextBox_Hostname";
-            this.TextBox_Hostname.Size = new System.Drawing.Size(186, 20);
+            this.TextBox_Hostname.Size = new System.Drawing.Size(122, 18);
             this.TextBox_Hostname.TabIndex = 1;
             this.TextBox_Hostname.Text = "localhost";
             // 
-            // button1
+            // Button_Defaults
             // 
-            this.button1.Location = new System.Drawing.Point(12, 566);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Restore Defaults";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Button_Defaults.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Defaults.Location = new System.Drawing.Point(35, 428);
+            this.Button_Defaults.Name = "Button_Defaults";
+            this.Button_Defaults.Size = new System.Drawing.Size(106, 23);
+            this.Button_Defaults.TabIndex = 2;
+            this.Button_Defaults.Text = "&Defaults";
+            this.Button_Defaults.UseVisualStyleBackColor = true;
             // 
             // GroupBox_COM
             // 
-            this.GroupBox_COM.Controls.Add(this.groupBox1);
-            this.GroupBox_COM.Controls.Add(this.comboBox5);
-            this.GroupBox_COM.Controls.Add(this.label5);
-            this.GroupBox_COM.Controls.Add(this.comboBox6);
-            this.GroupBox_COM.Controls.Add(this.label6);
-            this.GroupBox_COM.Controls.Add(this.comboBox4);
-            this.GroupBox_COM.Controls.Add(this.label4);
-            this.GroupBox_COM.Controls.Add(this.comboBox3);
-            this.GroupBox_COM.Controls.Add(this.comboBox2);
-            this.GroupBox_COM.Controls.Add(this.label2);
-            this.GroupBox_COM.Controls.Add(this.label3);
-            this.GroupBox_COM.Location = new System.Drawing.Point(12, 86);
+            this.GroupBox_COM.Controls.Add(this.GroupBox_NMEA);
+            this.GroupBox_COM.Controls.Add(this.ComboBox_Stop);
+            this.GroupBox_COM.Controls.Add(this.Label_Stop);
+            this.GroupBox_COM.Controls.Add(this.ComboBox_Parity);
+            this.GroupBox_COM.Controls.Add(this.Label_Parity);
+            this.GroupBox_COM.Controls.Add(this.ComboBox_Data);
+            this.GroupBox_COM.Controls.Add(this.Label_Data);
+            this.GroupBox_COM.Controls.Add(this.ComboBox_Port);
+            this.GroupBox_COM.Controls.Add(this.ComboBox_Baud);
+            this.GroupBox_COM.Controls.Add(this.Label_Baud);
+            this.GroupBox_COM.Controls.Add(this.Label_Port);
+            this.GroupBox_COM.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBox_COM.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_COM.Location = new System.Drawing.Point(262, 37);
             this.GroupBox_COM.Name = "GroupBox_COM";
-            this.GroupBox_COM.Size = new System.Drawing.Size(353, 323);
+            this.GroupBox_COM.Size = new System.Drawing.Size(242, 325);
             this.GroupBox_COM.TabIndex = 4;
             this.GroupBox_COM.TabStop = false;
             this.GroupBox_COM.Text = "Serial Output";
             // 
-            // groupBox1
+            // GroupBox_NMEA
             // 
-            this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(9, 149);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(332, 168);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "NMEA Sentences";
+            this.GroupBox_NMEA.Controls.Add(this.GroupBox_SentenceTypes);
+            this.GroupBox_NMEA.Controls.Add(this.GroupBox_DeviceType);
+            this.GroupBox_NMEA.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_NMEA.Location = new System.Drawing.Point(9, 157);
+            this.GroupBox_NMEA.Name = "GroupBox_NMEA";
+            this.GroupBox_NMEA.Size = new System.Drawing.Size(222, 158);
+            this.GroupBox_NMEA.TabIndex = 11;
+            this.GroupBox_NMEA.TabStop = false;
+            this.GroupBox_NMEA.Text = "NMEA Format";
             // 
-            // groupBox4
+            // GroupBox_SentenceTypes
             // 
-            this.groupBox4.Controls.Add(this.checkBox11);
-            this.groupBox4.Controls.Add(this.checkBox12);
-            this.groupBox4.Controls.Add(this.checkBox13);
-            this.groupBox4.Controls.Add(this.checkBox14);
-            this.groupBox4.Controls.Add(this.checkBox15);
-            this.groupBox4.Location = new System.Drawing.Point(218, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(100, 143);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "GNSS";
+            this.GroupBox_SentenceTypes.Controls.Add(this.CheckBox_GSA);
+            this.GroupBox_SentenceTypes.Controls.Add(this.CheckBox_GGA);
+            this.GroupBox_SentenceTypes.Controls.Add(this.CheckBox_GSV);
+            this.GroupBox_SentenceTypes.Controls.Add(this.CheckBox_RMC);
+            this.GroupBox_SentenceTypes.Controls.Add(this.CheckBox_VTG);
+            this.GroupBox_SentenceTypes.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_SentenceTypes.Location = new System.Drawing.Point(114, 15);
+            this.GroupBox_SentenceTypes.Name = "GroupBox_SentenceTypes";
+            this.GroupBox_SentenceTypes.Size = new System.Drawing.Size(100, 134);
+            this.GroupBox_SentenceTypes.TabIndex = 1;
+            this.GroupBox_SentenceTypes.TabStop = false;
+            this.GroupBox_SentenceTypes.Text = "Sentences";
             // 
-            // checkBox11
+            // CheckBox_GSA
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(19, 109);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(64, 17);
-            this.checkBox11.TabIndex = 9;
-            this.checkBox11.Text = "GPGGA";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.CheckBox_GSA.AutoSize = true;
+            this.CheckBox_GSA.Checked = true;
+            this.CheckBox_GSA.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_GSA.Location = new System.Drawing.Point(22, 111);
+            this.CheckBox_GSA.Name = "CheckBox_GSA";
+            this.CheckBox_GSA.Size = new System.Drawing.Size(59, 15);
+            this.CheckBox_GSA.TabIndex = 9;
+            this.CheckBox_GSA.Text = "GPGSA";
+            this.CheckBox_GSA.UseVisualStyleBackColor = true;
             // 
-            // checkBox12
+            // CheckBox_GGA
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(18, 86);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(64, 17);
-            this.checkBox12.TabIndex = 8;
-            this.checkBox12.Text = "GPGGA";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.CheckBox_GGA.AutoSize = true;
+            this.CheckBox_GGA.Checked = true;
+            this.CheckBox_GGA.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_GGA.Location = new System.Drawing.Point(22, 19);
+            this.CheckBox_GGA.Name = "CheckBox_GGA";
+            this.CheckBox_GGA.Size = new System.Drawing.Size(59, 15);
+            this.CheckBox_GGA.TabIndex = 5;
+            this.CheckBox_GGA.Text = "GPGGA";
+            this.CheckBox_GGA.UseVisualStyleBackColor = true;
             // 
-            // checkBox13
+            // CheckBox_GSV
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(18, 63);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(64, 17);
-            this.checkBox13.TabIndex = 7;
-            this.checkBox13.Text = "GPGGA";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.CheckBox_GSV.AutoSize = true;
+            this.CheckBox_GSV.Checked = true;
+            this.CheckBox_GSV.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_GSV.Location = new System.Drawing.Point(22, 88);
+            this.CheckBox_GSV.Name = "CheckBox_GSV";
+            this.CheckBox_GSV.Size = new System.Drawing.Size(59, 15);
+            this.CheckBox_GSV.TabIndex = 8;
+            this.CheckBox_GSV.Text = "GPGSV";
+            this.CheckBox_GSV.UseVisualStyleBackColor = true;
             // 
-            // checkBox14
+            // CheckBox_RMC
             // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(19, 40);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(64, 17);
-            this.checkBox14.TabIndex = 6;
-            this.checkBox14.Text = "GPGGA";
-            this.checkBox14.UseVisualStyleBackColor = true;
+            this.CheckBox_RMC.AutoSize = true;
+            this.CheckBox_RMC.Checked = true;
+            this.CheckBox_RMC.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_RMC.Location = new System.Drawing.Point(22, 42);
+            this.CheckBox_RMC.Name = "CheckBox_RMC";
+            this.CheckBox_RMC.Size = new System.Drawing.Size(59, 15);
+            this.CheckBox_RMC.TabIndex = 6;
+            this.CheckBox_RMC.Text = "GPRMC";
+            this.CheckBox_RMC.UseVisualStyleBackColor = true;
             // 
-            // checkBox15
+            // CheckBox_VTG
             // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(19, 17);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(64, 17);
-            this.checkBox15.TabIndex = 5;
-            this.checkBox15.Text = "GPGGA";
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.CheckBox_VTG.AutoSize = true;
+            this.CheckBox_VTG.Checked = true;
+            this.CheckBox_VTG.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_VTG.Location = new System.Drawing.Point(22, 65);
+            this.CheckBox_VTG.Name = "CheckBox_VTG";
+            this.CheckBox_VTG.Size = new System.Drawing.Size(59, 15);
+            this.CheckBox_VTG.TabIndex = 7;
+            this.CheckBox_VTG.Text = "GPVTG";
+            this.CheckBox_VTG.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // GroupBox_DeviceType
             // 
-            this.groupBox3.Controls.Add(this.checkBox6);
-            this.groupBox3.Controls.Add(this.checkBox10);
-            this.groupBox3.Controls.Add(this.checkBox7);
-            this.groupBox3.Controls.Add(this.checkBox9);
-            this.groupBox3.Controls.Add(this.checkBox8);
-            this.groupBox3.Location = new System.Drawing.Point(112, 19);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(100, 143);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "GLONASS";
+            this.GroupBox_DeviceType.Controls.Add(this.RadioButton_GNSS);
+            this.GroupBox_DeviceType.Controls.Add(this.RadioButton_GLONASS);
+            this.GroupBox_DeviceType.Controls.Add(this.RadioButton_GPS);
+            this.GroupBox_DeviceType.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_DeviceType.Location = new System.Drawing.Point(8, 15);
+            this.GroupBox_DeviceType.Name = "GroupBox_DeviceType";
+            this.GroupBox_DeviceType.Size = new System.Drawing.Size(100, 134);
+            this.GroupBox_DeviceType.TabIndex = 0;
+            this.GroupBox_DeviceType.TabStop = false;
+            this.GroupBox_DeviceType.Text = "Device Type";
             // 
-            // checkBox6
+            // RadioButton_GNSS
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(18, 109);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(64, 17);
-            this.checkBox6.TabIndex = 9;
-            this.checkBox6.Text = "GPGGA";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.RadioButton_GNSS.AutoSize = true;
+            this.RadioButton_GNSS.Checked = true;
+            this.RadioButton_GNSS.Location = new System.Drawing.Point(14, 65);
+            this.RadioButton_GNSS.Name = "RadioButton_GNSS";
+            this.RadioButton_GNSS.Size = new System.Drawing.Size(51, 15);
+            this.RadioButton_GNSS.TabIndex = 2;
+            this.RadioButton_GNSS.TabStop = true;
+            this.RadioButton_GNSS.Text = "GNSS";
+            this.RadioButton_GNSS.UseVisualStyleBackColor = true;
             // 
-            // checkBox10
+            // RadioButton_GLONASS
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(18, 17);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(64, 17);
-            this.checkBox10.TabIndex = 5;
-            this.checkBox10.Text = "GPGGA";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.RadioButton_GLONASS.AutoSize = true;
+            this.RadioButton_GLONASS.Location = new System.Drawing.Point(14, 42);
+            this.RadioButton_GLONASS.Name = "RadioButton_GLONASS";
+            this.RadioButton_GLONASS.Size = new System.Drawing.Size(72, 15);
+            this.RadioButton_GLONASS.TabIndex = 1;
+            this.RadioButton_GLONASS.Text = "GLONASS";
+            this.RadioButton_GLONASS.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // RadioButton_GPS
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(17, 86);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(64, 17);
-            this.checkBox7.TabIndex = 8;
-            this.checkBox7.Text = "GPGGA";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.RadioButton_GPS.AutoSize = true;
+            this.RadioButton_GPS.Location = new System.Drawing.Point(14, 19);
+            this.RadioButton_GPS.Name = "RadioButton_GPS";
+            this.RadioButton_GPS.Size = new System.Drawing.Size(44, 15);
+            this.RadioButton_GPS.TabIndex = 0;
+            this.RadioButton_GPS.Text = "GPS";
+            this.RadioButton_GPS.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
+            // ComboBox_Stop
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(18, 40);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(64, 17);
-            this.checkBox9.TabIndex = 6;
-            this.checkBox9.Text = "GPGGA";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(17, 63);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(64, 17);
-            this.checkBox8.TabIndex = 7;
-            this.checkBox8.Text = "GPGGA";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.checkBox5);
-            this.groupBox2.Controls.Add(this.checkBox4);
-            this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(100, 143);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "GPS";
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(16, 111);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(64, 17);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "GPGGA";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(15, 88);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(64, 17);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "GPGGA";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(15, 65);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(64, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "GPGGA";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(16, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(64, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "GPGGA";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(16, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(64, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "GPGGA";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.ComboBox_Stop.FormattingEnabled = true;
+            this.ComboBox_Stop.Items.AddRange(new object[] {
             "2",
             "1.5",
             "1"});
-            this.comboBox5.Location = new System.Drawing.Point(126, 122);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(186, 21);
-            this.comboBox5.TabIndex = 10;
-            this.comboBox5.Text = "1";
+            this.ComboBox_Stop.Location = new System.Drawing.Point(109, 123);
+            this.ComboBox_Stop.Margin = new System.Windows.Forms.Padding(0);
+            this.ComboBox_Stop.Name = "ComboBox_Stop";
+            this.ComboBox_Stop.Size = new System.Drawing.Size(122, 19);
+            this.ComboBox_Stop.TabIndex = 10;
+            this.ComboBox_Stop.Text = "1";
             // 
-            // label5
+            // Label_Stop
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 125);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Stop";
+            this.Label_Stop.AutoSize = true;
+            this.Label_Stop.Location = new System.Drawing.Point(70, 126);
+            this.Label_Stop.Name = "Label_Stop";
+            this.Label_Stop.Size = new System.Drawing.Size(33, 11);
+            this.Label_Stop.TabIndex = 9;
+            this.Label_Stop.Text = "Stop";
             // 
-            // comboBox6
+            // ComboBox_Parity
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.ComboBox_Parity.FormattingEnabled = true;
+            this.ComboBox_Parity.Items.AddRange(new object[] {
             "N - None",
             "O - Odd",
             "E - Even",
             "M - Mark",
             "S - Space"});
-            this.comboBox6.Location = new System.Drawing.Point(126, 95);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(186, 21);
-            this.comboBox6.TabIndex = 8;
-            this.comboBox6.Text = "N - None";
+            this.ComboBox_Parity.Location = new System.Drawing.Point(109, 96);
+            this.ComboBox_Parity.Margin = new System.Windows.Forms.Padding(0);
+            this.ComboBox_Parity.Name = "ComboBox_Parity";
+            this.ComboBox_Parity.Size = new System.Drawing.Size(122, 19);
+            this.ComboBox_Parity.TabIndex = 8;
+            this.ComboBox_Parity.Text = "N - None";
             // 
-            // label6
+            // Label_Parity
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(43, 98);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Parity";
+            this.Label_Parity.AutoSize = true;
+            this.Label_Parity.Location = new System.Drawing.Point(56, 99);
+            this.Label_Parity.Name = "Label_Parity";
+            this.Label_Parity.Size = new System.Drawing.Size(47, 11);
+            this.Label_Parity.TabIndex = 7;
+            this.Label_Parity.Text = "Parity";
             // 
-            // comboBox4
+            // ComboBox_Data
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.ComboBox_Data.FormattingEnabled = true;
+            this.ComboBox_Data.Items.AddRange(new object[] {
             "8",
             "7",
             "6",
             "5"});
-            this.comboBox4.Location = new System.Drawing.Point(126, 69);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(186, 21);
-            this.comboBox4.TabIndex = 6;
-            this.comboBox4.Text = "8";
+            this.ComboBox_Data.Location = new System.Drawing.Point(109, 70);
+            this.ComboBox_Data.Margin = new System.Windows.Forms.Padding(0);
+            this.ComboBox_Data.Name = "ComboBox_Data";
+            this.ComboBox_Data.Size = new System.Drawing.Size(122, 19);
+            this.ComboBox_Data.TabIndex = 6;
+            this.ComboBox_Data.Text = "8";
             // 
-            // label4
+            // Label_Data
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Data";
+            this.Label_Data.AutoSize = true;
+            this.Label_Data.Location = new System.Drawing.Point(70, 73);
+            this.Label_Data.Name = "Label_Data";
+            this.Label_Data.Size = new System.Drawing.Size(33, 11);
+            this.Label_Data.TabIndex = 5;
+            this.Label_Data.Text = "Data";
             // 
-            // comboBox3
+            // ComboBox_Port
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "240 FPS",
-            "120 FPS",
-            "60 FPS",
-            "30 FPS",
-            "15 FPS",
-            "10 FPS",
-            "5 FPS",
-            "4 FPS",
-            "3 FPS",
-            "2 FPS",
-            "1 Second",
-            "2 Seconds",
-            "3 Seconds",
-            "4 Seconds",
-            "5 Seconds",
-            "10 Seconds",
-            "15 Seconds",
-            "30 Seconds",
-            "60 Seconds",
-            "120 Seconds",
-            "240 Seconds"});
-            this.comboBox3.Location = new System.Drawing.Point(126, 16);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(186, 21);
-            this.comboBox3.TabIndex = 4;
-            this.comboBox3.Text = "COM1";
+            this.ComboBox_Port.FormattingEnabled = true;
+            this.ComboBox_Port.Items.AddRange(new object[] {
+            "Disabled",
+            "COM1",
+            "COM2",
+            "COM3",
+            "COM4"});
+            this.ComboBox_Port.Location = new System.Drawing.Point(109, 17);
+            this.ComboBox_Port.Margin = new System.Windows.Forms.Padding(0);
+            this.ComboBox_Port.Name = "ComboBox_Port";
+            this.ComboBox_Port.Size = new System.Drawing.Size(122, 19);
+            this.ComboBox_Port.TabIndex = 4;
+            this.ComboBox_Port.Text = "COM1";
             // 
-            // comboBox2
+            // ComboBox_Baud
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.ComboBox_Baud.FormattingEnabled = true;
+            this.ComboBox_Baud.Items.AddRange(new object[] {
             "115200",
             "57600",
             "38400",
@@ -497,39 +426,258 @@
             "2400",
             "1200",
             "300"});
-            this.comboBox2.Location = new System.Drawing.Point(126, 42);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(186, 21);
-            this.comboBox2.TabIndex = 3;
-            this.comboBox2.Text = "4800";
+            this.ComboBox_Baud.Location = new System.Drawing.Point(109, 43);
+            this.ComboBox_Baud.Margin = new System.Windows.Forms.Padding(0);
+            this.ComboBox_Baud.Name = "ComboBox_Baud";
+            this.ComboBox_Baud.Size = new System.Drawing.Size(122, 19);
+            this.ComboBox_Baud.TabIndex = 3;
+            this.ComboBox_Baud.Text = "4800";
             // 
-            // label2
+            // Label_Baud
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Baud Rate";
+            this.Label_Baud.AutoSize = true;
+            this.Label_Baud.Location = new System.Drawing.Point(35, 46);
+            this.Label_Baud.Name = "Label_Baud";
+            this.Label_Baud.Size = new System.Drawing.Size(68, 11);
+            this.Label_Baud.TabIndex = 2;
+            this.Label_Baud.Text = "Baud Rate";
             // 
-            // label3
+            // Label_Port
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Port";
+            this.Label_Port.AutoSize = true;
+            this.Label_Port.Location = new System.Drawing.Point(70, 20);
+            this.Label_Port.Name = "Label_Port";
+            this.Label_Port.Size = new System.Drawing.Size(33, 11);
+            this.Label_Port.TabIndex = 0;
+            this.Label_Port.Text = "Port";
+            // 
+            // GroupBox_Startup
+            // 
+            this.GroupBox_Startup.Controls.Add(this.CheckBox_AutoRecord);
+            this.GroupBox_Startup.Controls.Add(this.CheckBox_PowerOn);
+            this.GroupBox_Startup.Controls.Add(this.RadioButton_User);
+            this.GroupBox_Startup.Controls.Add(this.RadioButton_Computer);
+            this.GroupBox_Startup.Controls.Add(this.RadioButton_NoAuto);
+            this.GroupBox_Startup.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBox_Startup.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_Startup.Location = new System.Drawing.Point(12, 118);
+            this.GroupBox_Startup.Name = "GroupBox_Startup";
+            this.GroupBox_Startup.Size = new System.Drawing.Size(242, 147);
+            this.GroupBox_Startup.TabIndex = 5;
+            this.GroupBox_Startup.TabStop = false;
+            this.GroupBox_Startup.Text = "Startup";
+            // 
+            // CheckBox_AutoRecord
+            // 
+            this.CheckBox_AutoRecord.AutoSize = true;
+            this.CheckBox_AutoRecord.Checked = true;
+            this.CheckBox_AutoRecord.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_AutoRecord.Location = new System.Drawing.Point(23, 123);
+            this.CheckBox_AutoRecord.Name = "CheckBox_AutoRecord";
+            this.CheckBox_AutoRecord.Size = new System.Drawing.Size(164, 15);
+            this.CheckBox_AutoRecord.TabIndex = 11;
+            this.CheckBox_AutoRecord.Text = "Record Automatically";
+            this.CheckBox_AutoRecord.UseVisualStyleBackColor = true;
+            // 
+            // CheckBox_PowerOn
+            // 
+            this.CheckBox_PowerOn.AutoSize = true;
+            this.CheckBox_PowerOn.Checked = true;
+            this.CheckBox_PowerOn.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_PowerOn.Location = new System.Drawing.Point(23, 100);
+            this.CheckBox_PowerOn.Name = "CheckBox_PowerOn";
+            this.CheckBox_PowerOn.Size = new System.Drawing.Size(136, 15);
+            this.CheckBox_PowerOn.TabIndex = 10;
+            this.CheckBox_PowerOn.Text = "Power On Startup";
+            this.CheckBox_PowerOn.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_User
+            // 
+            this.RadioButton_User.AutoSize = true;
+            this.RadioButton_User.Location = new System.Drawing.Point(23, 65);
+            this.RadioButton_User.Name = "RadioButton_User";
+            this.RadioButton_User.Size = new System.Drawing.Size(184, 15);
+            this.RadioButton_User.TabIndex = 5;
+            this.RadioButton_User.Text = "Start when User Logs In";
+            this.RadioButton_User.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_Computer
+            // 
+            this.RadioButton_Computer.AutoSize = true;
+            this.RadioButton_Computer.Location = new System.Drawing.Point(23, 42);
+            this.RadioButton_Computer.Name = "RadioButton_Computer";
+            this.RadioButton_Computer.Size = new System.Drawing.Size(205, 15);
+            this.RadioButton_Computer.TabIndex = 4;
+            this.RadioButton_Computer.Text = "Start when Computer Starts";
+            this.RadioButton_Computer.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_NoAuto
+            // 
+            this.RadioButton_NoAuto.AutoSize = true;
+            this.RadioButton_NoAuto.Checked = true;
+            this.RadioButton_NoAuto.Location = new System.Drawing.Point(23, 19);
+            this.RadioButton_NoAuto.Name = "RadioButton_NoAuto";
+            this.RadioButton_NoAuto.Size = new System.Drawing.Size(142, 15);
+            this.RadioButton_NoAuto.TabIndex = 3;
+            this.RadioButton_NoAuto.TabStop = true;
+            this.RadioButton_NoAuto.Text = "Do Not Auto-Start";
+            this.RadioButton_NoAuto.UseVisualStyleBackColor = true;
+            // 
+            // GroupBox_Display
+            // 
+            this.GroupBox_Display.Controls.Add(this.GroupBox_LED_Color);
+            this.GroupBox_Display.Controls.Add(this.CheckBox_TopMost);
+            this.GroupBox_Display.Controls.Add(this.CheckBox_NotifyIcon);
+            this.GroupBox_Display.Controls.Add(this.CheckBox_Taskbar);
+            this.GroupBox_Display.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBox_Display.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_Display.Location = new System.Drawing.Point(12, 271);
+            this.GroupBox_Display.Name = "GroupBox_Display";
+            this.GroupBox_Display.Size = new System.Drawing.Size(242, 91);
+            this.GroupBox_Display.TabIndex = 13;
+            this.GroupBox_Display.TabStop = false;
+            this.GroupBox_Display.Text = "Display";
+            // 
+            // CheckBox_TopMost
+            // 
+            this.CheckBox_TopMost.AutoSize = true;
+            this.CheckBox_TopMost.Location = new System.Drawing.Point(23, 20);
+            this.CheckBox_TopMost.Name = "CheckBox_TopMost";
+            this.CheckBox_TopMost.Size = new System.Drawing.Size(115, 15);
+            this.CheckBox_TopMost.TabIndex = 10;
+            this.CheckBox_TopMost.Text = "Always On Top";
+            this.CheckBox_TopMost.UseVisualStyleBackColor = true;
+            // 
+            // CheckBox_NotifyIcon
+            // 
+            this.CheckBox_NotifyIcon.AutoSize = true;
+            this.CheckBox_NotifyIcon.Checked = true;
+            this.CheckBox_NotifyIcon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBox_NotifyIcon.Location = new System.Drawing.Point(23, 66);
+            this.CheckBox_NotifyIcon.Name = "CheckBox_NotifyIcon";
+            this.CheckBox_NotifyIcon.Size = new System.Drawing.Size(143, 15);
+            this.CheckBox_NotifyIcon.TabIndex = 12;
+            this.CheckBox_NotifyIcon.Text = "Notification Icon";
+            this.CheckBox_NotifyIcon.UseVisualStyleBackColor = true;
+            // 
+            // CheckBox_Taskbar
+            // 
+            this.CheckBox_Taskbar.AutoSize = true;
+            this.CheckBox_Taskbar.Location = new System.Drawing.Point(23, 43);
+            this.CheckBox_Taskbar.Name = "CheckBox_Taskbar";
+            this.CheckBox_Taskbar.Size = new System.Drawing.Size(129, 15);
+            this.CheckBox_Taskbar.TabIndex = 11;
+            this.CheckBox_Taskbar.Text = "Show in Taskbar";
+            this.CheckBox_Taskbar.UseVisualStyleBackColor = true;
+            // 
+            // Button_Cancel
+            // 
+            this.Button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Button_Cancel.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Cancel.Location = new System.Drawing.Point(387, 428);
+            this.Button_Cancel.Name = "Button_Cancel";
+            this.Button_Cancel.Size = new System.Drawing.Size(106, 23);
+            this.Button_Cancel.TabIndex = 14;
+            this.Button_Cancel.Text = "&Cancel";
+            this.Button_Cancel.UseVisualStyleBackColor = true;
+            this.Button_Cancel.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Button_Save
+            // 
+            this.Button_Save.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Save.Location = new System.Drawing.Point(271, 428);
+            this.Button_Save.Name = "Button_Save";
+            this.Button_Save.Size = new System.Drawing.Size(106, 23);
+            this.Button_Save.TabIndex = 15;
+            this.Button_Save.Text = "&Save / Apply";
+            this.Button_Save.UseVisualStyleBackColor = true;
+            // 
+            // ColorDialog_LED
+            // 
+            this.ColorDialog_LED.Color = System.Drawing.Color.Cyan;
+            // 
+            // GroupBox_LED_Color
+            // 
+            this.GroupBox_LED_Color.Controls.Add(this.Button_LED_Color);
+            this.GroupBox_LED_Color.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_LED_Color.Location = new System.Drawing.Point(183, 19);
+            this.GroupBox_LED_Color.Name = "GroupBox_LED_Color";
+            this.GroupBox_LED_Color.Size = new System.Drawing.Size(48, 38);
+            this.GroupBox_LED_Color.TabIndex = 13;
+            this.GroupBox_LED_Color.TabStop = false;
+            this.GroupBox_LED_Color.Text = "LED";
+            // 
+            // Button_LED_Color
+            // 
+            this.Button_LED_Color.BackColor = System.Drawing.Color.Cyan;
+            this.Button_LED_Color.Location = new System.Drawing.Point(6, 11);
+            this.Button_LED_Color.Name = "Button_LED_Color";
+            this.Button_LED_Color.Size = new System.Drawing.Size(35, 23);
+            this.Button_LED_Color.TabIndex = 0;
+            this.Button_LED_Color.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "SimGPS² Settings";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(12, 365);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(492, 53);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Recordings Folder";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(375, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "&Browse";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(23, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(344, 20);
+            this.textBox1.TabIndex = 19;
             // 
             // FormSettings
             // 
+            this.AcceptButton = this.Button_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 601);
+            this.BackColor = System.Drawing.Color.Black;
+            this.CancelButton = this.Button_Cancel;
+            this.ClientSize = new System.Drawing.Size(514, 463);
+            this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Button_Save);
+            this.Controls.Add(this.Button_Cancel);
+            this.Controls.Add(this.GroupBox_Display);
+            this.Controls.Add(this.GroupBox_Startup);
             this.Controls.Add(this.GroupBox_COM);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Button_Defaults);
             this.Controls.Add(this.GroupBox_FlightSimulator);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormSettings";
             this.Text = "SimGPS² Settings";
@@ -537,54 +685,71 @@
             this.GroupBox_FlightSimulator.PerformLayout();
             this.GroupBox_COM.ResumeLayout(false);
             this.GroupBox_COM.PerformLayout();
+            this.GroupBox_NMEA.ResumeLayout(false);
+            this.GroupBox_SentenceTypes.ResumeLayout(false);
+            this.GroupBox_SentenceTypes.PerformLayout();
+            this.GroupBox_DeviceType.ResumeLayout(false);
+            this.GroupBox_DeviceType.PerformLayout();
+            this.GroupBox_Startup.ResumeLayout(false);
+            this.GroupBox_Startup.PerformLayout();
+            this.GroupBox_Display.ResumeLayout(false);
+            this.GroupBox_Display.PerformLayout();
+            this.GroupBox_LED_Color.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label Label_Hostname_Label;
+        private System.Windows.Forms.Label Label_Hostname;
         private System.Windows.Forms.GroupBox GroupBox_FlightSimulator;
         private System.Windows.Forms.TextBox TextBox_Hostname;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox ComboBox_Refresh;
+        private System.Windows.Forms.Label Label_Refresh;
+        private System.Windows.Forms.Button Button_Defaults;
         private System.Windows.Forms.GroupBox GroupBox_COM;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox ComboBox_Baud;
+        private System.Windows.Forms.Label Label_Baud;
+        private System.Windows.Forms.Label Label_Port;
+        private System.Windows.Forms.ComboBox ComboBox_Port;
+        private System.Windows.Forms.ComboBox ComboBox_Data;
+        private System.Windows.Forms.Label Label_Data;
+        private System.Windows.Forms.ComboBox ComboBox_Stop;
+        private System.Windows.Forms.Label Label_Stop;
+        private System.Windows.Forms.ComboBox ComboBox_Parity;
+        private System.Windows.Forms.Label Label_Parity;
+        private System.Windows.Forms.GroupBox GroupBox_NMEA;
+        private System.Windows.Forms.GroupBox GroupBox_SentenceTypes;
+        private System.Windows.Forms.CheckBox CheckBox_GSA;
+        private System.Windows.Forms.CheckBox CheckBox_GGA;
+        private System.Windows.Forms.CheckBox CheckBox_GSV;
+        private System.Windows.Forms.CheckBox CheckBox_RMC;
+        private System.Windows.Forms.CheckBox CheckBox_VTG;
+        private System.Windows.Forms.GroupBox GroupBox_DeviceType;
+        private System.Windows.Forms.RadioButton RadioButton_GNSS;
+        private System.Windows.Forms.RadioButton RadioButton_GLONASS;
+        private System.Windows.Forms.RadioButton RadioButton_GPS;
+        private System.Windows.Forms.GroupBox GroupBox_Startup;
+        private System.Windows.Forms.RadioButton RadioButton_User;
+        private System.Windows.Forms.RadioButton RadioButton_Computer;
+        private System.Windows.Forms.RadioButton RadioButton_NoAuto;
+        private System.Windows.Forms.CheckBox CheckBox_PowerOn;
+        private System.Windows.Forms.GroupBox GroupBox_Display;
+        private System.Windows.Forms.CheckBox CheckBox_TopMost;
+        private System.Windows.Forms.CheckBox CheckBox_NotifyIcon;
+        private System.Windows.Forms.CheckBox CheckBox_Taskbar;
+        private System.Windows.Forms.CheckBox CheckBox_AutoRecord;
+        private System.Windows.Forms.Button Button_Cancel;
+        private System.Windows.Forms.Button Button_Save;
+        private System.Windows.Forms.GroupBox GroupBox_LED_Color;
+        private System.Windows.Forms.Button Button_LED_Color;
+        private System.Windows.Forms.ColorDialog ColorDialog_LED;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -6,6 +6,7 @@ namespace Aifrus.SimGPS2
 {
     public partial class FormMain : Form
     {
+        private FormSettings formSettings = new FormSettings();
         private bool bPowerOn = false;
         private bool bWindowDragging = false;
         private Point CursorAtDragStart;
@@ -22,7 +23,8 @@ namespace Aifrus.SimGPS2
             this.Button_Hamburger.Click += Button_Hamburger_Click;
             this.FormClosing += FormMain_FormClosing;
             this.IconNotifyIcon.Click += NotifyIcon_Click;
-                        this.MenuItem_Power.Click += MenuItem_Power_Click;
+            this.MenuItem_Power.Click += MenuItem_Power_Click;
+            this.MenuItem_Settings.Click += MenuItem_Settings_Click;
             this.MenuItem_Exit.Click += MenuItem_Exit_Click;
             PowerOff();
         }
@@ -64,6 +66,11 @@ namespace Aifrus.SimGPS2
             Properties.Settings.Default.Save();
         }
 
+        private void MenuItem_Settings_Click(object sender, EventArgs e)
+        {
+            formSettings.ShowDialog();
+        }
+
         private void MenuItem_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -95,6 +102,8 @@ namespace Aifrus.SimGPS2
             Label_Longitude_Value.ForeColor = Color.Cyan;
             Label_Altitude_Label.ForeColor = Color.White;
             Label_Altitude_Value.ForeColor = Color.Cyan;
+            Label_VSpeed_Label.ForeColor = Color.White;
+            Label_VSpeed_Value.ForeColor = Color.Cyan;
             Label_Speed_Label.ForeColor = Color.White;
             Label_Speed_Value.ForeColor = Color.Cyan;
             Label_Mag_Label.ForeColor = Color.White;
@@ -148,6 +157,8 @@ namespace Aifrus.SimGPS2
             Label_Longitude_Value.ForeColor = DarkGray;
             Label_Altitude_Label.ForeColor = DarkGray;
             Label_Altitude_Value.ForeColor = DarkGray;
+            Label_VSpeed_Label.ForeColor = DarkGray;
+            Label_VSpeed_Value.ForeColor = DarkGray;
             Label_Speed_Label.ForeColor = DarkGray;
             Label_Speed_Value.ForeColor = DarkGray;
             Label_Mag_Label.ForeColor = DarkGray;
@@ -156,8 +167,8 @@ namespace Aifrus.SimGPS2
             Label_Rev_Label.ForeColor = DarkGray;
             Label_Rev_Value.ForeColor = DarkGray;
             Label_Rev_Deg_Label.ForeColor = DarkGray;
-            Label_Speed_Label.ForeColor = DarkGray;
-            Label_Speed_Value.ForeColor = DarkGray;
+            Label_VSpeed_Label.ForeColor = DarkGray;
+            Label_VSpeed_Value.ForeColor = DarkGray;
             Label_Distance_Label.ForeColor = DarkGray;
             Label_Distance_Value.ForeColor = DarkGray;
             Label_Total_Label.ForeColor = DarkGray;
@@ -173,7 +184,8 @@ namespace Aifrus.SimGPS2
             Label_Latitude_Value.Text = "----° --' --\"";
             Label_Longitude_Value.Text = "----° --' --\"";
             Label_Altitude_Value.Text = "- FT";
-            Label_Speed_Value.Text = "- KT";
+            Label_VSpeed_Value.Text = "--";
+            Label_Speed_Value.Text = "-- KT";
             Label_Mag_Value.Text = "---";
             Label_Rev_Value.Text = "---";
             Label_Distance_Value.Text = "- NM";

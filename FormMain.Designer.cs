@@ -33,6 +33,7 @@
             this.IconNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.MenuContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuItem_Power = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.Label_Power_LED = new System.Windows.Forms.Label();
             this.Label_GPS_LED = new System.Windows.Forms.Label();
@@ -45,8 +46,8 @@
             this.Label_Altitude_Label = new System.Windows.Forms.Label();
             this.Label_Rev_Label = new System.Windows.Forms.Label();
             this.Label_Mag_Label = new System.Windows.Forms.Label();
-            this.Label_Speed_Label = new System.Windows.Forms.Label();
-            this.Label_Speed_Value = new System.Windows.Forms.Label();
+            this.Label_VSpeed_Label = new System.Windows.Forms.Label();
+            this.Label_VSpeed_Value = new System.Windows.Forms.Label();
             this.Label_Rev_Value = new System.Windows.Forms.Label();
             this.Label_Mag_Value = new System.Windows.Forms.Label();
             this.Label_Altitude_Value = new System.Windows.Forms.Label();
@@ -65,6 +66,8 @@
             this.Label_Distance_Value = new System.Windows.Forms.Label();
             this.Label_Total_Value = new System.Windows.Forms.Label();
             this.Label_Compass_Value = new System.Windows.Forms.Label();
+            this.Label_Speed_Label = new System.Windows.Forms.Label();
+            this.Label_Speed_Value = new System.Windows.Forms.Label();
             this.MenuContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,15 +82,22 @@
             // 
             this.MenuContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItem_Power,
+            this.MenuItem_Settings,
             this.MenuItem_Exit});
             this.MenuContextMenu.Name = "ContextMenu";
-            this.MenuContextMenu.Size = new System.Drawing.Size(127, 48);
+            this.MenuContextMenu.Size = new System.Drawing.Size(127, 70);
             // 
             // MenuItem_Power
             // 
             this.MenuItem_Power.Name = "MenuItem_Power";
             this.MenuItem_Power.Size = new System.Drawing.Size(126, 22);
             this.MenuItem_Power.Text = "Power On";
+            // 
+            // MenuItem_Settings
+            // 
+            this.MenuItem_Settings.Name = "MenuItem_Settings";
+            this.MenuItem_Settings.Size = new System.Drawing.Size(126, 22);
+            this.MenuItem_Settings.Text = "Settings";
             // 
             // MenuItem_Exit
             // 
@@ -163,12 +173,12 @@
             this.Label_Latitude_Label.AutoSize = true;
             this.Label_Latitude_Label.Font = new System.Drawing.Font("Lucida Console", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Latitude_Label.ForeColor = System.Drawing.Color.White;
-            this.Label_Latitude_Label.Location = new System.Drawing.Point(23, 56);
+            this.Label_Latitude_Label.Location = new System.Drawing.Point(23, 54);
             this.Label_Latitude_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Latitude_Label.Name = "Label_Latitude_Label";
-            this.Label_Latitude_Label.Size = new System.Drawing.Size(53, 9);
+            this.Label_Latitude_Label.Size = new System.Drawing.Size(23, 9);
             this.Label_Latitude_Label.TabIndex = 10;
-            this.Label_Latitude_Label.Text = "LATITUDE";
+            this.Label_Latitude_Label.Text = "LAT";
             this.Label_Latitude_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Label_Longitude_Label
@@ -179,9 +189,9 @@
             this.Label_Longitude_Label.Location = new System.Drawing.Point(22, 76);
             this.Label_Longitude_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Longitude_Label.Name = "Label_Longitude_Label";
-            this.Label_Longitude_Label.Size = new System.Drawing.Size(59, 9);
+            this.Label_Longitude_Label.Size = new System.Drawing.Size(23, 9);
             this.Label_Longitude_Label.TabIndex = 11;
-            this.Label_Longitude_Label.Text = "LONGITUDE";
+            this.Label_Longitude_Label.Text = "LON";
             this.Label_Longitude_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Label_Altitude_Label
@@ -189,12 +199,12 @@
             this.Label_Altitude_Label.AutoSize = true;
             this.Label_Altitude_Label.Font = new System.Drawing.Font("Lucida Console", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Altitude_Label.ForeColor = System.Drawing.Color.White;
-            this.Label_Altitude_Label.Location = new System.Drawing.Point(22, 97);
+            this.Label_Altitude_Label.Location = new System.Drawing.Point(22, 100);
             this.Label_Altitude_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Altitude_Label.Name = "Label_Altitude_Label";
-            this.Label_Altitude_Label.Size = new System.Drawing.Size(53, 9);
+            this.Label_Altitude_Label.Size = new System.Drawing.Size(23, 9);
             this.Label_Altitude_Label.TabIndex = 12;
-            this.Label_Altitude_Label.Text = "ALTITUDE";
+            this.Label_Altitude_Label.Text = "ALT";
             this.Label_Altitude_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Label_Rev_Label
@@ -215,7 +225,7 @@
             this.Label_Mag_Label.AutoSize = true;
             this.Label_Mag_Label.Font = new System.Drawing.Font("Lucida Console", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Mag_Label.ForeColor = System.Drawing.Color.White;
-            this.Label_Mag_Label.Location = new System.Drawing.Point(168, 56);
+            this.Label_Mag_Label.Location = new System.Drawing.Point(168, 54);
             this.Label_Mag_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Mag_Label.Name = "Label_Mag_Label";
             this.Label_Mag_Label.Size = new System.Drawing.Size(23, 9);
@@ -223,30 +233,30 @@
             this.Label_Mag_Label.Text = "MAG";
             this.Label_Mag_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Label_Speed_Label
+            // Label_VSpeed_Label
             // 
-            this.Label_Speed_Label.AutoSize = true;
-            this.Label_Speed_Label.Font = new System.Drawing.Font("Lucida Console", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_Speed_Label.ForeColor = System.Drawing.Color.White;
-            this.Label_Speed_Label.Location = new System.Drawing.Point(162, 97);
-            this.Label_Speed_Label.Margin = new System.Windows.Forms.Padding(0);
-            this.Label_Speed_Label.Name = "Label_Speed_Label";
-            this.Label_Speed_Label.Size = new System.Drawing.Size(35, 9);
-            this.Label_Speed_Label.TabIndex = 16;
-            this.Label_Speed_Label.Text = "SPEED";
-            this.Label_Speed_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label_VSpeed_Label.AutoSize = true;
+            this.Label_VSpeed_Label.Font = new System.Drawing.Font("Lucida Console", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_VSpeed_Label.ForeColor = System.Drawing.Color.White;
+            this.Label_VSpeed_Label.Location = new System.Drawing.Point(168, 99);
+            this.Label_VSpeed_Label.Margin = new System.Windows.Forms.Padding(0);
+            this.Label_VSpeed_Label.Name = "Label_VSpeed_Label";
+            this.Label_VSpeed_Label.Size = new System.Drawing.Size(23, 9);
+            this.Label_VSpeed_Label.TabIndex = 16;
+            this.Label_VSpeed_Label.Text = "V/S";
+            this.Label_VSpeed_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Label_Speed_Value
+            // Label_VSpeed_Value
             // 
-            this.Label_Speed_Value.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_Speed_Value.ForeColor = System.Drawing.Color.Aqua;
-            this.Label_Speed_Value.Location = new System.Drawing.Point(137, 86);
-            this.Label_Speed_Value.Margin = new System.Windows.Forms.Padding(0);
-            this.Label_Speed_Value.Name = "Label_Speed_Value";
-            this.Label_Speed_Value.Size = new System.Drawing.Size(83, 10);
-            this.Label_Speed_Value.TabIndex = 17;
-            this.Label_Speed_Value.Text = "420 KT";
-            this.Label_Speed_Value.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label_VSpeed_Value.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_VSpeed_Value.ForeColor = System.Drawing.Color.Aqua;
+            this.Label_VSpeed_Value.Location = new System.Drawing.Point(137, 89);
+            this.Label_VSpeed_Value.Margin = new System.Windows.Forms.Padding(0);
+            this.Label_VSpeed_Value.Name = "Label_VSpeed_Value";
+            this.Label_VSpeed_Value.Size = new System.Drawing.Size(83, 10);
+            this.Label_VSpeed_Value.TabIndex = 17;
+            this.Label_VSpeed_Value.Text = "+1200";
+            this.Label_VSpeed_Value.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Label_Rev_Value
             // 
@@ -266,7 +276,7 @@
             this.Label_Mag_Value.BackColor = System.Drawing.Color.Black;
             this.Label_Mag_Value.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Mag_Value.ForeColor = System.Drawing.Color.Aqua;
-            this.Label_Mag_Value.Location = new System.Drawing.Point(164, 46);
+            this.Label_Mag_Value.Location = new System.Drawing.Point(164, 44);
             this.Label_Mag_Value.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Mag_Value.Name = "Label_Mag_Value";
             this.Label_Mag_Value.Size = new System.Drawing.Size(32, 10);
@@ -278,7 +288,7 @@
             // 
             this.Label_Altitude_Value.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Altitude_Value.ForeColor = System.Drawing.Color.Aqua;
-            this.Label_Altitude_Value.Location = new System.Drawing.Point(22, 86);
+            this.Label_Altitude_Value.Location = new System.Drawing.Point(22, 89);
             this.Label_Altitude_Value.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Altitude_Value.Name = "Label_Altitude_Value";
             this.Label_Altitude_Value.Size = new System.Drawing.Size(111, 11);
@@ -302,7 +312,7 @@
             // 
             this.Label_Latitude_Value.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Latitude_Value.ForeColor = System.Drawing.Color.Aqua;
-            this.Label_Latitude_Value.Location = new System.Drawing.Point(22, 46);
+            this.Label_Latitude_Value.Location = new System.Drawing.Point(22, 44);
             this.Label_Latitude_Value.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Latitude_Value.Name = "Label_Latitude_Value";
             this.Label_Latitude_Value.Size = new System.Drawing.Size(111, 12);
@@ -356,7 +366,7 @@
             this.Label_Mag_Deg_Label.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Mag_Deg_Label.ForeColor = System.Drawing.Color.White;
             this.Label_Mag_Deg_Label.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Label_Mag_Deg_Label.Location = new System.Drawing.Point(190, 46);
+            this.Label_Mag_Deg_Label.Location = new System.Drawing.Point(190, 44);
             this.Label_Mag_Deg_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Mag_Deg_Label.Name = "Label_Mag_Deg_Label";
             this.Label_Mag_Deg_Label.Size = new System.Drawing.Size(13, 12);
@@ -393,7 +403,7 @@
             this.Button_Top.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Top.Font = new System.Drawing.Font("Lucida Console", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Top.ForeColor = System.Drawing.Color.White;
-            this.Button_Top.Location = new System.Drawing.Point(112, 81);
+            this.Button_Top.Location = new System.Drawing.Point(311, 81);
             this.Button_Top.Margin = new System.Windows.Forms.Padding(0);
             this.Button_Top.Name = "Button_Top";
             this.Button_Top.Size = new System.Drawing.Size(29, 29);
@@ -441,12 +451,12 @@
             // 
             this.Label_Distance_Label.Font = new System.Drawing.Font("Lucida Console", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Distance_Label.ForeColor = System.Drawing.Color.White;
-            this.Label_Distance_Label.Location = new System.Drawing.Point(250, 56);
+            this.Label_Distance_Label.Location = new System.Drawing.Point(250, 54);
             this.Label_Distance_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Distance_Label.Name = "Label_Distance_Label";
             this.Label_Distance_Label.Size = new System.Drawing.Size(59, 9);
             this.Label_Distance_Label.TabIndex = 28;
-            this.Label_Distance_Label.Text = "DISTANCE";
+            this.Label_Distance_Label.Text = "DIST";
             this.Label_Distance_Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Label_Total_Label
@@ -465,7 +475,7 @@
             // 
             this.Label_Distance_Value.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Distance_Value.ForeColor = System.Drawing.Color.Aqua;
-            this.Label_Distance_Value.Location = new System.Drawing.Point(232, 42);
+            this.Label_Distance_Value.Location = new System.Drawing.Point(232, 40);
             this.Label_Distance_Value.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Distance_Value.Name = "Label_Distance_Value";
             this.Label_Distance_Value.Size = new System.Drawing.Size(77, 19);
@@ -498,6 +508,30 @@
             this.Label_Compass_Value.Text = "SSW";
             this.Label_Compass_Value.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Label_Speed_Label
+            // 
+            this.Label_Speed_Label.Font = new System.Drawing.Font("Lucida Console", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Speed_Label.ForeColor = System.Drawing.Color.White;
+            this.Label_Speed_Label.Location = new System.Drawing.Point(250, 100);
+            this.Label_Speed_Label.Margin = new System.Windows.Forms.Padding(0);
+            this.Label_Speed_Label.Name = "Label_Speed_Label";
+            this.Label_Speed_Label.Size = new System.Drawing.Size(59, 9);
+            this.Label_Speed_Label.TabIndex = 35;
+            this.Label_Speed_Label.Text = "SPD";
+            this.Label_Speed_Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Label_Speed_Value
+            // 
+            this.Label_Speed_Value.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Speed_Value.ForeColor = System.Drawing.Color.Aqua;
+            this.Label_Speed_Value.Location = new System.Drawing.Point(230, 85);
+            this.Label_Speed_Value.Margin = new System.Windows.Forms.Padding(0);
+            this.Label_Speed_Value.Name = "Label_Speed_Value";
+            this.Label_Speed_Value.Size = new System.Drawing.Size(79, 19);
+            this.Label_Speed_Value.TabIndex = 36;
+            this.Label_Speed_Value.Text = "420 KT";
+            this.Label_Speed_Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -505,23 +539,26 @@
             this.BackgroundImage = global::Aifrus.SimGPS2.Properties.Resources.FormMain_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(360, 120);
+            this.ContextMenuStrip = this.MenuContextMenu;
+            this.Controls.Add(this.Label_Total_Label);
+            this.Controls.Add(this.Label_Speed_Label);
+            this.Controls.Add(this.Label_Speed_Value);
             this.Controls.Add(this.Label_Compass_Value);
             this.Controls.Add(this.Label_Distance_Label);
-            this.Controls.Add(this.Label_Total_Label);
             this.Controls.Add(this.Label_Distance_Value);
             this.Controls.Add(this.Label_Total_Value);
             this.Controls.Add(this.Button_Set);
             this.Controls.Add(this.Button_Hamburger);
             this.Controls.Add(this.Button_Top);
             this.Controls.Add(this.Button_Record);
-            this.Controls.Add(this.Label_Speed_Label);
+            this.Controls.Add(this.Label_VSpeed_Label);
             this.Controls.Add(this.Label_Mag_Label);
             this.Controls.Add(this.Label_Rev_Label);
             this.Controls.Add(this.Label_Mag_Deg_Label);
             this.Controls.Add(this.Label_Rev_Deg_Label);
             this.Controls.Add(this.Label_Timer_Value);
             this.Controls.Add(this.Label_Timer_Label);
-            this.Controls.Add(this.Label_Speed_Value);
+            this.Controls.Add(this.Label_VSpeed_Value);
             this.Controls.Add(this.Label_COM_Label);
             this.Controls.Add(this.Label_GPS_Label);
             this.Controls.Add(this.Label_Power_Label);
@@ -568,8 +605,8 @@
         private System.Windows.Forms.Label Label_Altitude_Label;
         private System.Windows.Forms.Label Label_Rev_Label;
         private System.Windows.Forms.Label Label_Mag_Label;
-        private System.Windows.Forms.Label Label_Speed_Label;
-        private System.Windows.Forms.Label Label_Speed_Value;
+        private System.Windows.Forms.Label Label_VSpeed_Label;
+        private System.Windows.Forms.Label Label_VSpeed_Value;
         private System.Windows.Forms.Label Label_Rev_Value;
         private System.Windows.Forms.Label Label_Mag_Value;
         private System.Windows.Forms.Label Label_Altitude_Value;
@@ -588,6 +625,9 @@
         private System.Windows.Forms.Label Label_Distance_Value;
         private System.Windows.Forms.Label Label_Total_Value;
         private System.Windows.Forms.Label Label_Compass_Value;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Settings;
+        private System.Windows.Forms.Label Label_Speed_Label;
+        private System.Windows.Forms.Label Label_Speed_Value;
     }
 }
 

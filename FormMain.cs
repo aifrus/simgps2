@@ -16,7 +16,7 @@ namespace Aifrus.SimGPS2
         {
             InitializeComponent();
 
-            this.Location = new Point(Properties.Settings.Default.WindowLocationX, Properties.Settings.Default.WindowLocationY);
+            this.Location = new Point(Properties.Settings.Default.MainLocationX, Properties.Settings.Default.MainLocationY);
             this.MouseDown += FormMain_MouseDown;
             this.MouseMove += FormMain_MouseMove;
             this.MouseUp += FormMain_MouseUp;
@@ -54,15 +54,15 @@ namespace Aifrus.SimGPS2
         void FormMain_MouseUp(object sender, MouseEventArgs e)
         {
             bWindowDragging = false;
-            Properties.Settings.Default.WindowLocationX = this.Location.X;
-            Properties.Settings.Default.WindowLocationY = this.Location.Y;
+            Properties.Settings.Default.MainLocationX = this.Location.X;
+            Properties.Settings.Default.MainLocationY = this.Location.Y;
             Properties.Settings.Default.Save();
         }
 
         void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.WindowLocationX = this.Location.X;
-            Properties.Settings.Default.WindowLocationY = this.Location.Y;
+            Properties.Settings.Default.MainLocationX = this.Location.X;
+            Properties.Settings.Default.MainLocationY = this.Location.Y;
             Properties.Settings.Default.Save();
         }
 

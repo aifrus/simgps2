@@ -59,23 +59,23 @@
             this.Label_Port = new System.Windows.Forms.Label();
             this.GroupBox_Startup = new System.Windows.Forms.GroupBox();
             this.CheckBox_AutoRecord = new System.Windows.Forms.CheckBox();
-            this.CheckBox_PowerOn = new System.Windows.Forms.CheckBox();
+            this.CheckBox_AutoPower = new System.Windows.Forms.CheckBox();
             this.RadioButton_User = new System.Windows.Forms.RadioButton();
             this.RadioButton_Computer = new System.Windows.Forms.RadioButton();
             this.RadioButton_NoAuto = new System.Windows.Forms.RadioButton();
             this.GroupBox_Display = new System.Windows.Forms.GroupBox();
+            this.GroupBox_LED_Color = new System.Windows.Forms.GroupBox();
+            this.Button_LED_Color = new System.Windows.Forms.Button();
             this.CheckBox_TopMost = new System.Windows.Forms.CheckBox();
             this.CheckBox_NotifyIcon = new System.Windows.Forms.CheckBox();
             this.CheckBox_Taskbar = new System.Windows.Forms.CheckBox();
             this.Button_Cancel = new System.Windows.Forms.Button();
             this.Button_Save = new System.Windows.Forms.Button();
             this.ColorDialog_LED = new System.Windows.Forms.ColorDialog();
-            this.GroupBox_LED_Color = new System.Windows.Forms.GroupBox();
-            this.Button_LED_Color = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.GroupBox_FlightSimulator.SuspendLayout();
             this.GroupBox_COM.SuspendLayout();
             this.GroupBox_NMEA.SuspendLayout();
@@ -326,6 +326,7 @@
             // 
             // ComboBox_Stop
             // 
+            this.ComboBox_Stop.Enabled = false;
             this.ComboBox_Stop.FormattingEnabled = true;
             this.ComboBox_Stop.Items.AddRange(new object[] {
             "2",
@@ -349,6 +350,7 @@
             // 
             // ComboBox_Parity
             // 
+            this.ComboBox_Parity.Enabled = false;
             this.ComboBox_Parity.FormattingEnabled = true;
             this.ComboBox_Parity.Items.AddRange(new object[] {
             "N - None",
@@ -374,6 +376,7 @@
             // 
             // ComboBox_Data
             // 
+            this.ComboBox_Data.Enabled = false;
             this.ComboBox_Data.FormattingEnabled = true;
             this.ComboBox_Data.Items.AddRange(new object[] {
             "8",
@@ -410,10 +413,11 @@
             this.ComboBox_Port.Name = "ComboBox_Port";
             this.ComboBox_Port.Size = new System.Drawing.Size(122, 19);
             this.ComboBox_Port.TabIndex = 4;
-            this.ComboBox_Port.Text = "COM1";
+            this.ComboBox_Port.Text = "Disabled";
             // 
             // ComboBox_Baud
             // 
+            this.ComboBox_Baud.Enabled = false;
             this.ComboBox_Baud.FormattingEnabled = true;
             this.ComboBox_Baud.Items.AddRange(new object[] {
             "115200",
@@ -454,7 +458,7 @@
             // GroupBox_Startup
             // 
             this.GroupBox_Startup.Controls.Add(this.CheckBox_AutoRecord);
-            this.GroupBox_Startup.Controls.Add(this.CheckBox_PowerOn);
+            this.GroupBox_Startup.Controls.Add(this.CheckBox_AutoPower);
             this.GroupBox_Startup.Controls.Add(this.RadioButton_User);
             this.GroupBox_Startup.Controls.Add(this.RadioButton_Computer);
             this.GroupBox_Startup.Controls.Add(this.RadioButton_NoAuto);
@@ -470,8 +474,6 @@
             // CheckBox_AutoRecord
             // 
             this.CheckBox_AutoRecord.AutoSize = true;
-            this.CheckBox_AutoRecord.Checked = true;
-            this.CheckBox_AutoRecord.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckBox_AutoRecord.Location = new System.Drawing.Point(23, 123);
             this.CheckBox_AutoRecord.Name = "CheckBox_AutoRecord";
             this.CheckBox_AutoRecord.Size = new System.Drawing.Size(164, 15);
@@ -479,17 +481,15 @@
             this.CheckBox_AutoRecord.Text = "Record Automatically";
             this.CheckBox_AutoRecord.UseVisualStyleBackColor = true;
             // 
-            // CheckBox_PowerOn
+            // CheckBox_AutoPower
             // 
-            this.CheckBox_PowerOn.AutoSize = true;
-            this.CheckBox_PowerOn.Checked = true;
-            this.CheckBox_PowerOn.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckBox_PowerOn.Location = new System.Drawing.Point(23, 100);
-            this.CheckBox_PowerOn.Name = "CheckBox_PowerOn";
-            this.CheckBox_PowerOn.Size = new System.Drawing.Size(136, 15);
-            this.CheckBox_PowerOn.TabIndex = 10;
-            this.CheckBox_PowerOn.Text = "Power On Startup";
-            this.CheckBox_PowerOn.UseVisualStyleBackColor = true;
+            this.CheckBox_AutoPower.AutoSize = true;
+            this.CheckBox_AutoPower.Location = new System.Drawing.Point(23, 100);
+            this.CheckBox_AutoPower.Name = "CheckBox_AutoPower";
+            this.CheckBox_AutoPower.Size = new System.Drawing.Size(178, 15);
+            this.CheckBox_AutoPower.TabIndex = 10;
+            this.CheckBox_AutoPower.Text = "Power On Automatically";
+            this.CheckBox_AutoPower.UseVisualStyleBackColor = true;
             // 
             // RadioButton_User
             // 
@@ -538,6 +538,26 @@
             this.GroupBox_Display.TabStop = false;
             this.GroupBox_Display.Text = "Display";
             // 
+            // GroupBox_LED_Color
+            // 
+            this.GroupBox_LED_Color.Controls.Add(this.Button_LED_Color);
+            this.GroupBox_LED_Color.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_LED_Color.Location = new System.Drawing.Point(180, 17);
+            this.GroupBox_LED_Color.Name = "GroupBox_LED_Color";
+            this.GroupBox_LED_Color.Size = new System.Drawing.Size(48, 38);
+            this.GroupBox_LED_Color.TabIndex = 13;
+            this.GroupBox_LED_Color.TabStop = false;
+            this.GroupBox_LED_Color.Text = "LEDs";
+            // 
+            // Button_LED_Color
+            // 
+            this.Button_LED_Color.BackColor = System.Drawing.Color.Cyan;
+            this.Button_LED_Color.Location = new System.Drawing.Point(6, 11);
+            this.Button_LED_Color.Name = "Button_LED_Color";
+            this.Button_LED_Color.Size = new System.Drawing.Size(35, 23);
+            this.Button_LED_Color.TabIndex = 0;
+            this.Button_LED_Color.UseVisualStyleBackColor = false;
+            // 
             // CheckBox_TopMost
             // 
             this.CheckBox_TopMost.AutoSize = true;
@@ -580,7 +600,7 @@
             this.Button_Cancel.TabIndex = 14;
             this.Button_Cancel.Text = "&Cancel";
             this.Button_Cancel.UseVisualStyleBackColor = true;
-            this.Button_Cancel.Click += new System.EventHandler(this.button2_Click);
+            this.Button_Cancel.Click += new System.EventHandler(this.Button_Cancel_Click);
             // 
             // Button_Save
             // 
@@ -595,26 +615,6 @@
             // ColorDialog_LED
             // 
             this.ColorDialog_LED.Color = System.Drawing.Color.Cyan;
-            // 
-            // GroupBox_LED_Color
-            // 
-            this.GroupBox_LED_Color.Controls.Add(this.Button_LED_Color);
-            this.GroupBox_LED_Color.ForeColor = System.Drawing.Color.White;
-            this.GroupBox_LED_Color.Location = new System.Drawing.Point(183, 19);
-            this.GroupBox_LED_Color.Name = "GroupBox_LED_Color";
-            this.GroupBox_LED_Color.Size = new System.Drawing.Size(48, 38);
-            this.GroupBox_LED_Color.TabIndex = 13;
-            this.GroupBox_LED_Color.TabStop = false;
-            this.GroupBox_LED_Color.Text = "LED";
-            // 
-            // Button_LED_Color
-            // 
-            this.Button_LED_Color.BackColor = System.Drawing.Color.Cyan;
-            this.Button_LED_Color.Location = new System.Drawing.Point(6, 11);
-            this.Button_LED_Color.Name = "Button_LED_Color";
-            this.Button_LED_Color.Size = new System.Drawing.Size(35, 23);
-            this.Button_LED_Color.TabIndex = 0;
-            this.Button_LED_Color.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -639,6 +639,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Recordings Folder";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(23, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(344, 20);
+            this.textBox1.TabIndex = 19;
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -649,14 +657,6 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "&Browse";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(23, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(344, 20);
-            this.textBox1.TabIndex = 19;
             // 
             // FormSettings
             // 
@@ -680,7 +680,9 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormSettings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SimGPS² Settings";
+            this.TopMost = true;
             this.GroupBox_FlightSimulator.ResumeLayout(false);
             this.GroupBox_FlightSimulator.PerformLayout();
             this.GroupBox_COM.ResumeLayout(false);
@@ -736,7 +738,7 @@
         private System.Windows.Forms.RadioButton RadioButton_User;
         private System.Windows.Forms.RadioButton RadioButton_Computer;
         private System.Windows.Forms.RadioButton RadioButton_NoAuto;
-        private System.Windows.Forms.CheckBox CheckBox_PowerOn;
+        private System.Windows.Forms.CheckBox CheckBox_AutoPower;
         private System.Windows.Forms.GroupBox GroupBox_Display;
         private System.Windows.Forms.CheckBox CheckBox_TopMost;
         private System.Windows.Forms.CheckBox CheckBox_NotifyIcon;

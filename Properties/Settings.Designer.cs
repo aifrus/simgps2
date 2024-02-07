@@ -25,25 +25,301 @@ namespace Aifrus.SimGPS2.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int WindowLocationX {
+        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
+        public string Hostname {
             get {
-                return ((int)(this["WindowLocationX"]));
+                return ((string)(this["Hostname"]));
             }
             set {
-                this["WindowLocationX"] = value;
+                this["Hostname"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60 FPS")]
+        public string RefreshRate {
+            get {
+                return ((string)(this["RefreshRate"]));
+            }
+            set {
+                this["RefreshRate"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int WindowLocationY {
+        public int AutoStart {
             get {
-                return ((int)(this["WindowLocationY"]));
+                return ((int)(this["AutoStart"]));
             }
             set {
-                this["WindowLocationY"] = value;
+                this["AutoStart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoPower {
+            get {
+                return ((bool)(this["AutoPower"]));
+            }
+            set {
+                this["AutoPower"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoRecord {
+            get {
+                return ((bool)(this["AutoRecord"]));
+            }
+            set {
+                this["AutoRecord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TopMost {
+            get {
+                return ((bool)(this["TopMost"]));
+            }
+            set {
+                this["TopMost"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowTaskbar {
+            get {
+                return ((bool)(this["ShowTaskbar"]));
+            }
+            set {
+                this["ShowTaskbar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NotifyIcon {
+            get {
+                return ((bool)(this["NotifyIcon"]));
+            }
+            set {
+                this["NotifyIcon"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cyan")]
+        public global::System.Drawing.Color LEDColor {
+            get {
+                return ((global::System.Drawing.Color)(this["LEDColor"]));
+            }
+            set {
+                this["LEDColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("{Documents}\\SimGPS Recordings")]
+        public string RecordingFolder {
+            get {
+                return ((string)(this["RecordingFolder"]));
+            }
+            set {
+                this["RecordingFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Disabled")]
+        public string Port {
+            get {
+                return ((string)(this["Port"]));
+            }
+            set {
+                this["Port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4800")]
+        public string Baud {
+            get {
+                return ((string)(this["Baud"]));
+            }
+            set {
+                this["Baud"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public string Data {
+            get {
+                return ((string)(this["Data"]));
+            }
+            set {
+                this["Data"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("N - None")]
+        public string Parity {
+            get {
+                return ((string)(this["Parity"]));
+            }
+            set {
+                this["Parity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string Stop {
+            get {
+                return ((string)(this["Stop"]));
+            }
+            set {
+                this["Stop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("GNSS")]
+        public string DeviceType {
+            get {
+                return ((string)(this["DeviceType"]));
+            }
+            set {
+                this["DeviceType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GGA {
+            get {
+                return ((bool)(this["GGA"]));
+            }
+            set {
+                this["GGA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RMC {
+            get {
+                return ((bool)(this["RMC"]));
+            }
+            set {
+                this["RMC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool VTG {
+            get {
+                return ((bool)(this["VTG"]));
+            }
+            set {
+                this["VTG"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GSV {
+            get {
+                return ((bool)(this["GSV"]));
+            }
+            set {
+                this["GSV"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool GSA {
+            get {
+                return ((bool)(this["GSA"]));
+            }
+            set {
+                this["GSA"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("320")]
+        public int MainLocationX {
+            get {
+                return ((int)(this["MainLocationX"]));
+            }
+            set {
+                this["MainLocationX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("160")]
+        public int MainLocationY {
+            get {
+                return ((int)(this["MainLocationY"]));
+            }
+            set {
+                this["MainLocationY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("320")]
+        public int SettingsLocationX {
+            get {
+                return ((int)(this["SettingsLocationX"]));
+            }
+            set {
+                this["SettingsLocationX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("320")]
+        public int SettingsLocationY {
+            get {
+                return ((int)(this["SettingsLocationY"]));
+            }
+            set {
+                this["SettingsLocationY"] = value;
             }
         }
     }

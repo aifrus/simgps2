@@ -21,15 +21,15 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ShowTaskbar" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="NotifyIcon" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="LEDColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Cyan</Value>
     </Setting>
-    <Setting Name="RecordingFolder" Type="System.String" Scope="User">
+    <Setting Name="RecordingPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">{Documents}\SimGPS Recordings</Value>
     </Setting>
     <Setting Name="Port" Type="System.String" Scope="User">

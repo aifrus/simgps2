@@ -97,7 +97,7 @@ namespace Aifrus.SimGPS2.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool ShowTaskbar {
             get {
                 return ((bool)(this["ShowTaskbar"]));
@@ -109,7 +109,7 @@ namespace Aifrus.SimGPS2.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool NotifyIcon {
             get {
                 return ((bool)(this["NotifyIcon"]));
@@ -134,12 +134,12 @@ namespace Aifrus.SimGPS2.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("{Documents}\\SimGPS Recordings")]
-        public string RecordingFolder {
+        public string RecordingPath {
             get {
-                return ((string)(this["RecordingFolder"]));
+                return ((string)(this["RecordingPath"]));
             }
             set {
-                this["RecordingFolder"] = value;
+                this["RecordingPath"] = value;
             }
         }
         

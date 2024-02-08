@@ -17,9 +17,9 @@ namespace Aifrus.SimGPS2
         public FormSettings()
         {
             InitializeComponent();
-            this.MouseDown += FormSettings_MouseDown;
-            this.MouseMove += FormSettings_MouseMove;
-            this.MouseUp += FormSettings_MouseUp;
+            this.GroupBox_AllSettings.MouseDown += GroupBox_AllSettings_MouseDown;
+            this.GroupBox_AllSettings.MouseMove += GroupBox_AllSettings_MouseMove;
+            this.GroupBox_AllSettings.MouseUp += GroupBox_AllSettings_MouseUp;
             this.FormClosing += FormSettings_FormClosing;
             this.Location = new Point(Settings.SettingsLocationX, Settings.SettingsLocationY);
             LoadSettings();
@@ -37,7 +37,7 @@ namespace Aifrus.SimGPS2
             this.Hide();
         }
 
-        void FormSettings_MouseDown(object sender, MouseEventArgs e)
+        void GroupBox_AllSettings_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left) return;
             bWindowDragging = true;
@@ -45,7 +45,7 @@ namespace Aifrus.SimGPS2
             WindowAtDragStart = this.Location;
         }
 
-        void FormSettings_MouseMove(object sender, MouseEventArgs e)
+        void GroupBox_AllSettings_MouseMove(object sender, MouseEventArgs e)
         {
             if (!bWindowDragging) return;
             Point dif = Point.Subtract(Cursor.Position, new Size(CursorAtDragStart));
@@ -59,7 +59,7 @@ namespace Aifrus.SimGPS2
             this.Location = newLocation;
         }
 
-        void FormSettings_MouseUp(object sender, MouseEventArgs e)
+        void GroupBox_AllSettings_MouseUp(object sender, MouseEventArgs e)
         {
             bWindowDragging = false;
             Settings.SettingsLocationX = this.Location.X;

@@ -71,10 +71,11 @@
             this.CheckBox_Taskbar = new System.Windows.Forms.CheckBox();
             this.Button_Cancel = new System.Windows.Forms.Button();
             this.Button_Save = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBox_RecordPath = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.GroupBox_AllSettings = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.GroupBox_FlightSimulator.SuspendLayout();
             this.GroupBox_COM.SuspendLayout();
             this.GroupBox_NMEA.SuspendLayout();
@@ -84,6 +85,7 @@
             this.GroupBox_Display.SuspendLayout();
             this.GroupBox_LED_Color.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.GroupBox_AllSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label_Hostname
@@ -103,7 +105,7 @@
             this.GroupBox_FlightSimulator.Controls.Add(this.Label_Hostname);
             this.GroupBox_FlightSimulator.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox_FlightSimulator.ForeColor = System.Drawing.Color.White;
-            this.GroupBox_FlightSimulator.Location = new System.Drawing.Point(12, 37);
+            this.GroupBox_FlightSimulator.Location = new System.Drawing.Point(9, 19);
             this.GroupBox_FlightSimulator.Name = "GroupBox_FlightSimulator";
             this.GroupBox_FlightSimulator.Size = new System.Drawing.Size(242, 75);
             this.GroupBox_FlightSimulator.TabIndex = 1;
@@ -163,7 +165,8 @@
             // Button_Defaults
             // 
             this.Button_Defaults.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_Defaults.Location = new System.Drawing.Point(35, 428);
+            this.Button_Defaults.ForeColor = System.Drawing.Color.Black;
+            this.Button_Defaults.Location = new System.Drawing.Point(32, 410);
             this.Button_Defaults.Name = "Button_Defaults";
             this.Button_Defaults.Size = new System.Drawing.Size(106, 23);
             this.Button_Defaults.TabIndex = 2;
@@ -186,7 +189,7 @@
             this.GroupBox_COM.Controls.Add(this.Label_Port);
             this.GroupBox_COM.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox_COM.ForeColor = System.Drawing.Color.White;
-            this.GroupBox_COM.Location = new System.Drawing.Point(262, 37);
+            this.GroupBox_COM.Location = new System.Drawing.Point(259, 19);
             this.GroupBox_COM.Name = "GroupBox_COM";
             this.GroupBox_COM.Size = new System.Drawing.Size(242, 325);
             this.GroupBox_COM.TabIndex = 4;
@@ -465,7 +468,7 @@
             this.GroupBox_Startup.Controls.Add(this.RadioButton_NoAuto);
             this.GroupBox_Startup.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox_Startup.ForeColor = System.Drawing.Color.White;
-            this.GroupBox_Startup.Location = new System.Drawing.Point(12, 118);
+            this.GroupBox_Startup.Location = new System.Drawing.Point(9, 100);
             this.GroupBox_Startup.Name = "GroupBox_Startup";
             this.GroupBox_Startup.Size = new System.Drawing.Size(242, 147);
             this.GroupBox_Startup.TabIndex = 5;
@@ -532,7 +535,7 @@
             this.GroupBox_Display.Controls.Add(this.CheckBox_Taskbar);
             this.GroupBox_Display.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GroupBox_Display.ForeColor = System.Drawing.Color.White;
-            this.GroupBox_Display.Location = new System.Drawing.Point(12, 271);
+            this.GroupBox_Display.Location = new System.Drawing.Point(9, 253);
             this.GroupBox_Display.Name = "GroupBox_Display";
             this.GroupBox_Display.Size = new System.Drawing.Size(242, 91);
             this.GroupBox_Display.TabIndex = 13;
@@ -596,7 +599,8 @@
             // 
             this.Button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Button_Cancel.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_Cancel.Location = new System.Drawing.Point(387, 428);
+            this.Button_Cancel.ForeColor = System.Drawing.Color.Black;
+            this.Button_Cancel.Location = new System.Drawing.Point(368, 410);
             this.Button_Cancel.Name = "Button_Cancel";
             this.Button_Cancel.Size = new System.Drawing.Size(106, 23);
             this.Button_Cancel.TabIndex = 14;
@@ -607,7 +611,8 @@
             // Button_Save
             // 
             this.Button_Save.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_Save.Location = new System.Drawing.Point(271, 428);
+            this.Button_Save.ForeColor = System.Drawing.Color.Black;
+            this.Button_Save.Location = new System.Drawing.Point(256, 410);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(106, 23);
             this.Button_Save.TabIndex = 15;
@@ -615,47 +620,68 @@
             this.Button_Save.UseVisualStyleBackColor = true;
             this.Button_Save.Click += new System.EventHandler(this.Button_Save_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 16);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "SimGPS² Settings";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.TextBox_RecordPath);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 365);
+            this.groupBox1.Location = new System.Drawing.Point(9, 350);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(492, 53);
+            this.groupBox1.Size = new System.Drawing.Size(492, 54);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Recordings Folder";
             // 
-            // textBox1
+            // TextBox_RecordPath
             // 
-            this.textBox1.Location = new System.Drawing.Point(23, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(344, 20);
-            this.textBox1.TabIndex = 19;
+            this.TextBox_RecordPath.Location = new System.Drawing.Point(23, 19);
+            this.TextBox_RecordPath.Name = "TextBox_RecordPath";
+            this.TextBox_RecordPath.ReadOnly = true;
+            this.TextBox_RecordPath.Size = new System.Drawing.Size(330, 18);
+            this.TextBox_RecordPath.TabIndex = 19;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(375, 18);
+            this.button1.Location = new System.Drawing.Point(359, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 23);
             this.button1.TabIndex = 18;
             this.button1.Text = "&Browse";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // GroupBox_AllSettings
+            // 
+            this.GroupBox_AllSettings.BackColor = System.Drawing.Color.Transparent;
+            this.GroupBox_AllSettings.Controls.Add(this.button2);
+            this.GroupBox_AllSettings.Controls.Add(this.groupBox1);
+            this.GroupBox_AllSettings.Controls.Add(this.GroupBox_FlightSimulator);
+            this.GroupBox_AllSettings.Controls.Add(this.Button_Defaults);
+            this.GroupBox_AllSettings.Controls.Add(this.Button_Save);
+            this.GroupBox_AllSettings.Controls.Add(this.GroupBox_COM);
+            this.GroupBox_AllSettings.Controls.Add(this.Button_Cancel);
+            this.GroupBox_AllSettings.Controls.Add(this.GroupBox_Startup);
+            this.GroupBox_AllSettings.Controls.Add(this.GroupBox_Display);
+            this.GroupBox_AllSettings.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBox_AllSettings.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_AllSettings.Location = new System.Drawing.Point(3, 0);
+            this.GroupBox_AllSettings.Name = "GroupBox_AllSettings";
+            this.GroupBox_AllSettings.Size = new System.Drawing.Size(508, 447);
+            this.GroupBox_AllSettings.TabIndex = 18;
+            this.GroupBox_AllSettings.TabStop = false;
+            this.GroupBox_AllSettings.Text = "SimGPS² Settings";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(144, 410);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 23);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "&Help";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
@@ -664,17 +690,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.Button_Cancel;
-            this.ClientSize = new System.Drawing.Size(514, 463);
+            this.ClientSize = new System.Drawing.Size(513, 448);
             this.ControlBox = false;
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Button_Save);
-            this.Controls.Add(this.Button_Cancel);
-            this.Controls.Add(this.GroupBox_Display);
-            this.Controls.Add(this.GroupBox_Startup);
-            this.Controls.Add(this.GroupBox_COM);
-            this.Controls.Add(this.Button_Defaults);
-            this.Controls.Add(this.GroupBox_FlightSimulator);
+            this.Controls.Add(this.GroupBox_AllSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -698,8 +716,8 @@
             this.GroupBox_LED_Color.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.GroupBox_AllSettings.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -726,7 +744,6 @@
         private System.Windows.Forms.Button Button_Cancel;
         private System.Windows.Forms.Button Button_Save;
         private System.Windows.Forms.GroupBox GroupBox_LED_Color;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox TextBox_Hostname;
@@ -750,6 +767,8 @@
         public System.Windows.Forms.CheckBox CheckBox_Taskbar;
         public System.Windows.Forms.CheckBox CheckBox_AutoRecord;
         public System.Windows.Forms.Button Button_LED_Color;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox TextBox_RecordPath;
+        private System.Windows.Forms.GroupBox GroupBox_AllSettings;
+        private System.Windows.Forms.Button button2;
     }
 }

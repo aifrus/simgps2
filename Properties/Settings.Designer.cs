@@ -322,5 +322,53 @@ namespace Aifrus.SimGPS2.Properties {
                 this["SettingsLocationY"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("FT")]
+        public string UnitsAltitude {
+            get {
+                return ((string)(this["UnitsAltitude"]));
+            }
+            set {
+                this["UnitsAltitude"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("KT")]
+        public string UnitsSpeed {
+            get {
+                return ((string)(this["UnitsSpeed"]));
+            }
+            set {
+                this["UnitsSpeed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NM")]
+        public string UnitsDistance {
+            get {
+                return ((string)(this["UnitsDistance"]));
+            }
+            set {
+                this["UnitsDistance"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LatLonDecimal {
+            get {
+                return ((bool)(this["LatLonDecimal"]));
+            }
+            set {
+                this["LatLonDecimal"] = value;
+            }
+        }
     }
 }

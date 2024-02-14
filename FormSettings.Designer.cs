@@ -75,7 +75,27 @@
             this.TextBox_RecordPath = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.GroupBox_AllSettings = new System.Windows.Forms.GroupBox();
+            this.GroupBox_Units = new System.Windows.Forms.GroupBox();
+            this.GroupBox_Units_Distance = new System.Windows.Forms.GroupBox();
+            this.RadioButton_Units_Distance_KM = new System.Windows.Forms.RadioButton();
+            this.RadioButton_Units_Distance_SM = new System.Windows.Forms.RadioButton();
+            this.RadioButton_Units_Distance_NM = new System.Windows.Forms.RadioButton();
+            this.GroupBox_Units_Speed = new System.Windows.Forms.GroupBox();
+            this.RadioButton_Units_Speed_MS = new System.Windows.Forms.RadioButton();
+            this.RadioButton_Units_Speed_KMH = new System.Windows.Forms.RadioButton();
+            this.RadioButton_Units_Speed_MPH = new System.Windows.Forms.RadioButton();
+            this.RadioButton_Units_Speed_KT = new System.Windows.Forms.RadioButton();
+            this.GroupBox_Units_Altitude = new System.Windows.Forms.GroupBox();
+            this.RadioButton_Units_Altitude_M = new System.Windows.Forms.RadioButton();
+            this.RadioButton_Units_Altitude_FT = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.GroupBox_FlightSimulator.SuspendLayout();
             this.GroupBox_COM.SuspendLayout();
             this.GroupBox_NMEA.SuspendLayout();
@@ -86,6 +106,13 @@
             this.GroupBox_LED_Color.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.GroupBox_AllSettings.SuspendLayout();
+            this.GroupBox_Units.SuspendLayout();
+            this.GroupBox_Units_Distance.SuspendLayout();
+            this.GroupBox_Units_Speed.SuspendLayout();
+            this.GroupBox_Units_Altitude.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label_Hostname
@@ -166,7 +193,7 @@
             // 
             this.Button_Defaults.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Defaults.ForeColor = System.Drawing.Color.Black;
-            this.Button_Defaults.Location = new System.Drawing.Point(32, 410);
+            this.Button_Defaults.Location = new System.Drawing.Point(33, 559);
             this.Button_Defaults.Name = "Button_Defaults";
             this.Button_Defaults.Size = new System.Drawing.Size(106, 23);
             this.Button_Defaults.TabIndex = 2;
@@ -600,7 +627,7 @@
             this.Button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Button_Cancel.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Cancel.ForeColor = System.Drawing.Color.Black;
-            this.Button_Cancel.Location = new System.Drawing.Point(368, 410);
+            this.Button_Cancel.Location = new System.Drawing.Point(369, 559);
             this.Button_Cancel.Name = "Button_Cancel";
             this.Button_Cancel.Size = new System.Drawing.Size(106, 23);
             this.Button_Cancel.TabIndex = 14;
@@ -612,7 +639,7 @@
             // 
             this.Button_Save.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Save.ForeColor = System.Drawing.Color.Black;
-            this.Button_Save.Location = new System.Drawing.Point(256, 410);
+            this.Button_Save.Location = new System.Drawing.Point(257, 559);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(106, 23);
             this.Button_Save.TabIndex = 15;
@@ -625,7 +652,7 @@
             this.groupBox1.Controls.Add(this.TextBox_RecordPath);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(9, 350);
+            this.groupBox1.Location = new System.Drawing.Point(10, 489);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(492, 54);
             this.groupBox1.TabIndex = 17;
@@ -654,6 +681,7 @@
             // GroupBox_AllSettings
             // 
             this.GroupBox_AllSettings.BackColor = System.Drawing.Color.Transparent;
+            this.GroupBox_AllSettings.Controls.Add(this.GroupBox_Units);
             this.GroupBox_AllSettings.Controls.Add(this.button2);
             this.GroupBox_AllSettings.Controls.Add(this.groupBox1);
             this.GroupBox_AllSettings.Controls.Add(this.GroupBox_FlightSimulator);
@@ -667,21 +695,240 @@
             this.GroupBox_AllSettings.ForeColor = System.Drawing.Color.White;
             this.GroupBox_AllSettings.Location = new System.Drawing.Point(3, 0);
             this.GroupBox_AllSettings.Name = "GroupBox_AllSettings";
-            this.GroupBox_AllSettings.Size = new System.Drawing.Size(508, 447);
+            this.GroupBox_AllSettings.Size = new System.Drawing.Size(508, 595);
             this.GroupBox_AllSettings.TabIndex = 18;
             this.GroupBox_AllSettings.TabStop = false;
             this.GroupBox_AllSettings.Text = "SimGPS² Settings";
+            // 
+            // GroupBox_Units
+            // 
+            this.GroupBox_Units.Controls.Add(this.groupBox2);
+            this.GroupBox_Units.Controls.Add(this.GroupBox_Units_Distance);
+            this.GroupBox_Units.Controls.Add(this.GroupBox_Units_Speed);
+            this.GroupBox_Units.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_Units.Location = new System.Drawing.Point(10, 350);
+            this.GroupBox_Units.Name = "GroupBox_Units";
+            this.GroupBox_Units.Size = new System.Drawing.Size(492, 133);
+            this.GroupBox_Units.TabIndex = 12;
+            this.GroupBox_Units.TabStop = false;
+            this.GroupBox_Units.Text = "Units";
+            // 
+            // GroupBox_Units_Distance
+            // 
+            this.GroupBox_Units_Distance.Controls.Add(this.RadioButton_Units_Distance_KM);
+            this.GroupBox_Units_Distance.Controls.Add(this.RadioButton_Units_Distance_SM);
+            this.GroupBox_Units_Distance.Controls.Add(this.RadioButton_Units_Distance_NM);
+            this.GroupBox_Units_Distance.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_Units_Distance.Location = new System.Drawing.Point(411, 15);
+            this.GroupBox_Units_Distance.Name = "GroupBox_Units_Distance";
+            this.GroupBox_Units_Distance.Size = new System.Drawing.Size(75, 112);
+            this.GroupBox_Units_Distance.TabIndex = 4;
+            this.GroupBox_Units_Distance.TabStop = false;
+            this.GroupBox_Units_Distance.Text = "Distance";
+            // 
+            // RadioButton_Units_Distance_KM
+            // 
+            this.RadioButton_Units_Distance_KM.AutoSize = true;
+            this.RadioButton_Units_Distance_KM.Location = new System.Drawing.Point(14, 65);
+            this.RadioButton_Units_Distance_KM.Name = "RadioButton_Units_Distance_KM";
+            this.RadioButton_Units_Distance_KM.Size = new System.Drawing.Size(37, 15);
+            this.RadioButton_Units_Distance_KM.TabIndex = 2;
+            this.RadioButton_Units_Distance_KM.Text = "KM";
+            this.RadioButton_Units_Distance_KM.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_Units_Distance_SM
+            // 
+            this.RadioButton_Units_Distance_SM.AutoSize = true;
+            this.RadioButton_Units_Distance_SM.Location = new System.Drawing.Point(14, 42);
+            this.RadioButton_Units_Distance_SM.Name = "RadioButton_Units_Distance_SM";
+            this.RadioButton_Units_Distance_SM.Size = new System.Drawing.Size(37, 15);
+            this.RadioButton_Units_Distance_SM.TabIndex = 1;
+            this.RadioButton_Units_Distance_SM.Text = "SM";
+            this.RadioButton_Units_Distance_SM.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_Units_Distance_NM
+            // 
+            this.RadioButton_Units_Distance_NM.AutoSize = true;
+            this.RadioButton_Units_Distance_NM.Location = new System.Drawing.Point(14, 19);
+            this.RadioButton_Units_Distance_NM.Name = "RadioButton_Units_Distance_NM";
+            this.RadioButton_Units_Distance_NM.Size = new System.Drawing.Size(37, 15);
+            this.RadioButton_Units_Distance_NM.TabIndex = 0;
+            this.RadioButton_Units_Distance_NM.Text = "NM";
+            this.RadioButton_Units_Distance_NM.UseVisualStyleBackColor = true;
+            // 
+            // GroupBox_Units_Speed
+            // 
+            this.GroupBox_Units_Speed.Controls.Add(this.RadioButton_Units_Speed_MS);
+            this.GroupBox_Units_Speed.Controls.Add(this.RadioButton_Units_Speed_KMH);
+            this.GroupBox_Units_Speed.Controls.Add(this.RadioButton_Units_Speed_MPH);
+            this.GroupBox_Units_Speed.Controls.Add(this.RadioButton_Units_Speed_KT);
+            this.GroupBox_Units_Speed.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_Units_Speed.Location = new System.Drawing.Point(332, 15);
+            this.GroupBox_Units_Speed.Name = "GroupBox_Units_Speed";
+            this.GroupBox_Units_Speed.Size = new System.Drawing.Size(75, 112);
+            this.GroupBox_Units_Speed.TabIndex = 3;
+            this.GroupBox_Units_Speed.TabStop = false;
+            this.GroupBox_Units_Speed.Text = "Speed";
+            // 
+            // RadioButton_Units_Speed_MS
+            // 
+            this.RadioButton_Units_Speed_MS.AutoSize = true;
+            this.RadioButton_Units_Speed_MS.Location = new System.Drawing.Point(14, 86);
+            this.RadioButton_Units_Speed_MS.Name = "RadioButton_Units_Speed_MS";
+            this.RadioButton_Units_Speed_MS.Size = new System.Drawing.Size(44, 15);
+            this.RadioButton_Units_Speed_MS.TabIndex = 3;
+            this.RadioButton_Units_Speed_MS.Text = "M/S";
+            this.RadioButton_Units_Speed_MS.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_Units_Speed_KMH
+            // 
+            this.RadioButton_Units_Speed_KMH.AutoSize = true;
+            this.RadioButton_Units_Speed_KMH.Location = new System.Drawing.Point(14, 65);
+            this.RadioButton_Units_Speed_KMH.Name = "RadioButton_Units_Speed_KMH";
+            this.RadioButton_Units_Speed_KMH.Size = new System.Drawing.Size(44, 15);
+            this.RadioButton_Units_Speed_KMH.TabIndex = 2;
+            this.RadioButton_Units_Speed_KMH.Text = "KMH";
+            this.RadioButton_Units_Speed_KMH.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_Units_Speed_MPH
+            // 
+            this.RadioButton_Units_Speed_MPH.AutoSize = true;
+            this.RadioButton_Units_Speed_MPH.Location = new System.Drawing.Point(14, 42);
+            this.RadioButton_Units_Speed_MPH.Name = "RadioButton_Units_Speed_MPH";
+            this.RadioButton_Units_Speed_MPH.Size = new System.Drawing.Size(44, 15);
+            this.RadioButton_Units_Speed_MPH.TabIndex = 1;
+            this.RadioButton_Units_Speed_MPH.Text = "MPH";
+            this.RadioButton_Units_Speed_MPH.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_Units_Speed_KT
+            // 
+            this.RadioButton_Units_Speed_KT.AutoSize = true;
+            this.RadioButton_Units_Speed_KT.Location = new System.Drawing.Point(14, 19);
+            this.RadioButton_Units_Speed_KT.Name = "RadioButton_Units_Speed_KT";
+            this.RadioButton_Units_Speed_KT.Size = new System.Drawing.Size(37, 15);
+            this.RadioButton_Units_Speed_KT.TabIndex = 0;
+            this.RadioButton_Units_Speed_KT.Text = "KT";
+            this.RadioButton_Units_Speed_KT.UseVisualStyleBackColor = true;
+            // 
+            // GroupBox_Units_Altitude
+            // 
+            this.GroupBox_Units_Altitude.Controls.Add(this.RadioButton_Units_Altitude_M);
+            this.GroupBox_Units_Altitude.Controls.Add(this.RadioButton_Units_Altitude_FT);
+            this.GroupBox_Units_Altitude.ForeColor = System.Drawing.Color.White;
+            this.GroupBox_Units_Altitude.Location = new System.Drawing.Point(232, 17);
+            this.GroupBox_Units_Altitude.Name = "GroupBox_Units_Altitude";
+            this.GroupBox_Units_Altitude.Size = new System.Drawing.Size(80, 84);
+            this.GroupBox_Units_Altitude.TabIndex = 0;
+            this.GroupBox_Units_Altitude.TabStop = false;
+            this.GroupBox_Units_Altitude.Text = "Altitude";
+            // 
+            // RadioButton_Units_Altitude_M
+            // 
+            this.RadioButton_Units_Altitude_M.AutoSize = true;
+            this.RadioButton_Units_Altitude_M.Location = new System.Drawing.Point(14, 42);
+            this.RadioButton_Units_Altitude_M.Name = "RadioButton_Units_Altitude_M";
+            this.RadioButton_Units_Altitude_M.Size = new System.Drawing.Size(30, 15);
+            this.RadioButton_Units_Altitude_M.TabIndex = 1;
+            this.RadioButton_Units_Altitude_M.Text = "M";
+            this.RadioButton_Units_Altitude_M.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_Units_Altitude_FT
+            // 
+            this.RadioButton_Units_Altitude_FT.AutoSize = true;
+            this.RadioButton_Units_Altitude_FT.Location = new System.Drawing.Point(14, 19);
+            this.RadioButton_Units_Altitude_FT.Name = "RadioButton_Units_Altitude_FT";
+            this.RadioButton_Units_Altitude_FT.Size = new System.Drawing.Size(37, 15);
+            this.RadioButton_Units_Altitude_FT.TabIndex = 0;
+            this.RadioButton_Units_Altitude_FT.Text = "FT";
+            this.RadioButton_Units_Altitude_FT.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(144, 410);
+            this.button2.Location = new System.Drawing.Point(145, 559);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(106, 23);
             this.button2.TabIndex = 18;
             this.button2.Text = "&Help";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.GroupBox_Units_Altitude);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(6, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(318, 112);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Coordinates";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioButton5);
+            this.groupBox3.Controls.Add(this.radioButton6);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(104, 17);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(122, 84);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Numerics";
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(14, 42);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(72, 15);
+            this.radioButton5.TabIndex = 1;
+            this.radioButton5.Text = "Decimal";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(14, 19);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(107, 15);
+            this.radioButton6.TabIndex = 0;
+            this.radioButton6.Text = "DDD° MM\' SS\"";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.radioButton7);
+            this.groupBox4.Controls.Add(this.radioButton8);
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(6, 17);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(92, 84);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Hemisphere";
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(14, 42);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(44, 15);
+            this.radioButton7.TabIndex = 1;
+            this.radioButton7.Text = "+/-";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(14, 19);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(51, 15);
+            this.radioButton8.TabIndex = 0;
+            this.radioButton8.Text = "NESW";
+            this.radioButton8.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
@@ -690,7 +937,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.Button_Cancel;
-            this.ClientSize = new System.Drawing.Size(513, 448);
+            this.ClientSize = new System.Drawing.Size(513, 596);
             this.ControlBox = false;
             this.Controls.Add(this.GroupBox_AllSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -717,6 +964,18 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.GroupBox_AllSettings.ResumeLayout(false);
+            this.GroupBox_Units.ResumeLayout(false);
+            this.GroupBox_Units_Distance.ResumeLayout(false);
+            this.GroupBox_Units_Distance.PerformLayout();
+            this.GroupBox_Units_Speed.ResumeLayout(false);
+            this.GroupBox_Units_Speed.PerformLayout();
+            this.GroupBox_Units_Altitude.ResumeLayout(false);
+            this.GroupBox_Units_Altitude.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -770,5 +1029,25 @@
         public System.Windows.Forms.TextBox TextBox_RecordPath;
         private System.Windows.Forms.GroupBox GroupBox_AllSettings;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox GroupBox_Units;
+        private System.Windows.Forms.GroupBox GroupBox_Units_Altitude;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Altitude_M;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Altitude_FT;
+        private System.Windows.Forms.GroupBox GroupBox_Units_Distance;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Distance_KM;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Distance_SM;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Distance_NM;
+        private System.Windows.Forms.GroupBox GroupBox_Units_Speed;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Speed_MS;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Speed_KMH;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Speed_MPH;
+        public System.Windows.Forms.RadioButton RadioButton_Units_Speed_KT;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        public System.Windows.Forms.RadioButton radioButton7;
+        public System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.RadioButton radioButton5;
+        public System.Windows.Forms.RadioButton radioButton6;
     }
 }

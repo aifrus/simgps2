@@ -129,6 +129,11 @@ namespace Aifrus.SimGPS2
             Settings.VTG = CheckBox_VTG.Checked;
             Settings.GSV = CheckBox_GSV.Checked;
             Settings.GSA = CheckBox_GSA.Checked;
+            if (RadioButton_Units_Altitude_FT.Checked) Settings.UnitsAltitude = "FT";
+            if (RadioButton_Units_Altitude_M.Checked) Settings.UnitsAltitude = "M";
+            if (RadioButton_Units_Speed_KMH.Checked) Settings.UnitsSpeed = "KPH";
+            if (RadioButton_Units_Speed_MPH.Checked) Settings.UnitsSpeed = "MPH";
+            if (RadioButton_Units_Speed_KT.Checked) Settings.UnitsSpeed = "KT";
             Settings.Save();
         }
 

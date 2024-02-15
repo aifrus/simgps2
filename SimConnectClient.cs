@@ -1,0 +1,107 @@
+﻿
+
+using Microsoft.FlightSimulator.SimConnect;
+using System.Runtime.InteropServices;
+using System;
+using System.IO.Ports;
+using System.Windows.Forms;
+
+namespace Aifrus.SimGPS2
+{
+    public class SimConnectClient
+    {
+        private SimConnect my_simconnect;
+        private const int WM_USER_SIMCONNECT = 0x402;
+        private FormMain FormMain;
+
+        private enum DATA_REQUESTS
+        {
+            REQUEST_1
+        }
+
+        private enum DEFINITIONS
+        {
+            Struct1
+        }
+
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        public struct Struct1
+        {
+            public double latitude;
+            public double longitude;
+            public double magCourse;
+            public double altitude;
+            public double verticalSpeed;
+            public double groundSpeed;
+        }
+
+        public SimConnectClient(FormMain formMain)
+        {
+            FormMain = formMain;
+        }
+
+        public void Connect()
+        {
+            my_simconnect = new SimConnect("Managed Data Request", FormMain.Handle, 0x402, null, 0);
+        }
+
+        public void Disconnect()
+        {
+            if (my_simconnect != null)
+            {
+                my_simconnect.Dispose();
+                my_simconnect = null;
+            }
+        }
+
+        private void initDataRequest()
+        {
+            try
+            {
+                my_simconnect.OnRecvOpen += new SimConnect.RecvOpenEventHandler(simconnect_OnRecvOpen);
+                my_simconnect.OnRecvQuit += new SimConnect.RecvQuitEventHandler(simconnect_OnRecvQuit);
+                my_simconnect.OnRecvException += new SimConnect.RecvExceptionEventHandler(simconnect_OnRecvException);
+                my_simconnect.AddToDataDefinition(DEFINITIONS.Struct1, "Plane Latitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+                my_simconnect.AddToDataDefinition(DEFINITIONS.Struct1, "Plane Longitude", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+                my_simconnect.AddToDataDefinition(DEFINITIONS.Struct1, "Plane Heading Degrees Magnetic", "degrees", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+                my_simconnect.AddToDataDefinition(DEFINITIONS.Struct1, "Plane Altitude", "meters", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+                my_simconnect.AddToDataDefinition(DEFINITIONS.Struct1, "Vertical Speed", "meters per minute", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+                my_simconnect.AddToDataDefinition(DEFINITIONS.Struct1, "Ground Velocity", "meters per second", SIMCONNECT_DATATYPE.FLOAT64, 0.0f, SimConnect.SIMCONNECT_UNUSED);
+                my_simconnect.RegisterDataDefineStruct<Struct1>(DEFINITIONS.Struct1);
+                my_simconnect.OnRecvSimobjectDataBytype += new SimConnect.RecvSimobjectDataBytypeEventHandler(simconnect_OnRecvSimobjectDataBytype);
+            }
+            catch (COMException exception1)
+            {
+                MessageBox.Show(exception1.Message);
+            }
+        }
+
+        private void simconnect_OnRecvException(SimConnect sender, SIMCONNECT_RECV_EXCEPTION data)
+        {
+            MessageBox.Show(FormMain, "Exception received: " + data.dwException, "SimConnect Exception", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void simconnect_OnRecvOpen(SimConnect sender, SIMCONNECT_RECV_OPEN data)
+        {
+            FormMain.SimConnected();
+        }
+
+        private void simconnect_OnRecvQuit(SimConnect sender, SIMCONNECT_RECV data)
+        {
+            Disconnect();
+            FormMain.SimDisconnected();
+        }
+
+        private void simconnect_OnRecvSimobjectDataBytype(SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE data)
+        {
+            if (data.dwRequestID != 0) return;
+            Struct1 struct1 = (Struct1)data.dwData[0];
+            FormMain.UpdateSimData(struct1);
+        }
+
+
+        // Move all the SimConnect related methods here
+        // ...
+    }
+
+}

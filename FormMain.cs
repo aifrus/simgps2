@@ -8,6 +8,7 @@ namespace Aifrus.SimGPS2
     {
         private readonly Properties.Settings Settings = Properties.Settings.Default;
         private readonly FormSettings FormSettings = new FormSettings();
+        private SimConnectClient simConnectClient;
         private bool bPowerOn = false;
         private bool bWindowDragging = false;
         private Point CursorAtDragStart;
@@ -16,7 +17,6 @@ namespace Aifrus.SimGPS2
         public FormMain()
         {
             InitializeComponent();
-
             Location = new Point(Properties.Settings.Default.MainLocationX, Properties.Settings.Default.MainLocationY);
             MouseDown += FormMain_MouseDown;
             MouseMove += FormMain_MouseMove;
@@ -151,7 +151,8 @@ namespace Aifrus.SimGPS2
             IconNotifyIcon.Text = "SimGPS is on.";
             MenuItem_Power.Text = "Power Off";
             // Connect the Simulator
-            //Label_GPS_LED.BackColor = LEDColor;
+            simConnectClient = new SimConnectClient(this);
+            simConnectClient.Connect();
 
             // Start the COM Output
             //Label_COM_LED.BackColor = LEDColor;
@@ -237,6 +238,27 @@ namespace Aifrus.SimGPS2
             {
                 WindowState = FormWindowState.Minimized;
             }
+        }
+
+        public void SimConnected()
+        {
+            Label_GPS_LED.BackColor = Settings.LEDColor;
+        }
+
+        public void SimDisconnected()
+        {
+            Label_GPS_LED.BackColor = Color.FromArgb(32, 32, 32);
+        }
+
+        public void UpdateSimData(SimConnectClient.Struct1 data)
+        {
+            // Use data.latitude, data.longitude, etc. here
+            Label_Latitude_Value.Text = $"{data.latitude}°";
+            Label_Longitude_Value.Text = $"{data.longitude}°";
+            Label_Mag_Value.Text = $"{data.magCourse}°";
+            Label_Altitude_Value.Text = $"{data.altitude} M";
+            Label_VSpeed_Value.Text = $"{data.verticalSpeed} M/M";
+            Label_Speed_Value.Text = $"{data.groundSpeed} M/S";
         }
     }
 }

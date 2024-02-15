@@ -361,13 +361,25 @@ namespace Aifrus.SimGPS2.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool LatLonDecimal {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HemisphereNESW {
             get {
-                return ((bool)(this["LatLonDecimal"]));
+                return ((bool)(this["HemisphereNESW"]));
             }
             set {
-                this["LatLonDecimal"] = value;
+                this["HemisphereNESW"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DMS")]
+        public string LatLonFormat {
+            get {
+                return ((string)(this["LatLonFormat"]));
+            }
+            set {
+                this["LatLonFormat"] = value;
             }
         }
     }

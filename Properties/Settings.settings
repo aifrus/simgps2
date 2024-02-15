@@ -86,8 +86,11 @@
     <Setting Name="UnitsDistance" Type="System.String" Scope="User">
       <Value Profile="(Default)">NM</Value>
     </Setting>
-    <Setting Name="LatLonDecimal" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="HemisphereNESW" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="LatLonFormat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DMS</Value>
     </Setting>
   </Settings>
 </SettingsFile>

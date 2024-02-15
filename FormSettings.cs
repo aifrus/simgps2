@@ -100,6 +100,18 @@ namespace Aifrus.SimGPS2
             CheckBox_VTG.Checked = Settings.VTG;
             CheckBox_GSV.Checked = Settings.GSV;
             CheckBox_GSA.Checked = Settings.GSA;
+            RadioButton_Hemi_NESW.Checked = Settings.HemisphereNESW;
+            RadioButton_Hemi_PM.Checked = !Settings.HemisphereNESW;
+            RadioButton_Num_DMS.Checked = Settings.LatLonFormat == "DMS";
+            RadioButton_Num_Decimal.Checked = Settings.LatLonFormat == "Decimal";
+            RadioButton_Altitude_FT.Checked = Settings.UnitsAltitude == "FT";
+            RadioButton_Altitude_M.Checked = Settings.UnitsAltitude == "M";
+            RadioButton_Speed_KMH.Checked = Settings.UnitsSpeed == "KPH";
+            RadioButton_Speed_MPH.Checked = Settings.UnitsSpeed == "MPH";
+            RadioButton_Speed_KT.Checked = Settings.UnitsSpeed == "KT";
+            RadioButton_Distance_KM.Checked = Settings.UnitsDistance == "KM";
+            RadioButton_Distance_SM.Checked = Settings.UnitsDistance == "SM";
+            RadioButton_Distance_NM.Checked = Settings.UnitsDistance == "NM";
         }
 
         void SaveSettings()
@@ -123,17 +135,25 @@ namespace Aifrus.SimGPS2
             Settings.Data = ComboBox_Data.SelectedItem.ToString();
             Settings.Parity = ComboBox_Parity.SelectedItem.ToString();
             Settings.Stop = ComboBox_Stop.SelectedItem.ToString();
-            Settings.DeviceType = RadioButton_GNSS.Checked ? "GNSS" : RadioButton_GLONASS.Checked ? "GLONASS" : "GPS";
+            if (RadioButton_GNSS.Checked) Settings.DeviceType = "GNSS";
+            if (RadioButton_GLONASS.Checked) Settings.DeviceType = "GLONASS";
+            if (RadioButton_GPS.Checked) Settings.DeviceType = "GPS";
             Settings.GGA = CheckBox_GGA.Checked;
             Settings.RMC = CheckBox_RMC.Checked;
             Settings.VTG = CheckBox_VTG.Checked;
             Settings.GSV = CheckBox_GSV.Checked;
             Settings.GSA = CheckBox_GSA.Checked;
-            if (RadioButton_Units_Altitude_FT.Checked) Settings.UnitsAltitude = "FT";
-            if (RadioButton_Units_Altitude_M.Checked) Settings.UnitsAltitude = "M";
-            if (RadioButton_Units_Speed_KMH.Checked) Settings.UnitsSpeed = "KPH";
-            if (RadioButton_Units_Speed_MPH.Checked) Settings.UnitsSpeed = "MPH";
-            if (RadioButton_Units_Speed_KT.Checked) Settings.UnitsSpeed = "KT";
+            Settings.HemisphereNESW = RadioButton_Hemi_NESW.Checked;
+            if (RadioButton_Num_DMS.Checked) Settings.LatLonFormat = "DMS";
+            if (RadioButton_Num_Decimal.Checked) Settings.LatLonFormat = "Decimal";
+            if (RadioButton_Altitude_FT.Checked) Settings.UnitsAltitude = "FT";
+            if (RadioButton_Altitude_M.Checked) Settings.UnitsAltitude = "M";
+            if (RadioButton_Speed_KMH.Checked) Settings.UnitsSpeed = "KPH";
+            if (RadioButton_Speed_MPH.Checked) Settings.UnitsSpeed = "MPH";
+            if (RadioButton_Speed_KT.Checked) Settings.UnitsSpeed = "KT";
+            if (RadioButton_Distance_KM.Checked) Settings.UnitsDistance = "KM";
+            if (RadioButton_Distance_SM.Checked) Settings.UnitsDistance = "SM";
+            if (RadioButton_Distance_NM.Checked) Settings.UnitsDistance = "NM";
             Settings.Save();
         }
 
@@ -191,6 +211,18 @@ namespace Aifrus.SimGPS2
             CheckBox_GSV.Enabled = false;
             CheckBox_GSA.Checked = true;
             CheckBox_GSA.Enabled = false;
+            RadioButton_Hemi_NESW.Checked = true;
+            RadioButton_Hemi_PM.Checked = false;
+            RadioButton_Num_DMS.Checked = true;
+            RadioButton_Num_Decimal.Checked = false;
+            RadioButton_Altitude_FT.Checked = true;
+            RadioButton_Altitude_M.Checked = false;
+            RadioButton_Speed_KMH.Checked = false;
+            RadioButton_Speed_MPH.Checked = false;
+            RadioButton_Speed_KT.Checked = true;
+            RadioButton_Distance_KM.Checked = false;
+            RadioButton_Distance_SM.Checked = false;
+            RadioButton_Distance_NM.Checked = true;
             SaveSettings();
         }
     }

@@ -133,13 +133,13 @@ namespace Aifrus.SimGPS2.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("{Documents}\\SimGPS Recordings")]
-        public string RecordingPath {
+        [global::System.Configuration.DefaultSettingValueAttribute("{My Documents}\\SimGPS² Recordings")]
+        public string RecordPath {
             get {
-                return ((string)(this["RecordingPath"]));
+                return ((string)(this["RecordPath"]));
             }
             set {
-                this["RecordingPath"] = value;
+                this["RecordPath"] = value;
             }
         }
         

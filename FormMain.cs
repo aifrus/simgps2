@@ -6,11 +6,13 @@ namespace Aifrus.SimGPS2
 {
     public partial class FormMain : Form
     {
-        private FormSettings Settings = new FormSettings();
+        private Properties.Settings Settings = Properties.Settings.Default;
+        private FormSettings FormSettings = new FormSettings();
         private bool bPowerOn = false;
         private bool bWindowDragging = false;
         private Point CursorAtDragStart;
         private Point WindowAtDragStart;
+
 
         public FormMain()
         {
@@ -68,7 +70,7 @@ namespace Aifrus.SimGPS2
 
         private void MenuItem_Settings_Click(object sender, EventArgs e)
         {
-            Settings.ShowDialog();
+            FormSettings.ShowDialog();
             PowerOff();
             PowerOn();
         }
@@ -93,31 +95,32 @@ namespace Aifrus.SimGPS2
         private void PowerOn()
         {
             this.bPowerOn = true;
+            var LEDColor = Settings.LEDColor;
             Label_Power_Label.ForeColor = Color.White;
-            Label_Power_LED.BackColor = Color.Cyan;
+            Label_Power_LED.BackColor = LEDColor;
             Label_GPS_Label.ForeColor = Color.White;
             Label_COM_Label.ForeColor = Color.White;
-            Label_Compass_Value.ForeColor = Color.Cyan;
+            Label_Compass_Value.ForeColor = LEDColor;
             Label_Latitude_Label.ForeColor = Color.White;
-            Label_Latitude_Value.ForeColor = Color.Cyan;
+            Label_Latitude_Value.ForeColor = LEDColor;
             Label_Longitude_Label.ForeColor = Color.White;
-            Label_Longitude_Value.ForeColor = Color.Cyan;
+            Label_Longitude_Value.ForeColor = LEDColor;
             Label_Altitude_Label.ForeColor = Color.White;
-            Label_Altitude_Value.ForeColor = Color.Cyan;
+            Label_Altitude_Value.ForeColor = LEDColor;
             Label_VSpeed_Label.ForeColor = Color.White;
-            Label_VSpeed_Value.ForeColor = Color.Cyan;
+            Label_VSpeed_Value.ForeColor = LEDColor;
             Label_Speed_Label.ForeColor = Color.White;
-            Label_Speed_Value.ForeColor = Color.Cyan;
+            Label_Speed_Value.ForeColor = LEDColor;
             Label_Mag_Label.ForeColor = Color.White;
-            Label_Mag_Value.ForeColor = Color.Cyan;
+            Label_Mag_Value.ForeColor = LEDColor;
             Label_Mag_Deg_Label.ForeColor = Color.White;
             Label_Rev_Label.ForeColor = Color.White;
-            Label_Rev_Value.ForeColor = Color.Cyan;
+            Label_Rev_Value.ForeColor = LEDColor;
             Label_Rev_Deg_Label.ForeColor = Color.White;
             Label_Distance_Label.ForeColor = Color.White;
-            Label_Distance_Value.ForeColor = Color.Cyan;
+            Label_Distance_Value.ForeColor = LEDColor;
             Label_Total_Label.ForeColor = Color.White;
-            Label_Total_Value.ForeColor = Color.Cyan;
+            Label_Total_Value.ForeColor = LEDColor;
             Button_Record.Enabled = true;
             Button_Top.Enabled = true;
             Button_Set.Enabled = true;
@@ -127,10 +130,10 @@ namespace Aifrus.SimGPS2
             IconNotifyIcon.Text = "SimGPS is on.";
             MenuItem_Power.Text = "Power Off";
             // Connect the Simulator
-            //Label_GPS_LED.BackColor = Color.Cyan;
+            //Label_GPS_LED.BackColor = LEDColor;
 
             // Start the COM Output
-            //Label_COM_LED.BackColor = Color.Cyan;
+            //Label_COM_LED.BackColor = LEDColor;
 
             // Start the recording
             //Label_Timer_Label.ForeColor = Color.White;

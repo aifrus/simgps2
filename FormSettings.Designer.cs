@@ -73,7 +73,7 @@
             this.Button_Save = new System.Windows.Forms.Button();
             this.GroupBox_Recordings = new System.Windows.Forms.GroupBox();
             this.TextBox_RecordPath = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Button_Browse = new System.Windows.Forms.Button();
             this.GroupBox_AllSettings = new System.Windows.Forms.GroupBox();
             this.GroupBox_Units = new System.Windows.Forms.GroupBox();
             this.GroupBox_Coordinates = new System.Windows.Forms.GroupBox();
@@ -445,6 +445,7 @@
             this.ComboBox_Port.Name = "ComboBox_Port";
             this.ComboBox_Port.Size = new System.Drawing.Size(122, 19);
             this.ComboBox_Port.TabIndex = 4;
+            this.ComboBox_Port.SelectedIndexChanged += new System.EventHandler(this.ComboBox_Port_SelectedIndexChanged);
             // 
             // ComboBox_Baud
             // 
@@ -650,7 +651,7 @@
             // GroupBox_Recordings
             // 
             this.GroupBox_Recordings.Controls.Add(this.TextBox_RecordPath);
-            this.GroupBox_Recordings.Controls.Add(this.button1);
+            this.GroupBox_Recordings.Controls.Add(this.Button_Browse);
             this.GroupBox_Recordings.ForeColor = System.Drawing.Color.White;
             this.GroupBox_Recordings.Location = new System.Drawing.Point(10, 489);
             this.GroupBox_Recordings.Name = "GroupBox_Recordings";
@@ -667,16 +668,17 @@
             this.TextBox_RecordPath.Size = new System.Drawing.Size(330, 18);
             this.TextBox_RecordPath.TabIndex = 19;
             // 
-            // button1
+            // Button_Browse
             // 
-            this.button1.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(359, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "&Browse";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Button_Browse.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_Browse.ForeColor = System.Drawing.Color.Black;
+            this.Button_Browse.Location = new System.Drawing.Point(359, 16);
+            this.Button_Browse.Name = "Button_Browse";
+            this.Button_Browse.Size = new System.Drawing.Size(106, 23);
+            this.Button_Browse.TabIndex = 18;
+            this.Button_Browse.Text = "&Browse";
+            this.Button_Browse.UseVisualStyleBackColor = true;
+            this.Button_Browse.Click += new System.EventHandler(this.Button_Browse_Click);
             // 
             // GroupBox_AllSettings
             // 
@@ -1004,7 +1006,7 @@
         private System.Windows.Forms.Button Button_Save;
         private System.Windows.Forms.GroupBox GroupBox_LED_Color;
         private System.Windows.Forms.GroupBox GroupBox_Recordings;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Button_Browse;
         public System.Windows.Forms.TextBox TextBox_Hostname;
         public System.Windows.Forms.ComboBox ComboBox_Refresh;
         public System.Windows.Forms.ComboBox ComboBox_Baud;

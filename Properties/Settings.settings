@@ -29,8 +29,8 @@
     <Setting Name="LEDColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Cyan</Value>
     </Setting>
-    <Setting Name="RecordingPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">{Documents}\SimGPS Recordings</Value>
+    <Setting Name="RecordPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{My Documents}\SimGPS² Recordings</Value>
     </Setting>
     <Setting Name="Port" Type="System.String" Scope="User">
       <Value Profile="(Default)">Disabled</Value>

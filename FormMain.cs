@@ -6,37 +6,54 @@ namespace Aifrus.SimGPS2
 {
     public partial class FormMain : Form
     {
-        private Properties.Settings Settings = Properties.Settings.Default;
-        private FormSettings FormSettings = new FormSettings();
+        private readonly Properties.Settings Settings = Properties.Settings.Default;
+        private readonly FormSettings FormSettings = new FormSettings();
         private bool bPowerOn = false;
         private bool bWindowDragging = false;
         private Point CursorAtDragStart;
         private Point WindowAtDragStart;
 
-
         public FormMain()
         {
             InitializeComponent();
 
-            this.Location = new Point(Properties.Settings.Default.MainLocationX, Properties.Settings.Default.MainLocationY);
-            this.MouseDown += FormMain_MouseDown;
-            this.MouseMove += FormMain_MouseMove;
-            this.MouseUp += FormMain_MouseUp;
-            this.Button_Hamburger.Click += Button_Hamburger_Click;
-            this.FormClosing += FormMain_FormClosing;
-            this.IconNotifyIcon.Click += NotifyIcon_Click;
-            this.MenuItem_Power.Click += MenuItem_Power_Click;
-            this.MenuItem_Settings.Click += MenuItem_Settings_Click;
-            this.MenuItem_Exit.Click += MenuItem_Exit_Click;
+            Location = new Point(Properties.Settings.Default.MainLocationX, Properties.Settings.Default.MainLocationY);
+            MouseDown += FormMain_MouseDown;
+            MouseMove += FormMain_MouseMove;
+            MouseUp += FormMain_MouseUp;
+            Resize += FormMain_Resize;
+            FormClosing += FormMain_FormClosing;
+            Button_Hamburger.Click += Button_Hamburger_Click;
+            IconNotifyIcon.Click += NotifyIcon_Click;
+            MenuItem_ShowHide.Click += MenuItem_ShowHide_Click;
+            MenuItem_Power.Click += MenuItem_Power_Click;
+            MenuItem_Settings.Click += MenuItem_Settings_Click;
+            MenuItem_Exit.Click += MenuItem_Exit_Click;
+            ApplyViewPreferences();
             PowerOff();
+            if (Settings.AutoPower) PowerOn();
         }
+
+        void ApplyViewPreferences()
+        {
+            TopMost = Settings.TopMost;
+            ShowInTaskbar = Settings.ShowTaskbar;
+            IconNotifyIcon.Visible = Settings.NotifyIcon;
+        }
+
+        void FormMain_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized) MenuItem_ShowHide.Text = "S&how";
+            else MenuItem_ShowHide.Text = "&Hide";
+        }
+
 
         void FormMain_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left) return;
             bWindowDragging = true;
             CursorAtDragStart = Cursor.Position;
-            WindowAtDragStart = this.Location;
+            WindowAtDragStart = Location;
         }
 
         void FormMain_MouseMove(object sender, MouseEventArgs e)
@@ -48,31 +65,35 @@ namespace Aifrus.SimGPS2
             foreach (Screen screen in Screen.AllScreens) combinedBounds = Rectangle.Union(combinedBounds, screen.Bounds);
             if (newLocation.X < combinedBounds.Left) newLocation.X = combinedBounds.Left;
             if (newLocation.Y < combinedBounds.Top) newLocation.Y = combinedBounds.Top;
-            if (newLocation.X > combinedBounds.Right - this.Width) newLocation.X = combinedBounds.Right - this.Width;
-            if (newLocation.Y > combinedBounds.Bottom - this.Height) newLocation.Y = combinedBounds.Bottom - this.Height;
-            this.Location = newLocation;
+            if (newLocation.X > combinedBounds.Right - Width) newLocation.X = combinedBounds.Right - Width;
+            if (newLocation.Y > combinedBounds.Bottom - Height) newLocation.Y = combinedBounds.Bottom - Height;
+            Location = newLocation;
         }
 
         void FormMain_MouseUp(object sender, MouseEventArgs e)
         {
             bWindowDragging = false;
-            Properties.Settings.Default.MainLocationX = this.Location.X;
-            Properties.Settings.Default.MainLocationY = this.Location.Y;
+            Properties.Settings.Default.MainLocationX = Location.X;
+            Properties.Settings.Default.MainLocationY = Location.Y;
             Properties.Settings.Default.Save();
         }
 
         void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.MainLocationX = this.Location.X;
-            Properties.Settings.Default.MainLocationY = this.Location.Y;
+            Properties.Settings.Default.MainLocationX = Location.X;
+            Properties.Settings.Default.MainLocationY = Location.Y;
             Properties.Settings.Default.Save();
         }
 
         private void MenuItem_Settings_Click(object sender, EventArgs e)
         {
             FormSettings.ShowDialog();
-            PowerOff();
-            PowerOn();
+            ApplyViewPreferences();
+            if (bPowerOn)
+            {
+                PowerOff();
+                PowerOn();
+            }
         }
 
         private void MenuItem_Exit_Click(object sender, EventArgs e)
@@ -82,9 +103,9 @@ namespace Aifrus.SimGPS2
 
         private void NotifyIcon_Click(object sender, EventArgs e)
         {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
-            this.Activate();
+            Show();
+            WindowState = FormWindowState.Normal;
+            Activate();
         }
 
         private void Button_Hamburger_Click(object sender, EventArgs e)
@@ -94,7 +115,7 @@ namespace Aifrus.SimGPS2
 
         private void PowerOn()
         {
-            this.bPowerOn = true;
+            bPowerOn = true;
             var LEDColor = Settings.LEDColor;
             Label_Power_Label.ForeColor = Color.White;
             Label_Power_LED.BackColor = LEDColor;
@@ -142,7 +163,7 @@ namespace Aifrus.SimGPS2
 
         private void PowerOff()
         {
-            this.bPowerOn = false;
+            bPowerOn = false;
             // Stop the recording
             // Stop the COM Output
             // Disconnect the Simulator
@@ -201,8 +222,21 @@ namespace Aifrus.SimGPS2
 
         private void MenuItem_Power_Click(object sender, EventArgs e)
         {
-            if (this.bPowerOn) PowerOff();
+            if (bPowerOn) PowerOff();
             else PowerOn();
+        }
+
+        private void MenuItem_ShowHide_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                WindowState = FormWindowState.Normal;
+                Activate();
+            }
+            else
+            {
+                WindowState = FormWindowState.Minimized;
+            }
         }
     }
 }

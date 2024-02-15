@@ -68,6 +68,9 @@
             this.Label_Compass_Value = new System.Windows.Forms.Label();
             this.Label_Speed_Label = new System.Windows.Forms.Label();
             this.Label_Speed_Value = new System.Windows.Forms.Label();
+            this.MenuItem_ShowHide = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,29 +84,32 @@
             // MenuContextMenu
             // 
             this.MenuContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItem_ShowHide,
+            this.toolStripMenuItem2,
             this.MenuItem_Power,
             this.MenuItem_Settings,
+            this.toolStripMenuItem1,
             this.MenuItem_Exit});
             this.MenuContextMenu.Name = "ContextMenu";
-            this.MenuContextMenu.Size = new System.Drawing.Size(127, 70);
+            this.MenuContextMenu.Size = new System.Drawing.Size(127, 104);
             // 
             // MenuItem_Power
             // 
             this.MenuItem_Power.Name = "MenuItem_Power";
             this.MenuItem_Power.Size = new System.Drawing.Size(126, 22);
-            this.MenuItem_Power.Text = "Power On";
+            this.MenuItem_Power.Text = "&Power On";
             // 
             // MenuItem_Settings
             // 
             this.MenuItem_Settings.Name = "MenuItem_Settings";
             this.MenuItem_Settings.Size = new System.Drawing.Size(126, 22);
-            this.MenuItem_Settings.Text = "Settings";
+            this.MenuItem_Settings.Text = "&Settings";
             // 
             // MenuItem_Exit
             // 
             this.MenuItem_Exit.Name = "MenuItem_Exit";
             this.MenuItem_Exit.Size = new System.Drawing.Size(126, 22);
-            this.MenuItem_Exit.Text = "Exit";
+            this.MenuItem_Exit.Text = "E&xit";
             // 
             // Label_Power_LED
             // 
@@ -532,6 +538,23 @@
             this.Label_Speed_Value.Text = "420 KT";
             this.Label_Speed_Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // MenuItem_ShowHide
+            // 
+            this.MenuItem_ShowHide.Name = "MenuItem_ShowHide";
+            this.MenuItem_ShowHide.Size = new System.Drawing.Size(126, 22);
+            this.MenuItem_ShowHide.Text = "&Hide";
+
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(123, 6);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(123, 6);
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -628,6 +651,9 @@
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Settings;
         private System.Windows.Forms.Label Label_Speed_Label;
         private System.Windows.Forms.Label Label_Speed_Value;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_ShowHide;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
 

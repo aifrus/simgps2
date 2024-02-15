@@ -16,7 +16,6 @@ namespace Aifrus.SimGPS2
         private Point WindowAtDragStart;
         private Properties.Settings Settings = Properties.Settings.Default;
 
-
         public FormSettings()
         {
             InitializeComponent();
@@ -93,7 +92,6 @@ namespace Aifrus.SimGPS2
             GroupBox_DeviceType.Enabled = isEnabled;
             GroupBox_NMEA.Enabled = isEnabled;
         }
-
 
         void LoadSettings()
         {
@@ -266,6 +264,7 @@ namespace Aifrus.SimGPS2
             RadioButton_Distance_KM.Checked = false;
             RadioButton_Distance_SM.Checked = false;
             RadioButton_Distance_NM.Checked = true;
+            TextBox_RecordPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SimGPS² Recordings";
             EnableDisable();
             SetSentences("GNSS");
             SaveSettings();

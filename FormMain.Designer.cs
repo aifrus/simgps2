@@ -32,8 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.IconNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.MenuContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuItem_ShowHide = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuItem_Power = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Settings = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.Label_Power_LED = new System.Windows.Forms.Label();
             this.Label_GPS_LED = new System.Windows.Forms.Label();
@@ -68,9 +71,9 @@
             this.Label_Compass_Value = new System.Windows.Forms.Label();
             this.Label_Speed_Label = new System.Windows.Forms.Label();
             this.Label_Speed_Value = new System.Windows.Forms.Label();
-            this.MenuItem_ShowHide = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.Timer_GPS_SlowBlink = new System.Windows.Forms.Timer(this.components);
+            this.Timer_GPS_FastBlink = new System.Windows.Forms.Timer(this.components);
+            this.Timer_GPS_Update = new System.Windows.Forms.Timer(this.components);
             this.MenuContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,6 +96,17 @@
             this.MenuContextMenu.Name = "ContextMenu";
             this.MenuContextMenu.Size = new System.Drawing.Size(127, 104);
             // 
+            // MenuItem_ShowHide
+            // 
+            this.MenuItem_ShowHide.Name = "MenuItem_ShowHide";
+            this.MenuItem_ShowHide.Size = new System.Drawing.Size(126, 22);
+            this.MenuItem_ShowHide.Text = "&Hide";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(123, 6);
+            // 
             // MenuItem_Power
             // 
             this.MenuItem_Power.Name = "MenuItem_Power";
@@ -105,6 +119,11 @@
             this.MenuItem_Settings.Size = new System.Drawing.Size(126, 22);
             this.MenuItem_Settings.Text = "&Settings";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(123, 6);
+            // 
             // MenuItem_Exit
             // 
             this.MenuItem_Exit.Name = "MenuItem_Exit";
@@ -113,30 +132,39 @@
             // 
             // Label_Power_LED
             // 
-            this.Label_Power_LED.BackColor = System.Drawing.Color.Cyan;
-            this.Label_Power_LED.Location = new System.Drawing.Point(72, 18);
+            this.Label_Power_LED.AutoSize = true;
+            this.Label_Power_LED.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Power_LED.ForeColor = System.Drawing.Color.Aqua;
+            this.Label_Power_LED.Location = new System.Drawing.Point(67, 16);
             this.Label_Power_LED.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Power_LED.Name = "Label_Power_LED";
-            this.Label_Power_LED.Size = new System.Drawing.Size(6, 10);
+            this.Label_Power_LED.Size = new System.Drawing.Size(16, 13);
             this.Label_Power_LED.TabIndex = 1;
+            this.Label_Power_LED.Text = "▣";
             // 
             // Label_GPS_LED
             // 
-            this.Label_GPS_LED.BackColor = System.Drawing.Color.Cyan;
-            this.Label_GPS_LED.Location = new System.Drawing.Point(142, 18);
+            this.Label_GPS_LED.AutoSize = true;
+            this.Label_GPS_LED.BackColor = System.Drawing.Color.Transparent;
+            this.Label_GPS_LED.ForeColor = System.Drawing.Color.Aqua;
+            this.Label_GPS_LED.Location = new System.Drawing.Point(137, 16);
             this.Label_GPS_LED.Margin = new System.Windows.Forms.Padding(0);
             this.Label_GPS_LED.Name = "Label_GPS_LED";
-            this.Label_GPS_LED.Size = new System.Drawing.Size(6, 10);
+            this.Label_GPS_LED.Size = new System.Drawing.Size(16, 13);
             this.Label_GPS_LED.TabIndex = 2;
+            this.Label_GPS_LED.Text = "▣";
             // 
             // Label_COM_LED
             // 
-            this.Label_COM_LED.BackColor = System.Drawing.Color.Cyan;
-            this.Label_COM_LED.Location = new System.Drawing.Point(212, 18);
+            this.Label_COM_LED.AutoSize = true;
+            this.Label_COM_LED.BackColor = System.Drawing.Color.Transparent;
+            this.Label_COM_LED.ForeColor = System.Drawing.Color.Aqua;
+            this.Label_COM_LED.Location = new System.Drawing.Point(207, 16);
             this.Label_COM_LED.Margin = new System.Windows.Forms.Padding(0);
             this.Label_COM_LED.Name = "Label_COM_LED";
-            this.Label_COM_LED.Size = new System.Drawing.Size(6, 10);
+            this.Label_COM_LED.Size = new System.Drawing.Size(16, 13);
             this.Label_COM_LED.TabIndex = 3;
+            this.Label_COM_LED.Text = "▣";
             // 
             // Label_Power_Label
             // 
@@ -256,7 +284,7 @@
             // 
             this.Label_VSpeed_Value.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_VSpeed_Value.ForeColor = System.Drawing.Color.Aqua;
-            this.Label_VSpeed_Value.Location = new System.Drawing.Point(137, 89);
+            this.Label_VSpeed_Value.Location = new System.Drawing.Point(138, 89);
             this.Label_VSpeed_Value.Margin = new System.Windows.Forms.Padding(0);
             this.Label_VSpeed_Value.Name = "Label_VSpeed_Value";
             this.Label_VSpeed_Value.Size = new System.Drawing.Size(83, 10);
@@ -357,7 +385,7 @@
             this.Label_Rev_Deg_Label.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Rev_Deg_Label.ForeColor = System.Drawing.Color.White;
             this.Label_Rev_Deg_Label.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Label_Rev_Deg_Label.Location = new System.Drawing.Point(190, 67);
+            this.Label_Rev_Deg_Label.Location = new System.Drawing.Point(191, 67);
             this.Label_Rev_Deg_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Rev_Deg_Label.Name = "Label_Rev_Deg_Label";
             this.Label_Rev_Deg_Label.Size = new System.Drawing.Size(13, 12);
@@ -372,7 +400,7 @@
             this.Label_Mag_Deg_Label.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Mag_Deg_Label.ForeColor = System.Drawing.Color.White;
             this.Label_Mag_Deg_Label.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Label_Mag_Deg_Label.Location = new System.Drawing.Point(190, 44);
+            this.Label_Mag_Deg_Label.Location = new System.Drawing.Point(191, 44);
             this.Label_Mag_Deg_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Label_Mag_Deg_Label.Name = "Label_Mag_Deg_Label";
             this.Label_Mag_Deg_Label.Size = new System.Drawing.Size(13, 12);
@@ -538,22 +566,20 @@
             this.Label_Speed_Value.Text = "420 KT";
             this.Label_Speed_Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // MenuItem_ShowHide
+            // Timer_GPS_SlowBlink
             // 
-            this.MenuItem_ShowHide.Name = "MenuItem_ShowHide";
-            this.MenuItem_ShowHide.Size = new System.Drawing.Size(126, 22);
-            this.MenuItem_ShowHide.Text = "&Hide";
-
+            this.Timer_GPS_SlowBlink.Interval = 1000;
+            this.Timer_GPS_SlowBlink.Tick += new System.EventHandler(this.Timer_GPS_SlowBlink_Tick);
             // 
-            // toolStripMenuItem1
+            // Timer_GPS_FastBlink
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(123, 6);
+            this.Timer_GPS_FastBlink.Interval = 500;
+            this.Timer_GPS_FastBlink.Tick += new System.EventHandler(this.Timer_GPS_FastBlink_Tick);
             // 
-            // toolStripMenuItem2
+            // Timer_GPS_Update
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(123, 6);
+            this.Timer_GPS_Update.Interval = 16;
+            this.Timer_GPS_Update.Tick += new System.EventHandler(this.Timer_GPS_Update_Tick);
             // 
             // FormMain
             // 
@@ -654,6 +680,9 @@
         private System.Windows.Forms.ToolStripMenuItem MenuItem_ShowHide;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.Timer Timer_GPS_SlowBlink;
+        private System.Windows.Forms.Timer Timer_GPS_FastBlink;
+        private System.Windows.Forms.Timer Timer_GPS_Update;
     }
 }
 

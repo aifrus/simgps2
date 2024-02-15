@@ -14,7 +14,7 @@ namespace Aifrus.SimGPS2
         private bool isWindowDragging = false;
         private Point CursorAtDragStart;
         private Point WindowAtDragStart;
-        private Properties.Settings Settings = Properties.Settings.Default;
+        private readonly Properties.Settings Settings = Properties.Settings.Default;
 
         public FormSettings()
         {
@@ -127,7 +127,7 @@ namespace Aifrus.SimGPS2
             CheckBox_GSA.Checked = Settings.GSA;
             RadioButton_Hemi_NESW.Checked = Settings.HemisphereNESW;
             RadioButton_Hemi_PM.Checked = !Settings.HemisphereNESW;
-            RadioButton_Num_DMS.Checked = Settings.LatLonFormat == "DMS";
+            RadioButton_Num_DMS.Checked = Settings.LatLonFormat == "DDD° MM' SS\"";
             RadioButton_Num_Decimal.Checked = Settings.LatLonFormat == "Decimal";
             RadioButton_Altitude_FT.Checked = Settings.UnitsAltitude == "FT";
             RadioButton_Altitude_M.Checked = Settings.UnitsAltitude == "M";
@@ -220,8 +220,10 @@ namespace Aifrus.SimGPS2
 
         private void Button_LED_Color_Click(object sender, EventArgs e)
         {
-            var colorDialog = new ColorDialog();
-            colorDialog.Color = Button_LED_Color.BackColor;
+            var colorDialog = new ColorDialog
+            {
+                Color = Button_LED_Color.BackColor
+            };
             colorDialog.ShowDialog();
             Button_LED_Color.BackColor = colorDialog.Color;
         }
@@ -294,8 +296,10 @@ namespace Aifrus.SimGPS2
 
         private void Button_Browse_Click(object sender, EventArgs e)
         {
-            var folderBrowserDialog = new FolderBrowserDialog();
-            folderBrowserDialog.SelectedPath = TextBox_RecordPath.Text;
+            var folderBrowserDialog = new FolderBrowserDialog
+            {
+                SelectedPath = TextBox_RecordPath.Text
+            };
             folderBrowserDialog.ShowDialog();
             TextBox_RecordPath.Text = folderBrowserDialog.SelectedPath;
         }

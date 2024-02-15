@@ -373,7 +373,7 @@ namespace Aifrus.SimGPS2.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DMS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DDD° MM\' SS\"")]
         public string LatLonFormat {
             get {
                 return ((string)(this["LatLonFormat"]));

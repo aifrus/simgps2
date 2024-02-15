@@ -8,7 +8,7 @@ namespace Aifrus.SimGPS2
     {
         private readonly Properties.Settings Settings = Properties.Settings.Default;
         private readonly FormSettings FormSettings = new FormSettings();
-        private SimConnectClient simConnectClient;
+        private readonly SimConnectClient simConnectClient;
         private bool bPowerOn = false;
         private bool bWindowDragging = false;
         private Point CursorAtDragStart;
@@ -17,6 +17,7 @@ namespace Aifrus.SimGPS2
         public FormMain()
         {
             InitializeComponent();
+            simConnectClient = new SimConnectClient(this);
             Location = new Point(Properties.Settings.Default.MainLocationX, Properties.Settings.Default.MainLocationY);
             MouseDown += FormMain_MouseDown;
             MouseMove += FormMain_MouseMove;
@@ -32,6 +33,16 @@ namespace Aifrus.SimGPS2
             ApplyViewPreferences();
             PowerOff();
             if (Settings.AutoPower) PowerOn();
+        }
+
+        protected override void DefWndProc(ref Message m)
+        {
+            if (m.Msg != SimConnectClient.WM_USER_SIMCONNECT)
+            {
+                base.DefWndProc(ref m);
+                return;
+            }
+            simConnectClient.ReceiveMessage();
         }
 
         void ApplyViewPreferences()
@@ -118,7 +129,7 @@ namespace Aifrus.SimGPS2
             bPowerOn = true;
             var LEDColor = Settings.LEDColor;
             Label_Power_Label.ForeColor = Color.White;
-            Label_Power_LED.BackColor = LEDColor;
+            Label_Power_LED.ForeColor = LEDColor;
             Label_GPS_Label.ForeColor = Color.White;
             Label_COM_Label.ForeColor = Color.White;
             Label_Compass_Value.ForeColor = LEDColor;
@@ -151,11 +162,11 @@ namespace Aifrus.SimGPS2
             IconNotifyIcon.Text = "SimGPS is on.";
             MenuItem_Power.Text = "Power Off";
             // Connect the Simulator
-            simConnectClient = new SimConnectClient(this);
-            simConnectClient.Connect();
+            Timer_GPS_SlowBlink.Start();
+            simConnectClient.Connect(Settings.Hostname);
 
             // Start the COM Output
-            //Label_COM_LED.BackColor = LEDColor;
+            //Label_COM_LED.ForeColor = LEDColor;
 
             // Start the recording
             //Label_Timer_Label.ForeColor = Color.White;
@@ -168,13 +179,18 @@ namespace Aifrus.SimGPS2
             // Stop the recording
             // Stop the COM Output
             // Disconnect the Simulator
+            Timer_GPS_SlowBlink.Stop();
+            Timer_GPS_FastBlink.Stop();
+            Timer_GPS_Update.Stop();
+            simConnectClient.Disconnect();
+
             Color DarkGray = Color.FromArgb(32, 32, 32);
             Label_Power_Label.ForeColor = DarkGray;
-            Label_Power_LED.BackColor = DarkGray;
+            Label_Power_LED.ForeColor = DarkGray;
             Label_GPS_Label.ForeColor = DarkGray;
-            Label_GPS_LED.BackColor = DarkGray;
+            Label_GPS_LED.ForeColor = DarkGray;
             Label_COM_Label.ForeColor = DarkGray;
-            Label_COM_LED.BackColor = DarkGray;
+            Label_COM_LED.ForeColor = DarkGray;
             Label_Compass_Value.ForeColor = DarkGray;
             Label_Timer_Label.ForeColor = DarkGray;
             Label_Timer_Value.ForeColor = DarkGray;
@@ -206,17 +222,17 @@ namespace Aifrus.SimGPS2
             Button_Record.FlatAppearance.BorderColor = DarkGray;
             Button_Top.FlatAppearance.BorderColor = DarkGray;
             Button_Set.FlatAppearance.BorderColor = DarkGray;
-            Label_Compass_Value.Text = "---";
-            Label_Timer_Value.Text = "---:--:--";
-            Label_Latitude_Value.Text = "----° --' --\"";
-            Label_Longitude_Value.Text = "----° --' --\"";
-            Label_Altitude_Value.Text = "- FT";
-            Label_VSpeed_Value.Text = "--";
-            Label_Speed_Value.Text = "-- KT";
-            Label_Mag_Value.Text = "---";
-            Label_Rev_Value.Text = "---";
-            Label_Distance_Value.Text = "- NM";
-            Label_Total_Value.Text = "- NM";
+            Label_Compass_Value.Text = "▣▣▣";
+            Label_Timer_Value.Text = "▣▣▣▣▣▣▣▣▣";
+            Label_Latitude_Value.Text = "▣▣▣▣▣▣▣▣▣▣▣▣▣";
+            Label_Longitude_Value.Text = "▣▣▣▣▣▣▣▣▣▣▣▣▣";
+            Label_Altitude_Value.Text = "▣▣▣▣▣▣▣▣▣";
+            Label_VSpeed_Value.Text = "▣▣▣";
+            Label_Speed_Value.Text = "▣▣▣▣▣▣";
+            Label_Mag_Value.Text = "▣▣▣";
+            Label_Rev_Value.Text = "▣▣▣";
+            Label_Distance_Value.Text = "▣▣▣▣▣▣";
+            Label_Total_Value.Text = "▣▣▣▣▣▣";
             IconNotifyIcon.Text = "SimGPS is off.";
             MenuItem_Power.Text = "Power On";
         }
@@ -242,23 +258,141 @@ namespace Aifrus.SimGPS2
 
         public void SimConnected()
         {
-            Label_GPS_LED.BackColor = Settings.LEDColor;
+            Timer_GPS_SlowBlink.Stop();
+            Timer_GPS_FastBlink.Start();
+            Timer_GPS_Update.Start();
         }
 
         public void SimDisconnected()
         {
-            Label_GPS_LED.BackColor = Color.FromArgb(32, 32, 32);
+            Timer_GPS_Update.Stop();
+            Timer_GPS_FastBlink.Stop();
+            Label_GPS_LED.ForeColor = Color.FromArgb(32, 32, 32);
+        }
+
+        private void Timer_GPS_SlowBlink_Tick(object sender, EventArgs e)
+        {
+            Label_GPS_LED.ForeColor = Label_GPS_LED.ForeColor == Settings.LEDColor ? Color.FromArgb(32, 32, 32) : Settings.LEDColor;
+        }
+
+        private void Timer_GPS_FastBlink_Tick(object sender, EventArgs e)
+        {
+            Label_GPS_LED.ForeColor = Label_GPS_LED.ForeColor == Settings.LEDColor ? Color.FromArgb(32, 32, 32) : Settings.LEDColor;
+        }
+
+        private void Timer_GPS_Update_Tick(object sender, EventArgs e)
+        {
+            simConnectClient.RequestData();
         }
 
         public void UpdateSimData(SimConnectClient.Struct1 data)
         {
-            // Use data.latitude, data.longitude, etc. here
-            Label_Latitude_Value.Text = $"{data.latitude}°";
-            Label_Longitude_Value.Text = $"{data.longitude}°";
-            Label_Mag_Value.Text = $"{data.magCourse}°";
-            Label_Altitude_Value.Text = $"{data.altitude} M";
-            Label_VSpeed_Value.Text = $"{data.verticalSpeed} M/M";
-            Label_Speed_Value.Text = $"{data.groundSpeed} M/S";
+            Label_GPS_LED.ForeColor = Settings.LEDColor;
+            Label_Latitude_Value.Text = Display_Latitude(data.latitude);
+            Label_Longitude_Value.Text = Display_Longitude(data.longitude);
+            Label_Compass_Value.Text = Display_Compass(data.magCourse);
+            Label_Mag_Value.Text = Display_MagCourse(data.magCourse);
+            Label_Rev_Value.Text = Display_RevCourse(data.magCourse);
+            Label_Altitude_Value.Text = Display_Altitude(data.altitude);
+            Label_VSpeed_Value.Text = Display_VSpeed(data.verticalSpeed);
+            Label_Speed_Value.Text = Display_Speed(data.groundSpeed);
         }
+        private string Display_Latitude(double latitude)
+        {
+            string result = Settings.HemisphereNESW ? latitude >= 0 ? "N" : "S" : latitude >= 0 ? "+" : "-";
+            if (Settings.LatLonFormat == "Decimal")
+            {
+                result += " " + Math.Abs(latitude).ToString("00.000000");
+            }
+            else
+            {
+                double absLat = Math.Abs(latitude);
+                int degrees = (int)Math.Floor(absLat);
+                double decimalMinutes = (absLat - degrees) * 60;
+                int minutes = (int)Math.Floor(decimalMinutes);
+                double seconds = (decimalMinutes - minutes) * 60;
+                result += $" {degrees:00}° {minutes:00}' {seconds:00}\"";
+            }
+            return result;
+        }
+
+        private string Display_Longitude(double longitude)
+        {
+            string result = Settings.HemisphereNESW ? longitude >= 0 ? "E" : "W" : longitude >= 0 ? "+" : "-";
+            if (Settings.LatLonFormat == "Decimal")
+            {
+                result += Math.Abs(longitude).ToString("000.000000");
+            }
+            else
+            {
+                double absLon = Math.Abs(longitude);
+                int degrees = (int)Math.Floor(absLon);
+                double decimalMinutes = (absLon - degrees) * 60;
+                int minutes = (int)Math.Floor(decimalMinutes);
+                double seconds = (decimalMinutes - minutes) * 60;
+                result += $"{degrees:000}° {minutes:00}' {seconds:00}\"";
+            }
+            return result;
+        }
+
+
+        private string Display_Altitude(double altitude)
+        {
+            if (Settings.UnitsAltitude == "FT")
+            {
+                return $"{altitude * 3.28084:N0} FT";
+            }
+            else
+            {
+                return $"{altitude:N0} M";
+            }
+        }
+
+
+        private string Display_Compass(double magCourse)
+        {
+            string[] compass = { "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW" };
+            return compass[(int)Math.Round(magCourse / 22.5) % 16];
+        }
+
+        private string Display_MagCourse(double magCourse)
+        {
+            return $"{Math.Round(magCourse):000}°";
+        }
+
+        private string Display_RevCourse(double magCourse)
+        {
+            return $"{Math.Round((magCourse + 180) % 360):000}°";
+        }
+
+        private string Display_VSpeed(double verticalSpeed)
+        {
+            if (Settings.UnitsAltitude == "FT")
+            {
+                return (verticalSpeed * 3.28084).ToString("+#,##0;-#,##0");
+            }
+            else
+            {
+                return verticalSpeed.ToString("+#,##0;-#,##0");
+            }
+        }
+
+        private string Display_Speed(double groundSpeed)
+        {
+            if (Settings.UnitsSpeed == "KT")
+            {
+                return (Math.Abs(groundSpeed) * 1.94384).ToString("#,##0") + " KT";
+            }
+            else if (Settings.UnitsSpeed == "KMH")
+            {
+                return (Math.Abs(groundSpeed) * 3.6).ToString("#,##0") + " KMH";
+            }
+            else if (Settings.UnitsSpeed == "MPH")
+            {
+                return (Math.Abs(groundSpeed) * 2.23694).ToString("#,##0") + " MPH";
+            }
+            return Math.Abs(groundSpeed).ToString("#,##0") + " M/S";
+        }
+
     }
 }

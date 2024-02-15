@@ -90,7 +90,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="LatLonFormat" Type="System.String" Scope="User">
-      <Value Profile="(Default)">DMS</Value>
+      <Value Profile="(Default)">DDD° MM' SS"</Value>
     </Setting>
   </Settings>
 </SettingsFile>

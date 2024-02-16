@@ -11,6 +11,12 @@ namespace Aifrus.SimGPS2
         private readonly SimConnectClient simConnectClient;
         private bool bPowerOn = false;
         private bool bWindowDragging = false;
+        private bool bShowTop = false;
+        private bool bShowTopMin = false;
+        private double MaxSpeed = 0;
+        private double MaxAltitude = 0;
+        private double MaxVSpeed = 0;
+        private double MinVSpeed = 0;
         private Point CursorAtDragStart;
         private Point WindowAtDragStart;
 
@@ -30,6 +36,8 @@ namespace Aifrus.SimGPS2
             MenuItem_Power.Click += MenuItem_Power_Click;
             MenuItem_Settings.Click += MenuItem_Settings_Click;
             MenuItem_Exit.Click += MenuItem_Exit_Click;
+            Button_Top.MouseDown += Button_Top_MouseDown;
+            Button_Top.MouseUp += Button_Top_MouseUp;
             ApplyViewPreferences();
             PowerOff();
             if (Settings.AutoPower) PowerOn();
@@ -122,6 +130,18 @@ namespace Aifrus.SimGPS2
         private void Button_Hamburger_Click(object sender, EventArgs e)
         {
             MenuContextMenu.Show(Button_Hamburger, 0, Button_Hamburger.Height);
+        }
+
+        private void Button_Top_MouseDown(object sender, MouseEventArgs e)
+        {
+            bShowTop = true;
+            Timer_Top_Min.Start();
+        }
+
+        private void Button_Top_MouseUp(object sender, MouseEventArgs e)
+        {
+            bShowTop = false;
+            Timer_Top_Min.Stop();
         }
 
         private void PowerOn()
@@ -285,14 +305,31 @@ namespace Aifrus.SimGPS2
             simConnectClient.RequestData();
         }
 
+        private void Timer_Top_Min_Tick(object sender, EventArgs e)
+        {
+            bShowTopMin = !bShowTopMin;
+        }
+
         public void UpdateSimData(SimConnectClient.Struct1 data)
         {
+            if (data.groundSpeed > MaxSpeed) MaxSpeed = data.groundSpeed;
+            if (data.altitude > MaxAltitude) MaxAltitude = data.altitude;
+            if (data.verticalSpeed > MaxVSpeed) MaxVSpeed = data.verticalSpeed;
+            if (data.verticalSpeed < MinVSpeed) MinVSpeed = data.verticalSpeed;
             Label_GPS_LED.ForeColor = Settings.LEDColor;
             Label_Latitude_Value.Text = Display_Latitude(data.latitude);
             Label_Longitude_Value.Text = Display_Longitude(data.longitude);
             Label_Compass_Value.Text = Display_Compass(data.magCourse);
             Label_Mag_Value.Text = Display_MagCourse(data.magCourse);
             Label_Rev_Value.Text = Display_RevCourse(data.magCourse);
+            if (bShowTop)
+            {
+                Label_Altitude_Value.Text = Display_Altitude(MaxAltitude);
+                Label_Speed_Value.Text = Display_Speed(MaxSpeed);
+                if (bShowTopMin) Label_VSpeed_Value.Text = Display_VSpeed(MinVSpeed);
+                else Label_VSpeed_Value.Text = Display_VSpeed(MaxVSpeed);
+                return;
+            }
             Label_Altitude_Value.Text = Display_Altitude(data.altitude);
             Label_VSpeed_Value.Text = Display_VSpeed(data.verticalSpeed);
             Label_Speed_Value.Text = Display_Speed(data.groundSpeed);
@@ -393,6 +430,5 @@ namespace Aifrus.SimGPS2
             }
             return Math.Abs(groundSpeed).ToString("#,##0") + " M/S";
         }
-
     }
 }

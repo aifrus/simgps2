@@ -74,6 +74,7 @@
             this.Timer_GPS_SlowBlink = new System.Windows.Forms.Timer(this.components);
             this.Timer_GPS_FastBlink = new System.Windows.Forms.Timer(this.components);
             this.Timer_GPS_Update = new System.Windows.Forms.Timer(this.components);
+            this.Timer_Top_Min = new System.Windows.Forms.Timer(this.components);
             this.MenuContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -581,6 +582,11 @@
             this.Timer_GPS_Update.Interval = 16;
             this.Timer_GPS_Update.Tick += new System.EventHandler(this.Timer_GPS_Update_Tick);
             // 
+            // Timer_Top_Min
+            // 
+            this.Timer_Top_Min.Interval = 1000;
+            this.Timer_Top_Min.Tick += new System.EventHandler(this.Timer_Top_Min_Tick);
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -683,6 +689,7 @@
         private System.Windows.Forms.Timer Timer_GPS_SlowBlink;
         private System.Windows.Forms.Timer Timer_GPS_FastBlink;
         private System.Windows.Forms.Timer Timer_GPS_Update;
+        private System.Windows.Forms.Timer Timer_Top_Min;
     }
 }
 

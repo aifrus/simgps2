@@ -40,12 +40,20 @@ namespace Aifrus.SimGPS2
 
         }
 
-        public void Connect(string Hostname = "localhost", int Port = 500, string Protocol = "IPv4", int MaxReceiveSize = 4096, int DisableNagle = 0)
+        public bool Connect(string Hostname = "localhost", int Port = 500, string Protocol = "IPv4", int MaxReceiveSize = 4096, int DisableNagle = 0)
         {
             string FileContent = "[SimConnect]\nProtocol=" + Protocol + "\nPort=" + Port + "\nAddress=" + Hostname + "\nMaxReceiveSize=" + MaxReceiveSize + "\nDisableNagle=" + DisableNagle;
             System.IO.File.WriteAllText("SimConnect.cfg", FileContent);
-            my_simconnect = new SimConnect("Managed Data Request", FormMain.Handle, WM_USER_SIMCONNECT, null, 0);
+            try
+            {
+                my_simconnect = new SimConnect("Managed Data Request", FormMain.Handle, WM_USER_SIMCONNECT, null, 0);
+            }
+            catch (COMException e)
+            {
+                return false;
+            }
             InitDataRequest();
+            return true;
         }
 
         public void Disconnect()

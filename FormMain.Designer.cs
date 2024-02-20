@@ -481,6 +481,7 @@
             this.Button_Set.TabIndex = 2;
             this.Button_Set.Text = "SET";
             this.Button_Set.UseVisualStyleBackColor = false;
+            this.Button_Set.Click += new System.EventHandler(this.Button_Set_Click);
             // 
             // Label_Distance_Label
             // 

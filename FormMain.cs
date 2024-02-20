@@ -8,7 +8,9 @@ namespace Aifrus.SimGPS2
     {
         private readonly Properties.Settings Settings = Properties.Settings.Default;
         private readonly FormSettings FormSettings = new FormSettings();
+        private readonly HttpServer _server;
         private readonly SimConnectClient simConnectClient;
+        private SimConnectClient.Struct1 simData;
         private bool bPowerOn = false;
         private bool bWindowDragging = false;
         private bool bShowTop = false;
@@ -17,12 +19,19 @@ namespace Aifrus.SimGPS2
         private double MaxAltitude = 0;
         private double MaxVSpeed = 0;
         private double MinVSpeed = 0;
+        private double MaxDistance = 0;
+        private double TotalDistance = 0;
+        private double PinLatitude = 0;
+        private double PinLongitude = 0;
+        private double LastLatitude = 0;
+        private double LastLongitude = 0;
         private Point CursorAtDragStart;
         private Point WindowAtDragStart;
 
         public FormMain()
         {
             InitializeComponent();
+            _server = new HttpServer("http://*:5000/", () => simData);
             simConnectClient = new SimConnectClient(this);
             Location = new Point(Properties.Settings.Default.MainLocationX, Properties.Settings.Default.MainLocationY);
             MouseDown += FormMain_MouseDown;
@@ -132,6 +141,11 @@ namespace Aifrus.SimGPS2
             MenuContextMenu.Show(Button_Hamburger, 0, Button_Hamburger.Height);
         }
 
+        private void Button_Set_Click(object sender, EventArgs e)
+        {
+            InfoClear();
+        }
+
         private void Button_Top_MouseDown(object sender, MouseEventArgs e)
         {
             bShowTop = true;
@@ -144,8 +158,23 @@ namespace Aifrus.SimGPS2
             Timer_Top_Min.Stop();
         }
 
-        private void PowerOn()
+        private void InfoClear()
         {
+            MaxAltitude = 0;
+            MaxSpeed = 0;
+            MaxVSpeed = 0;
+            MinVSpeed = 0;
+            MaxDistance = 0;
+            TotalDistance = 0;
+            PinLatitude = 0;
+            PinLongitude = 0;
+            LastLatitude = 0;
+            LastLongitude = 0;
+        }
+
+        private async void PowerOn()
+        {
+            InfoClear();
             bPowerOn = true;
             var LEDColor = Settings.LEDColor;
             Label_Power_Label.ForeColor = Color.White;
@@ -181,9 +210,17 @@ namespace Aifrus.SimGPS2
             Button_Set.FlatAppearance.BorderColor = Color.DarkGray;
             IconNotifyIcon.Text = "SimGPS is on.";
             MenuItem_Power.Text = "Power Off";
+
             // Connect the Simulator
             Timer_GPS_SlowBlink.Start();
-            simConnectClient.Connect(Settings.Hostname);
+            if (!simConnectClient.Connect(Settings.Hostname))
+            {
+                Label_GPS_LED.ForeColor = Color.Red;
+                return;
+            }
+
+            // Start the HTTP Server
+            await _server.StartServer();
 
             // Start the COM Output
             //Label_COM_LED.ForeColor = LEDColor;
@@ -195,9 +232,14 @@ namespace Aifrus.SimGPS2
 
         private void PowerOff()
         {
+            InfoClear();
             bPowerOn = false;
             // Stop the recording
             // Stop the COM Output
+
+            // Stop the HTTP Server
+            _server.Stop();
+
             // Disconnect the Simulator
             Timer_GPS_SlowBlink.Stop();
             Timer_GPS_FastBlink.Stop();
@@ -312,10 +354,25 @@ namespace Aifrus.SimGPS2
 
         public void UpdateSimData(SimConnectClient.Struct1 data)
         {
+            simData = data;
             if (data.groundSpeed > MaxSpeed) MaxSpeed = data.groundSpeed;
             if (data.altitude > MaxAltitude) MaxAltitude = data.altitude;
             if (data.verticalSpeed > MaxVSpeed) MaxVSpeed = data.verticalSpeed;
             if (data.verticalSpeed < MinVSpeed) MinVSpeed = data.verticalSpeed;
+
+            if (PinLatitude == 0) PinLatitude = data.latitude;
+            if (PinLongitude == 0) PinLongitude = data.longitude;
+            if (LastLatitude == 0) LastLatitude = data.latitude;
+            if (LastLongitude == 0) LastLongitude = data.longitude;
+            TotalDistance += Distance(LastLatitude, LastLongitude, data.latitude, data.longitude);
+            Label_Total_Value.Text = Display_Distance(TotalDistance);
+            LastLatitude = data.latitude;
+            LastLongitude = data.longitude;
+            double CurrentDistance = Distance(PinLatitude, PinLongitude, data.latitude, data.longitude);
+            if (CurrentDistance > MaxDistance) MaxDistance = CurrentDistance;
+            if (bShowTop) Label_Distance_Value.Text = Display_Distance(MaxDistance);
+            else Label_Distance_Value.Text = Display_Distance(CurrentDistance);
+
             Label_GPS_LED.ForeColor = Settings.LEDColor;
             Label_Latitude_Value.Text = Display_Latitude(data.latitude);
             Label_Longitude_Value.Text = Display_Longitude(data.longitude);
@@ -334,6 +391,35 @@ namespace Aifrus.SimGPS2
             Label_VSpeed_Value.Text = Display_VSpeed(data.verticalSpeed);
             Label_Speed_Value.Text = Display_Speed(data.groundSpeed);
         }
+
+        private double Distance(double lat1, double lon1, double lat2, double lon2)
+        {
+            double R = 6371; // Radius of the earth in km
+            double dLat = (lat2 - lat1) * Math.PI / 180;  // deg2rad below
+            double dLon = (lon2 - lon1) * Math.PI / 180;
+            double a = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                    Math.Cos(lat1 * Math.PI / 180) * Math.Cos(lat2 * Math.PI / 180) *
+                    Math.Sin(dLon / 2) * Math.Sin(dLon / 2);
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            return R * c; // Distance in km
+        }
+
+        private string Display_Distance(double distance)
+        {
+            if (Settings.UnitsDistance == "NM")
+            {
+                return (distance * 0.539957).ToString("#,##0.0") + " NM";
+            }
+            else if (Settings.UnitsDistance == "KM")
+            {
+                return distance.ToString("#,##0.0") + " KM";
+            }
+            else
+            {
+                return (distance * 0.621371).ToString("#,##0.0") + " SM";
+            }
+        }
+
         private string Display_Latitude(double latitude)
         {
             string result = Settings.HemisphereNESW ? latitude >= 0 ? "N" : "S" : latitude >= 0 ? "+" : "-";

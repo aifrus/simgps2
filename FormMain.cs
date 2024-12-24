@@ -8,7 +8,6 @@ namespace Aifrus.SimGPS2
     {
         private readonly Properties.Settings Settings = Properties.Settings.Default;
         private readonly FormSettings FormSettings = new FormSettings();
-        private readonly HttpServer _server;
         private readonly SimConnectClient simConnectClient;
         private SimConnectClient.Struct1 simData;
         private bool bPowerOn = false;
@@ -31,7 +30,6 @@ namespace Aifrus.SimGPS2
         public FormMain()
         {
             InitializeComponent();
-            _server = new HttpServer("http://*:5000/", () => simData);
             simConnectClient = new SimConnectClient(this);
             Location = new Point(Properties.Settings.Default.MainLocationX, Properties.Settings.Default.MainLocationY);
             MouseDown += FormMain_MouseDown;
@@ -219,9 +217,6 @@ namespace Aifrus.SimGPS2
                 return;
             }
 
-            // Start the HTTP Server
-            await _server.StartServer();
-
             // Start the COM Output
             //Label_COM_LED.ForeColor = LEDColor;
 
@@ -236,9 +231,6 @@ namespace Aifrus.SimGPS2
             bPowerOn = false;
             // Stop the recording
             // Stop the COM Output
-
-            // Stop the HTTP Server
-            _server.Stop();
 
             // Disconnect the Simulator
             Timer_GPS_SlowBlink.Stop();

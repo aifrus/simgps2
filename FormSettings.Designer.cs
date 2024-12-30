@@ -73,7 +73,7 @@
             this.Button_Save = new System.Windows.Forms.Button();
             this.GroupBox_Recordings = new System.Windows.Forms.GroupBox();
             this.TextBox_RecordPath = new System.Windows.Forms.TextBox();
-            this.Button_Browse = new System.Windows.Forms.Button();
+            this.Button_KML_Browse = new System.Windows.Forms.Button();
             this.GroupBox_AllSettings = new System.Windows.Forms.GroupBox();
             this.GroupBox_Units = new System.Windows.Forms.GroupBox();
             this.GroupBox_Coordinates = new System.Windows.Forms.GroupBox();
@@ -96,6 +96,9 @@
             this.RadioButton_Speed_MPH = new System.Windows.Forms.RadioButton();
             this.RadioButton_Speed_KT = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TextBox_OBSPath = new System.Windows.Forms.TextBox();
+            this.Button_OBS_Browse = new System.Windows.Forms.Button();
             this.GroupBox_FlightSimulator.SuspendLayout();
             this.GroupBox_COM.SuspendLayout();
             this.GroupBox_NMEA.SuspendLayout();
@@ -113,6 +116,7 @@
             this.GroupBox_Altitude.SuspendLayout();
             this.GroupBox_Distance.SuspendLayout();
             this.GroupBox_Speed.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label_Hostname
@@ -193,7 +197,7 @@
             // 
             this.Button_Defaults.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Defaults.ForeColor = System.Drawing.Color.Black;
-            this.Button_Defaults.Location = new System.Drawing.Point(33, 559);
+            this.Button_Defaults.Location = new System.Drawing.Point(32, 666);
             this.Button_Defaults.Name = "Button_Defaults";
             this.Button_Defaults.Size = new System.Drawing.Size(106, 23);
             this.Button_Defaults.TabIndex = 2;
@@ -628,7 +632,7 @@
             this.Button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Button_Cancel.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Cancel.ForeColor = System.Drawing.Color.Black;
-            this.Button_Cancel.Location = new System.Drawing.Point(369, 559);
+            this.Button_Cancel.Location = new System.Drawing.Point(368, 666);
             this.Button_Cancel.Name = "Button_Cancel";
             this.Button_Cancel.Size = new System.Drawing.Size(106, 23);
             this.Button_Cancel.TabIndex = 14;
@@ -640,7 +644,7 @@
             // 
             this.Button_Save.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Save.ForeColor = System.Drawing.Color.Black;
-            this.Button_Save.Location = new System.Drawing.Point(257, 559);
+            this.Button_Save.Location = new System.Drawing.Point(256, 666);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(106, 23);
             this.Button_Save.TabIndex = 15;
@@ -651,14 +655,14 @@
             // GroupBox_Recordings
             // 
             this.GroupBox_Recordings.Controls.Add(this.TextBox_RecordPath);
-            this.GroupBox_Recordings.Controls.Add(this.Button_Browse);
+            this.GroupBox_Recordings.Controls.Add(this.Button_KML_Browse);
             this.GroupBox_Recordings.ForeColor = System.Drawing.Color.White;
             this.GroupBox_Recordings.Location = new System.Drawing.Point(10, 489);
             this.GroupBox_Recordings.Name = "GroupBox_Recordings";
             this.GroupBox_Recordings.Size = new System.Drawing.Size(492, 54);
             this.GroupBox_Recordings.TabIndex = 17;
             this.GroupBox_Recordings.TabStop = false;
-            this.GroupBox_Recordings.Text = "Recordings Folder";
+            this.GroupBox_Recordings.Text = "KML Recordings Folder";
             // 
             // TextBox_RecordPath
             // 
@@ -668,21 +672,22 @@
             this.TextBox_RecordPath.Size = new System.Drawing.Size(330, 18);
             this.TextBox_RecordPath.TabIndex = 19;
             // 
-            // Button_Browse
+            // Button_KML_Browse
             // 
-            this.Button_Browse.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_Browse.ForeColor = System.Drawing.Color.Black;
-            this.Button_Browse.Location = new System.Drawing.Point(359, 16);
-            this.Button_Browse.Name = "Button_Browse";
-            this.Button_Browse.Size = new System.Drawing.Size(106, 23);
-            this.Button_Browse.TabIndex = 18;
-            this.Button_Browse.Text = "&Browse";
-            this.Button_Browse.UseVisualStyleBackColor = true;
-            this.Button_Browse.Click += new System.EventHandler(this.Button_Browse_Click);
+            this.Button_KML_Browse.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_KML_Browse.ForeColor = System.Drawing.Color.Black;
+            this.Button_KML_Browse.Location = new System.Drawing.Point(359, 16);
+            this.Button_KML_Browse.Name = "Button_KML_Browse";
+            this.Button_KML_Browse.Size = new System.Drawing.Size(106, 23);
+            this.Button_KML_Browse.TabIndex = 18;
+            this.Button_KML_Browse.Text = "&Browse";
+            this.Button_KML_Browse.UseVisualStyleBackColor = true;
+            this.Button_KML_Browse.Click += new System.EventHandler(this.Button_Browse_Click);
             // 
             // GroupBox_AllSettings
             // 
             this.GroupBox_AllSettings.BackColor = System.Drawing.Color.Transparent;
+            this.GroupBox_AllSettings.Controls.Add(this.groupBox1);
             this.GroupBox_AllSettings.Controls.Add(this.GroupBox_Units);
             this.GroupBox_AllSettings.Controls.Add(this.button2);
             this.GroupBox_AllSettings.Controls.Add(this.GroupBox_Recordings);
@@ -697,7 +702,7 @@
             this.GroupBox_AllSettings.ForeColor = System.Drawing.Color.White;
             this.GroupBox_AllSettings.Location = new System.Drawing.Point(3, 0);
             this.GroupBox_AllSettings.Name = "GroupBox_AllSettings";
-            this.GroupBox_AllSettings.Size = new System.Drawing.Size(508, 595);
+            this.GroupBox_AllSettings.Size = new System.Drawing.Size(508, 700);
             this.GroupBox_AllSettings.TabIndex = 18;
             this.GroupBox_AllSettings.TabStop = false;
             this.GroupBox_AllSettings.Text = "SimGPS² Settings";
@@ -925,12 +930,43 @@
             // 
             this.button2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(145, 559);
+            this.button2.Location = new System.Drawing.Point(144, 666);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(106, 23);
             this.button2.TabIndex = 18;
             this.button2.Text = "&Help";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.TextBox_OBSPath);
+            this.groupBox1.Controls.Add(this.Button_OBS_Browse);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(10, 549);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(492, 54);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "OBS Text";
+            // 
+            // TextBox_OBSPath
+            // 
+            this.TextBox_OBSPath.Location = new System.Drawing.Point(23, 19);
+            this.TextBox_OBSPath.Name = "TextBox_OBSPath";
+            this.TextBox_OBSPath.ReadOnly = true;
+            this.TextBox_OBSPath.Size = new System.Drawing.Size(330, 18);
+            this.TextBox_OBSPath.TabIndex = 19;
+            // 
+            // Button_OBS_Browse
+            // 
+            this.Button_OBS_Browse.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_OBS_Browse.ForeColor = System.Drawing.Color.Black;
+            this.Button_OBS_Browse.Location = new System.Drawing.Point(359, 16);
+            this.Button_OBS_Browse.Name = "Button_OBS_Browse";
+            this.Button_OBS_Browse.Size = new System.Drawing.Size(106, 23);
+            this.Button_OBS_Browse.TabIndex = 18;
+            this.Button_OBS_Browse.Text = "&Browse";
+            this.Button_OBS_Browse.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
@@ -939,7 +975,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.Button_Cancel;
-            this.ClientSize = new System.Drawing.Size(513, 596);
+            this.ClientSize = new System.Drawing.Size(513, 701);
             this.ControlBox = false;
             this.Controls.Add(this.GroupBox_AllSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -978,6 +1014,8 @@
             this.GroupBox_Distance.PerformLayout();
             this.GroupBox_Speed.ResumeLayout(false);
             this.GroupBox_Speed.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1006,7 +1044,7 @@
         private System.Windows.Forms.Button Button_Save;
         private System.Windows.Forms.GroupBox GroupBox_LED_Color;
         private System.Windows.Forms.GroupBox GroupBox_Recordings;
-        private System.Windows.Forms.Button Button_Browse;
+        private System.Windows.Forms.Button Button_KML_Browse;
         public System.Windows.Forms.TextBox TextBox_Hostname;
         public System.Windows.Forms.ComboBox ComboBox_Refresh;
         public System.Windows.Forms.ComboBox ComboBox_Baud;
@@ -1051,5 +1089,8 @@
         private System.Windows.Forms.GroupBox GroupBox_Numerics;
         public System.Windows.Forms.RadioButton RadioButton_Num_Decimal;
         public System.Windows.Forms.RadioButton RadioButton_Num_DMS;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TextBox TextBox_OBSPath;
+        private System.Windows.Forms.Button Button_OBS_Browse;
     }
 }

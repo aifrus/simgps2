@@ -294,7 +294,7 @@ namespace Aifrus.SimGPS2
             CheckBox_GSA.Text = $"{DeviceTypeShort}GSA";
         }
 
-        private void Button_Browse_Click(object sender, EventArgs e)
+        private void Button_KML_Browse_Click(object sender, EventArgs e)
         {
             var folderBrowserDialog = new FolderBrowserDialog
             {

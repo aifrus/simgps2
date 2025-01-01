@@ -515,13 +515,12 @@ namespace Aifrus.SimGPS2
         private void Timer_Overlay_Write_Tick(object sender, EventArgs e)
         {
             string overlayPath = Settings.OBSPath;
-            string content = $"Latitude: {Display_Latitude(simData.latitude)}\n" +
-                             $"Longitude: {Display_Longitude(simData.longitude)}\n" +
-                             $"Altitude: {Display_Altitude(simData.altitude)}\n" +
-                             $"Vertical Speed: {Display_VSpeed(simData.verticalSpeed)}\n" +
-                             $"Ground Speed: {Display_Speed(simData.groundSpeed)}\n" +
-                             $"Magnetic Course: {Display_MagCourse(simData.magCourse)}\n" +
-                             $"Compass: {Display_Compass(simData.magCourse)}\n";
+            string content = $"LAT: {Display_Latitude(simData.latitude)}\n" +
+                             $"LON: {Display_Longitude(simData.longitude)}\n" +
+                             $"ALT: {Display_Altitude(simData.altitude)}\n" +
+                             $"V/S: {Display_VSpeed(simData.verticalSpeed)}\n" +
+                             $"G/S: {Display_Speed(simData.groundSpeed)}\n" +
+                             $"HDG: {Display_MagCourse(simData.magCourse)} ({Display_Compass(simData.magCourse)})\n";
 
             System.IO.File.WriteAllText(overlayPath, content);
         }

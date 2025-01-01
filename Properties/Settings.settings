@@ -92,5 +92,11 @@
     <Setting Name="LatLonFormat" Type="System.String" Scope="User">
       <Value Profile="(Default)">DDD° MM' SS"</Value>
     </Setting>
+    <Setting Name="OBSPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{My Documents}\SimGPS_Overlay.txt</Value>
+    </Setting>
+    <Setting Name="EnableOverlay" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -48,7 +48,7 @@ namespace Aifrus.SimGPS2
             {
                 my_simconnect = new SimConnect("Managed Data Request", FormMain.Handle, WM_USER_SIMCONNECT, null, 0);
             }
-            catch (COMException e)
+            catch (COMException)
             {
                 return false;
             }

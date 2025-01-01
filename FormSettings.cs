@@ -139,7 +139,19 @@ namespace Aifrus.SimGPS2
             RadioButton_Distance_NM.Checked = Settings.UnitsDistance == "NM";
             if (Settings.RecordPath.Contains("{My Documents}")) Settings.RecordPath = Settings.RecordPath.Replace("{My Documents}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
             TextBox_RecordPath.Text = Settings.RecordPath;
-            if (!System.IO.Directory.Exists(Settings.RecordPath)) System.IO.Directory.CreateDirectory(Settings.RecordPath);
+            if (Settings.OBSPath.Contains("{My Documents}")) Settings.OBSPath = Settings.RecordPath.Replace("{My Documents}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+            TextBox_OBSPath.Text = Settings.OBSPath;
+            CheckBox_EnableOverlay.Checked = Settings.EnableOverlay;
+            if (Settings.EnableOverlay)
+            {
+                TextBox_OBSPath.Enabled = true;
+                Button_OBS_Browse.Enabled = true;
+            }
+            else
+            {
+                TextBox_OBSPath.Enabled = false;
+                Button_OBS_Browse.Enabled = false;
+            }
             EnableDisable();
             SetSentences(Settings.DeviceType);
         }
@@ -158,6 +170,13 @@ namespace Aifrus.SimGPS2
                 MessageBox.Show("Please enter a valid record path.");
                 TextBox_RecordPath.Focus();
                 TextBox_RecordPath.SelectAll();
+                return false;
+            }
+            if (!IsValidOverLayPath(TextBox_OBSPath.Text))
+            {
+                MessageBox.Show("Please enter a valid OBS overlay path.");
+                TextBox_OBSPath.Focus();
+                TextBox_OBSPath.SelectAll();
                 return false;
             }
             Settings.Hostname = TextBox_Hostname.Text;
@@ -187,6 +206,9 @@ namespace Aifrus.SimGPS2
             Settings.UnitsAltitude = GetSelectedRadioButton(RadioButton_Altitude_FT, RadioButton_Altitude_M);
             Settings.UnitsSpeed = GetSelectedRadioButton(RadioButton_Speed_KMH, RadioButton_Speed_MPH, RadioButton_Speed_KT);
             Settings.UnitsDistance = GetSelectedRadioButton(RadioButton_Distance_KM, RadioButton_Distance_SM, RadioButton_Distance_NM);
+            Settings.RecordPath = TextBox_RecordPath.Text;
+            Settings.OBSPath = TextBox_OBSPath.Text;
+            Settings.EnableOverlay = CheckBox_EnableOverlay.Checked;
             try { Settings.Save(); }
             catch (Exception ex)
             {
@@ -215,6 +237,14 @@ namespace Aifrus.SimGPS2
             if (string.IsNullOrWhiteSpace(recordPath)) return false;
             if (recordPath.Contains("{My Documents}")) recordPath = recordPath.Replace("{My Documents}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
             if (System.IO.Directory.Exists(recordPath)) return true;
+            return false;
+        }
+
+        bool IsValidOverLayPath(string overlayPath)
+        {
+            if (string.IsNullOrWhiteSpace(overlayPath)) return false;
+            if (overlayPath.Contains("{My Documents}")) overlayPath = overlayPath.Replace("{My Documents}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+            if (System.IO.File.Exists(overlayPath)) return true;
             return false;
         }
 
@@ -267,6 +297,8 @@ namespace Aifrus.SimGPS2
             RadioButton_Distance_SM.Checked = false;
             RadioButton_Distance_NM.Checked = true;
             TextBox_RecordPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SimGPS² Recordings";
+            TextBox_OBSPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SimGPS_Overlay.txt";
+            CheckBox_EnableOverlay.Checked = false;
             EnableDisable();
             SetSentences("GNSS");
             SaveSettings();
@@ -300,8 +332,44 @@ namespace Aifrus.SimGPS2
             {
                 SelectedPath = TextBox_RecordPath.Text
             };
-            folderBrowserDialog.ShowDialog();
-            TextBox_RecordPath.Text = folderBrowserDialog.SelectedPath;
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                TextBox_RecordPath.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void Button_OBS_Browse_Click(object sender, EventArgs e)
+        {
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = TextBox_OBSPath.Text;
+                openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.RestoreDirectory = true;
+                openFileDialog.CheckFileExists = false; // Allow non-existent files
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    TextBox_OBSPath.Text = openFileDialog.FileName;
+                    if (!System.IO.File.Exists(openFileDialog.FileName))
+                    {
+                        System.IO.File.WriteAllText(openFileDialog.FileName, "");
+                    }
+                }
+            }
+        }
+
+        private void CheckBox_EnableOverlay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBox_EnableOverlay.Checked)
+            {
+                TextBox_OBSPath.Enabled = true;
+                Button_OBS_Browse.Enabled = true;
+            }
+            else
+            {
+                TextBox_OBSPath.Enabled = false;
+                Button_OBS_Browse.Enabled = false;
+            }
         }
     }
 }

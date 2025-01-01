@@ -170,7 +170,7 @@ namespace Aifrus.SimGPS2
             LastLongitude = 0;
         }
 
-        private async void PowerOn()
+        private void PowerOn()
         {
             InfoClear();
             bPowerOn = true;
@@ -217,6 +217,8 @@ namespace Aifrus.SimGPS2
                 return;
             }
 
+            if (Settings.EnableOverlay) Timer_Overlay_Write.Start();
+
             // Start the COM Output
             //Label_COM_LED.ForeColor = LEDColor;
 
@@ -233,6 +235,7 @@ namespace Aifrus.SimGPS2
             // Stop the COM Output
 
             // Disconnect the Simulator
+            Timer_Overlay_Write.Stop();
             Timer_GPS_SlowBlink.Stop();
             Timer_GPS_FastBlink.Stop();
             Timer_GPS_Update.Stop();
@@ -508,5 +511,20 @@ namespace Aifrus.SimGPS2
             }
             return Math.Abs(groundSpeed).ToString("#,##0") + " M/S";
         }
+
+        private void Timer_Overlay_Write_Tick(object sender, EventArgs e)
+        {
+            string overlayPath = Settings.OBSPath;
+            string content = $"Latitude: {Display_Latitude(simData.latitude)}\n" +
+                             $"Longitude: {Display_Longitude(simData.longitude)}\n" +
+                             $"Altitude: {Display_Altitude(simData.altitude)}\n" +
+                             $"Vertical Speed: {Display_VSpeed(simData.verticalSpeed)}\n" +
+                             $"Ground Speed: {Display_Speed(simData.groundSpeed)}\n" +
+                             $"Magnetic Course: {Display_MagCourse(simData.magCourse)}\n" +
+                             $"Compass: {Display_Compass(simData.magCourse)}\n";
+
+            System.IO.File.WriteAllText(overlayPath, content);
+        }
+
     }
 }

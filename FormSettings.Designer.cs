@@ -75,6 +75,9 @@
             this.TextBox_RecordPath = new System.Windows.Forms.TextBox();
             this.Button_KML_Browse = new System.Windows.Forms.Button();
             this.GroupBox_AllSettings = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TextBox_OBSPath = new System.Windows.Forms.TextBox();
+            this.Button_OBS_Browse = new System.Windows.Forms.Button();
             this.GroupBox_Units = new System.Windows.Forms.GroupBox();
             this.GroupBox_Coordinates = new System.Windows.Forms.GroupBox();
             this.GroupBox_Hemisphere = new System.Windows.Forms.GroupBox();
@@ -96,9 +99,7 @@
             this.RadioButton_Speed_MPH = new System.Windows.Forms.RadioButton();
             this.RadioButton_Speed_KT = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TextBox_OBSPath = new System.Windows.Forms.TextBox();
-            this.Button_OBS_Browse = new System.Windows.Forms.Button();
+            this.CheckBox_EnableOverlay = new System.Windows.Forms.CheckBox();
             this.GroupBox_FlightSimulator.SuspendLayout();
             this.GroupBox_COM.SuspendLayout();
             this.GroupBox_NMEA.SuspendLayout();
@@ -109,6 +110,7 @@
             this.GroupBox_LED_Color.SuspendLayout();
             this.GroupBox_Recordings.SuspendLayout();
             this.GroupBox_AllSettings.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.GroupBox_Units.SuspendLayout();
             this.GroupBox_Coordinates.SuspendLayout();
             this.GroupBox_Hemisphere.SuspendLayout();
@@ -116,7 +118,6 @@
             this.GroupBox_Altitude.SuspendLayout();
             this.GroupBox_Distance.SuspendLayout();
             this.GroupBox_Speed.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label_Hostname
@@ -197,7 +198,7 @@
             // 
             this.Button_Defaults.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Defaults.ForeColor = System.Drawing.Color.Black;
-            this.Button_Defaults.Location = new System.Drawing.Point(32, 666);
+            this.Button_Defaults.Location = new System.Drawing.Point(32, 627);
             this.Button_Defaults.Name = "Button_Defaults";
             this.Button_Defaults.Size = new System.Drawing.Size(106, 23);
             this.Button_Defaults.TabIndex = 2;
@@ -632,7 +633,7 @@
             this.Button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Button_Cancel.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Cancel.ForeColor = System.Drawing.Color.Black;
-            this.Button_Cancel.Location = new System.Drawing.Point(368, 666);
+            this.Button_Cancel.Location = new System.Drawing.Point(368, 627);
             this.Button_Cancel.Name = "Button_Cancel";
             this.Button_Cancel.Size = new System.Drawing.Size(106, 23);
             this.Button_Cancel.TabIndex = 14;
@@ -644,7 +645,7 @@
             // 
             this.Button_Save.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Save.ForeColor = System.Drawing.Color.Black;
-            this.Button_Save.Location = new System.Drawing.Point(256, 666);
+            this.Button_Save.Location = new System.Drawing.Point(256, 627);
             this.Button_Save.Name = "Button_Save";
             this.Button_Save.Size = new System.Drawing.Size(106, 23);
             this.Button_Save.TabIndex = 15;
@@ -682,7 +683,7 @@
             this.Button_KML_Browse.TabIndex = 18;
             this.Button_KML_Browse.Text = "&Browse";
             this.Button_KML_Browse.UseVisualStyleBackColor = true;
-            this.Button_KML_Browse.Click += new System.EventHandler(this.Button_Browse_Click);
+            this.Button_KML_Browse.Click += new System.EventHandler(this.Button_KML_Browse_Click);
             // 
             // GroupBox_AllSettings
             // 
@@ -702,10 +703,43 @@
             this.GroupBox_AllSettings.ForeColor = System.Drawing.Color.White;
             this.GroupBox_AllSettings.Location = new System.Drawing.Point(3, 0);
             this.GroupBox_AllSettings.Name = "GroupBox_AllSettings";
-            this.GroupBox_AllSettings.Size = new System.Drawing.Size(508, 700);
+            this.GroupBox_AllSettings.Size = new System.Drawing.Size(508, 663);
             this.GroupBox_AllSettings.TabIndex = 18;
             this.GroupBox_AllSettings.TabStop = false;
             this.GroupBox_AllSettings.Text = "SimGPS² Settings";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.CheckBox_EnableOverlay);
+            this.groupBox1.Controls.Add(this.TextBox_OBSPath);
+            this.groupBox1.Controls.Add(this.Button_OBS_Browse);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(10, 549);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(492, 72);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "OBS Overlay";
+            // 
+            // TextBox_OBSPath
+            // 
+            this.TextBox_OBSPath.Location = new System.Drawing.Point(23, 38);
+            this.TextBox_OBSPath.Name = "TextBox_OBSPath";
+            this.TextBox_OBSPath.ReadOnly = true;
+            this.TextBox_OBSPath.Size = new System.Drawing.Size(330, 18);
+            this.TextBox_OBSPath.TabIndex = 19;
+            // 
+            // Button_OBS_Browse
+            // 
+            this.Button_OBS_Browse.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_OBS_Browse.ForeColor = System.Drawing.Color.Black;
+            this.Button_OBS_Browse.Location = new System.Drawing.Point(359, 35);
+            this.Button_OBS_Browse.Name = "Button_OBS_Browse";
+            this.Button_OBS_Browse.Size = new System.Drawing.Size(106, 23);
+            this.Button_OBS_Browse.TabIndex = 18;
+            this.Button_OBS_Browse.Text = "&Browse";
+            this.Button_OBS_Browse.UseVisualStyleBackColor = true;
+            this.Button_OBS_Browse.Click += new System.EventHandler(this.Button_OBS_Browse_Click);
             // 
             // GroupBox_Units
             // 
@@ -930,43 +964,23 @@
             // 
             this.button2.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(144, 666);
+            this.button2.Location = new System.Drawing.Point(144, 627);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(106, 23);
             this.button2.TabIndex = 18;
             this.button2.Text = "&Help";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // CheckBox_EnableOverlay
             // 
-            this.groupBox1.Controls.Add(this.TextBox_OBSPath);
-            this.groupBox1.Controls.Add(this.Button_OBS_Browse);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(10, 549);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(492, 54);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "OBS Text";
-            // 
-            // TextBox_OBSPath
-            // 
-            this.TextBox_OBSPath.Location = new System.Drawing.Point(23, 19);
-            this.TextBox_OBSPath.Name = "TextBox_OBSPath";
-            this.TextBox_OBSPath.ReadOnly = true;
-            this.TextBox_OBSPath.Size = new System.Drawing.Size(330, 18);
-            this.TextBox_OBSPath.TabIndex = 19;
-            // 
-            // Button_OBS_Browse
-            // 
-            this.Button_OBS_Browse.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button_OBS_Browse.ForeColor = System.Drawing.Color.Black;
-            this.Button_OBS_Browse.Location = new System.Drawing.Point(359, 16);
-            this.Button_OBS_Browse.Name = "Button_OBS_Browse";
-            this.Button_OBS_Browse.Size = new System.Drawing.Size(106, 23);
-            this.Button_OBS_Browse.TabIndex = 18;
-            this.Button_OBS_Browse.Text = "&Browse";
-            this.Button_OBS_Browse.UseVisualStyleBackColor = true;
+            this.CheckBox_EnableOverlay.AutoSize = true;
+            this.CheckBox_EnableOverlay.Location = new System.Drawing.Point(22, 17);
+            this.CheckBox_EnableOverlay.Name = "CheckBox_EnableOverlay";
+            this.CheckBox_EnableOverlay.Size = new System.Drawing.Size(192, 15);
+            this.CheckBox_EnableOverlay.TabIndex = 14;
+            this.CheckBox_EnableOverlay.Text = "Enable Overlay Text File";
+            this.CheckBox_EnableOverlay.UseVisualStyleBackColor = true;
+            this.CheckBox_EnableOverlay.CheckedChanged += new System.EventHandler(this.CheckBox_EnableOverlay_CheckedChanged);
             // 
             // FormSettings
             // 
@@ -975,7 +989,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.Button_Cancel;
-            this.ClientSize = new System.Drawing.Size(513, 701);
+            this.ClientSize = new System.Drawing.Size(513, 665);
             this.ControlBox = false;
             this.Controls.Add(this.GroupBox_AllSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1002,6 +1016,8 @@
             this.GroupBox_Recordings.ResumeLayout(false);
             this.GroupBox_Recordings.PerformLayout();
             this.GroupBox_AllSettings.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.GroupBox_Units.ResumeLayout(false);
             this.GroupBox_Coordinates.ResumeLayout(false);
             this.GroupBox_Hemisphere.ResumeLayout(false);
@@ -1014,8 +1030,6 @@
             this.GroupBox_Distance.PerformLayout();
             this.GroupBox_Speed.ResumeLayout(false);
             this.GroupBox_Speed.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1092,5 +1106,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.TextBox TextBox_OBSPath;
         private System.Windows.Forms.Button Button_OBS_Browse;
+        public System.Windows.Forms.CheckBox CheckBox_EnableOverlay;
     }
 }
